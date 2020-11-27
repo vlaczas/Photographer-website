@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="media/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="media/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="media/favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="media/favicon/site.webmanifest" />
+    <link
+      rel="mask-icon"
+      href="media/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <meta name="apple-mobile-web-app-title" content="Anna Photographer" />
+    <meta name="application-name" content="Anna Photographer" />
+    <meta name="msapplication-TileColor" content="#00aba9" />
+    <meta name="theme-color" content="#ffffff" />
+    <title>Anna | Photographer</title>
+    <link rel="stylesheet" href="styles/style.min.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway:900"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway:200"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway:500"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Raleway:700"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <nav class="nav">
+        <div class="nav__button noSelect">
+          <span class="nav__button-line noSelect"></span>
+          <span class="nav__button-line noSelect"></span>
+          <span class="nav__button-line noSelect"></span>
+        </div>
+        <div class="nav__contacts"></div>
+      </nav>
+      <canvas id="canva" height="0"></canvas>
+      <section class="menu">
+        <ul class="menu__list noSelect">
+          <a href="#">
+            <li class="noSelect">
+              Главная
+              <span class="mask">Главная</span>
+              <span class="mask"><span>Главная</span></span>
+            </li>
+          </a>
+          <a href="/pages/services.html">
+            <li class="noSelect">
+              Услуги
+              <span class="mask">Услуги</span>
+              <span class="mask"><span>Услуги</span></span>
+            </li>
+          </a>
+          <a href="#">
+            <li class="noSelect">
+              Процесс съемки
+              <span class="mask">Процесс съемки</span>
+              <span class="mask"><span>Процесс съемки</span></span>
+            </li>
+          </a>
+          <a href="#">
+            <li class="noSelect">
+              О фотографе
+              <span class="mask">О фотографе</span>
+              <span class="mask"><span>О фотографе</span></span>
+            </li>
+          </a>
+          <a href="#">
+            <li class="noSelect">
+              Забавный Блог
+              <span class="mask">Забавный Блог</span>
+              <span class="mask"><span>Забавный Блог</span></span>
+            </li>
+          </a>
+        </ul>
+        <div class="menu__contacts">
+          <img src="media/viber.png" alt="" title="Viber" />
+          <img src="media/youtube.png" alt="" title="Youtube" />
+          <img src="media/telegram.png" alt="" title="Telegram" />
+          <img src="media/insta.png" alt="" title="Instagram" />
+          <img src="media/phone.png" alt="" title="Мобильный телефон" />
+        </div>
+      </section>
+    </header>
+
+    <section class="header">
+      <video playsinline autoplay muted loop id="bgvid">
+        <source src="/media/backVideo.webm" type="video/webm" />
+        <source src="/media/backVideo.mp4" type="video/mp4" />
+      </video>
+      <h1 class="header__text-video">
+        Photographer <br />
+        Litvinenko
+      </h1>
+      <svg class="logo" viewBox="0 0 138 35" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M 20 0 L 5 35 H 10 L 20 11 L 30 35 H 35 Z"
+          stroke="white"
+          stroke-width="2"
+          fill-opacity="0"
+        />
+        <path
+          d="M 40 0 V 35 H 45 V 15 L 60 35 H 65 V 0 H 60 V 25 Z"
+          stroke="white"
+          stroke-width="2"
+          fill-opacity="0"
+        />
+        <path
+          d="M 70 0 V 35 H 75 V 15 L 90 35 H 95 V 0 H 90 V 25 Z"
+          stroke="white"
+          stroke-width="2"
+          fill-opacity="0"
+        />
+        <path
+          d="M 115 0 L 100 35 H 105 L 115 11 L 125 35 H 130 Z"
+          stroke="white"
+          stroke-width="2"
+          fill-opacity="0"
+        />
+      </svg>
+    </section>
+
+    <section class="first-screen">
+      <article class="article">
+        <h2 class="article__helper-header">Привет!</h2>
+        <p class="article__main-parag">
+          Фотографируя более 6 лет, я точно знаю, что хороший фотограф - это не
+          просто человек с другой стороны камеры. В первую очередь, он приятный
+          собеседник, помогающий модели расслабиться, ведь так волнительно быть
+          под прицелом фотокамеры.
+        </p>
+        <p class="article__main-parag">
+          Имея образование психолога, я понимаю, что мало просто занять красивую
+          позу, главное ‒ настрой, легкость и комфорт. Совместная работа модели
+          и фотографа начинается со знакомства. Познакомиться со мной и с моим
+          творчеством ты можешь на этом сайте.
+        </p>
+      </article>
+      <img
+        class="first-screen__anna"
+        src="media/anna_mobile_600px.png"
+        alt=""
+      />
+    </section>
+
+    <section class="second-screen">
+      <h1 class="header-text second-screen__header">
+        Что же<br />
+        это за <br />
+        работа<br />такая?
+      </h1>
+      <div class="questions">
+        <span data-text="В Национальном университете фотографии и других несуществующих специальностей." class="questions__question questions__question-odd q1"
+          >В каком ВУЗе ты училась на фотографа?</span
+        >
+        <span class="questions__answer"
+          >В Национальном университете фотографии <br />
+          и других несуществующих специальностей.</span
+        >
+        <span data-text="Моё любимое число ‒ 14." class="questions__question q2"
+          >Почему ретушь занимает 2 недели?</span
+        >
+        <span class="questions__answer">Моё любимое число ‒ 14.</span>
+        <span data-text="Да забудь ты уже о бывшем!" class="questions__question questions__question-odd q3"
+          >Сфоткай, типа я обнимаю дерево!</span
+        >
+        <span class="questions__answer">Да забудь ты уже о бывшем!</span>
+        <span data-text="Да хоть ромбики..." class="questions__question q4">Нарисуешь мне кубики?</span>
+        <span class="questions__answer">Да хоть ромбики...</span>
+        <span data-text="Конечно, на этой неделе я не планировала спать." class="questions__question questions__question-odd q5"
+          >Обработаешь до завтра?</span
+        >
+        <span class="questions__answer"
+          >Конечно, на этой неделе я не планировала спать.</span
+        >
+      </div>
+    </section>
+
+    <section class="third-screen">
+      <article class="article">
+        <p class="article__main-parag article__main-parag_lineHBig">
+          Есть миф, что фотограф работает только во время фотосессии. На самом
+          деле, процесс съемки занимает лишь 5% от всей работы. Остальное время
+          уходит на подготовку и постобработку.
+        </p>
+        <p class="article__main-parag article__main-parag_lineHBig">
+          Фотограф - это когда сообщения начинают приходить в 6:30 утра, а
+          заканчивают в час ночи. Помочь с выбором идеи, найти локацию съемки,
+          заказать визажиста, студию, стилиста, разыскать коня, лису, ворона,
+          найти нужный реквизит и т.д...
+        </p>
+        <p class="article__main-parag article__main-parag_lineHBig">
+          После съемки наступают ночи обработки. Можете быть уверенны, что 1 час
+          фотосессии на самом деле это больше 20 часов работы.
+        </p>
+        <svg
+          class="photosession-svg"
+          viewBox="0 0 607 464"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g id="photosession">
+            <rect
+              width="605.042"
+              height="464"
+              transform="translate(0.988586)"
+              fill="black"
+              fill-opacity="0"
+            />
+            <path
+              id="Vector"
+              d="M110.442 439.126C170.878 439.029 219.867 435.771 219.86 431.848C219.854 427.926 170.855 424.825 110.419 424.922C49.9821 425.019 0.993697 428.277 1 432.199C1.00631 436.122 50.005 439.223 110.442 439.126Z"
+              fill="#1B1B1B"
+            />
+            <path
+              id="Vector_2"
+              d="M341.916 346.065C389.37 345.989 427.835 343.431 427.83 340.351C427.825 337.271 389.352 334.836 341.898 334.912C294.443 334.988 255.978 337.546 255.983 340.626C255.988 343.706 294.461 346.141 341.916 346.065Z"
+              fill="#1B1B1B"
+            />
+            <path
+              id="Vector_3"
+              d="M497.463 442.594C557.423 442.498 606.017 433.842 606 423.261C605.983 412.681 557.362 404.181 497.401 404.277C437.441 404.373 388.847 413.029 388.864 423.609C388.881 434.19 437.503 442.69 497.463 442.594Z"
+              fill="#1B1B1B"
+            />
+            <path
+              id="camera"
+              d="M140.855 218.903L161.449 191.548L174.85 214.811L140.855 218.903Z"
+              fill="url(#paint1_linear)"
+              fill-opacity="0"
+            />
+            <g id="modelleg">
+              <path
+                id="Vector_4"
+                d="M347.442 316.99C347.442 316.99 349.018 312.006 350.069 312.793C351.119 313.58 352.695 318.563 352.432 319.875C352.17 321.186 350.331 331.415 351.119 333.251C351.907 335.086 347.18 344.528 341.139 343.742C335.098 342.955 335.623 337.709 335.623 337.709L337.724 329.579L338.512 316.727C338.512 316.727 345.341 315.678 347.442 316.99Z"
+                fill="#0F1E22"
+              />
+              <path
+                id="Vector_5"
+                d="M347.442 307.023L349.543 318.301L339.826 319.874V307.023H347.442Z"
+                fill="#FFB8B8"
+              />
+            </g>
+            <g id="phleg">
+              <path
+                id="Vector_6"
+                d="M160.113 410.269C160.113 410.269 169.249 407.585 170.324 413.489C170.324 413.489 171.936 422.612 164.95 425.832C160.441 427.96 156.126 430.474 152.052 433.345C152.052 433.345 140.766 437.639 140.228 432.272C139.691 426.905 142.378 407.585 142.378 407.585L160.113 410.269Z"
+                fill="#0F1E22"
+              />
+              <path
+                id="Vector_7"
+                d="M166.694 328.007C166.694 328.007 170.489 327.418 169.947 337.426C169.405 347.435 167.779 383.348 165.068 390.413C162.358 397.478 161.816 405.72 162.9 408.664C163.984 411.608 166.152 416.318 162.358 416.906C158.563 417.495 142.842 415.14 141.216 414.551C139.59 413.963 147.721 391.002 146.637 389.824C145.553 388.647 144.468 360.976 144.468 360.976L166.694 328.007Z"
+                fill="#0F1E22"
+              />
+              <path
+                id="Vector_8"
+                d="M75.2004 393.095C75.2004 393.095 86.4863 396.315 84.874 407.585C83.2617 418.855 81.1946 431.1 81.1946 431.1C81.1946 431.1 80.5746 461.252 72.5133 463.399C64.452 465.546 62.3023 461.252 62.3023 461.252C62.3023 461.252 53.1388 437.69 55.8532 430.662C59.1389 422.156 63.8734 412.604 62.3023 409.732C60.7564 406.906 63.3771 391.485 75.2004 393.095Z"
+                fill="#0F1E22"
+              />
+            </g>
+            <g id="photographer">
+              <path
+                id="Vector_9"
+                d="M126.446 233.348L138.768 229.922C138.768 229.922 143.594 228.959 140.645 219.547C137.696 210.134 131.847 212.768 131.847 212.768L120.916 215.939L116.601 217.27L122.673 225.777L123.182 231.447L126.446 233.348Z"
+                fill="#3F3D56"
+              />
+              <path
+                id="Vector_10"
+                d="M102.636 208.477L98.7705 223.898L118.579 243.068L120.282 243.494L124.825 242.22L128.691 226.8L124.775 222.688L128.778 221.64L120.236 213.359L115.778 214.294L112.203 210.749L114.616 209.786L114.844 208.879L111.921 206.581L102.636 208.477Z"
+                fill="#3F3D56"
+              />
+              <path
+                id="Vector_11"
+                d="M121.195 230.227L118.636 240.432L106.831 229.287L109.787 218.94L121.195 230.227Z"
+                fill="#C3284D"
+              />
+              <path
+                id="Vector_12"
+                d="M102.636 208.477L102.094 210.639L121.791 229.774L123.494 230.2L127.896 229.01L128.138 229.005L128.691 226.8L124.775 222.688L128.778 221.64L120.236 213.359L115.778 214.294L112.203 210.749L114.616 209.786L114.844 208.879L111.921 206.581L102.636 208.477Z"
+                stroke="#3F3D56"
+                stroke-miterlimit="10"
+              />
+              <path
+                id="Vector_13"
+                d="M113.325 208.679C113.474 208.084 112.883 207.424 112.005 207.205C111.128 206.985 110.295 207.289 110.146 207.884C109.997 208.479 110.587 209.14 111.465 209.359C112.343 209.579 113.176 209.274 113.325 208.679Z"
+                fill="#C3284D"
+              />
+              <path
+                id="Vector_14"
+                d="M125.839 225.183C125.988 224.588 125.397 223.928 124.519 223.708C123.641 223.489 122.808 223.793 122.659 224.388C122.51 224.983 123.101 225.643 123.979 225.862C124.857 226.082 125.689 225.778 125.839 225.183Z"
+                fill="#C3284D"
+              />
+              <path
+                id="Vector_15"
+                d="M134.633 252.557L131.946 243.434C131.946 243.434 138.932 226.797 130.871 225.187C122.81 223.577 122.272 240.75 122.272 240.75L125.497 250.947L134.633 252.557Z"
+                fill="#FFB6B6"
+              />
+              <path
+                id="Vector_16"
+                d="M84.743 234.818C96.5331 234.818 106.091 225.274 106.091 213.5C106.091 201.726 96.5331 192.182 84.743 192.182C72.9529 192.182 63.3951 201.726 63.3951 213.5C63.3951 225.274 72.9529 234.818 84.743 234.818Z"
+                fill="#FFB6B6"
+              />
+              <path
+                id="Vector_17"
+                d="M91.6497 228.548C91.6497 228.548 92.9054 244.223 96.0448 245.477C99.1842 246.731 67.9766 255.509 67.9766 255.509L77.3948 244.85C77.3948 244.85 73.4412 228.548 69.0461 224.786L91.6497 228.548Z"
+                fill="#FFB6B6"
+              />
+              <path
+                id="Vector_18"
+                d="M121.735 247.727L130.333 246.654C130.333 246.654 140.544 252.02 140.544 258.997C140.544 265.974 146.456 277.244 146.456 277.244C146.456 277.244 150.755 292.271 141.082 293.344C131.408 294.417 122.81 277.244 122.81 277.244L121.735 247.727Z"
+                fill="#C3284D"
+              />
+              <path
+                id="Vector_19"
+                d="M128.59 330.08L146.303 317.828C149.105 315.855 152.43 314.767 155.852 314.705C159.274 314.643 162.636 315.609 165.507 317.48C167.948 319.114 169.779 321.258 169.779 324.015C169.779 332.285 151.655 351.583 151.655 351.583C151.655 351.583 137.926 381.909 124.745 383.011C116.075 383.801 107.457 385.089 98.9338 386.871C98.9338 386.871 104.975 408.926 101.68 414.991C98.3846 421.056 85.7533 428.224 84.655 427.672C83.5566 427.121 68.1794 412.785 61.5892 392.385C54.999 371.984 50.6055 356.546 56.6465 355.443C62.6875 354.34 128.59 330.08 128.59 330.08Z"
+                fill="#0F1E22"
+              />
+              <path
+                id="Vector_20"
+                d="M99.1629 411.411L81.9654 397.458C81.9654 397.458 85.19 414.631 80.8906 417.851L78.9267 423.584L84.4261 428.077C84.4261 428.077 101.313 425.364 99.1629 411.411Z"
+                fill="#0F1E22"
+              />
+              <path
+                id="Vector_21"
+                d="M68.5299 239.677C68.5299 239.677 72.8293 240.214 79.8158 241.287C86.8023 242.36 91.6391 236.994 95.401 238.067C99.163 239.14 130.333 246.654 130.333 246.654L127.637 267.295C126.754 274.06 124.559 280.538 121.747 286.757C117.214 296.783 123.931 328.193 130.333 334.131C135.903 339.296 143.232 340.571 135.17 349.694C127.109 358.817 113.136 366.867 84.6526 364.184C56.1692 361.501 52.4073 362.037 52.4073 357.744C52.4073 353.451 62.5439 297.101 59.3193 293.881C56.0948 290.661 54.4825 287.441 54.4825 285.831C54.4825 284.754 51.1206 272.647 48.8913 264.738C47.272 259.155 47.8746 253.163 50.5733 248.013C51.5822 246.127 52.7359 244.68 53.9451 244.507C57.707 243.97 55.0943 241.287 57.7814 241.287C60.4686 241.287 62.0808 241.824 63.6931 241.287L68.5299 239.677Z"
+                fill="#C3284D"
+              />
+              <path
+                id="Vector_22"
+                d="M109.721 199.121C109.721 199.121 109.235 172.777 83.341 185.247C83.341 185.247 63.4304 184.546 60.644 209.697L57.95 236.028L60.8358 233.861L62.7694 236.839L68.0429 237.377L69.5826 232.745L71.4072 237.826L113.659 235.848C113.659 235.848 93.3848 227.577 90.1779 207.881L94.2832 211.107L109.721 199.121Z"
+                fill="#0F1E22"
+              />
+              <path
+                id="Vector_23"
+                d="M61.0549 199.352C66.9 199.352 71.6383 194.62 71.6383 188.783C71.6383 182.947 66.9 178.215 61.0549 178.215C55.2098 178.215 50.4715 182.947 50.4715 188.783C50.4715 194.62 55.2098 199.352 61.0549 199.352Z"
+                fill="#0F1E22"
+              />
+              <path
+                id="Vector_24"
+                d="M71.4664 184.637C70.9031 182.01 69.3581 179.695 67.1459 178.166C64.9337 176.636 62.2208 176.006 59.5596 176.404C59.7718 176.345 59.9812 176.28 60.1995 176.233C61.5587 175.943 62.9618 175.924 64.3286 176.175C65.6954 176.427 66.9992 176.945 68.1655 177.699C69.3319 178.454 70.338 179.431 71.1263 180.574C71.9146 181.717 72.4698 183.004 72.7601 184.361C73.0504 185.718 73.0701 187.119 72.8182 188.484C72.5663 189.849 72.0476 191.151 71.2918 192.316C70.536 193.481 69.5578 194.485 68.4132 195.273C67.2686 196.06 65.9799 196.614 64.6207 196.904C64.4023 196.951 64.1847 196.977 63.9669 197.009C66.5586 196.287 68.777 194.605 70.1704 192.306C71.5637 190.008 72.0272 187.265 71.4664 184.637Z"
+                fill="#0F1E22"
+              />
+            </g>
+            <g id="model">
+              <path
+                id="Vector_25"
+                d="M327.888 120.869C337.523 120.869 345.333 113.069 345.333 103.448C345.333 93.8271 337.523 86.0276 327.888 86.0276C318.253 86.0276 310.443 93.8271 310.443 103.448C310.443 113.069 318.253 120.869 327.888 120.869Z"
+                fill="#0F1E22"
+              />
+              <path
+                id="Vector_26"
+                d="M337.073 115.046C337.073 115.046 336.81 125.799 337.861 126.061C338.912 126.324 323.416 130.52 323.416 130.52L321.84 115.833L337.073 115.046Z"
+                fill="#FFB8B8"
+              />
+              <path
+                id="Vector_27"
+                d="M214.681 206.842C214.681 206.842 203.125 206.842 202.863 205.531C202.6 204.219 200.236 216.284 200.236 216.284L204.964 217.857C204.964 217.857 213.894 213.923 214.681 213.923C215.469 213.923 214.681 206.842 214.681 206.842Z"
+                fill="#FFB8B8"
+              />
+              <path
+                id="Vector_28"
+                d="M202.075 211.563C202.075 211.563 204.176 204.481 206.802 204.219C206.802 204.219 197.872 198.449 197.61 196.613C197.347 194.777 194.195 190.056 192.882 191.63C191.569 193.204 191.569 218.12 193.933 220.742C196.297 223.365 206.802 217.056 206.802 217.056C206.802 217.056 200.236 214.186 202.075 211.563Z"
+                fill="#0F1E22"
+              />
+              <path
+                id="Vector_29"
+                d="M333.991 92.3217C337.977 92.3217 341.209 89.0943 341.209 85.1131C341.209 81.132 337.977 77.9046 333.991 77.9046C330.004 77.9046 326.772 81.132 326.772 85.1131C326.772 89.0943 330.004 92.3217 333.991 92.3217Z"
+                fill="#0F1E22"
+              />
+              <path
+                id="Vector_30"
+                d="M343.616 81.2085C343.615 79.4267 342.955 77.7081 341.76 76.3841C340.566 75.0602 338.923 74.2247 337.149 74.039C337.399 74.0131 337.65 74 337.901 74C339.814 74.0018 341.649 74.762 343.001 76.1137C344.353 77.4653 345.113 79.2979 345.113 81.2085C345.113 83.1192 344.353 84.9517 343.001 86.3034C341.649 87.6551 339.814 88.4153 337.901 88.4171C337.65 88.417 337.399 88.404 337.149 88.3781C338.923 88.1923 340.566 87.3569 341.76 86.033C342.955 84.709 343.615 82.9903 343.616 81.2085Z"
+                fill="#0F1E22"
+              />
+              <path
+                id="Vector_31"
+                d="M327.88 122.39C333.973 122.39 338.911 117.458 338.911 111.374C338.911 105.29 333.973 100.359 327.88 100.359C321.788 100.359 316.85 105.29 316.85 111.374C316.85 117.458 321.788 122.39 327.88 122.39Z"
+                fill="#FFB8B8"
+              />
+              <path
+                id="Vector_32"
+                d="M349.68 187.958C349.68 187.958 349.155 201.072 347.054 207.891C344.952 214.71 337.377 263.274 338.953 266.946C340.529 270.618 348.629 311.227 346.791 313.588C344.952 315.948 336.285 315.161 336.285 315.161L324.508 265.897C324.508 265.897 326.83 211.563 307.394 210.251C287.959 208.94 256.179 208.153 256.179 208.153C256.179 208.153 235.693 214.186 226.5 213.923C217.308 213.661 212.055 216.284 212.055 216.284L210.479 205.531L251.189 196.613C251.189 196.613 288.484 183.762 308.97 187.171C329.457 190.581 349.68 187.958 349.68 187.958Z"
+                fill="#0F1E22"
+              />
+              <path
+                id="Vector_33"
+                d="M334.972 122.652C334.972 122.652 338.124 120.816 338.912 122.652C339.699 124.488 345.215 126.061 347.316 124.488C349.417 122.914 354.67 125.012 354.67 125.012L360.448 142.06C360.448 142.06 357.559 156.748 354.933 164.878C352.306 173.009 351.256 189.794 352.306 191.368C353.357 192.941 331.295 199.236 320.527 195.302C309.758 191.368 307.394 186.909 307.394 186.909C307.394 186.909 319.213 170.124 315.274 162.255C311.334 154.387 314.486 145.47 314.486 145.47L312.91 136.552L321.84 131.569C321.84 131.569 322.365 126.848 324.466 126.848C326.567 126.848 334.972 122.652 334.972 122.652Z"
+                fill="#D0CDE1"
+              />
+              <path
+                id="Vector_34"
+                d="M316.85 136.815H312.91C311.817 137.836 311.003 139.118 310.543 140.541C310.084 141.963 309.994 143.479 310.283 144.945C311.334 149.928 316.072 166.449 316.072 166.449L320.001 156.223L316.85 136.815Z"
+                fill="#D0CDE1"
+              />
+              <path
+                id="Vector_35"
+                d="M305.537 178.934C305.537 178.934 297.677 187.434 303.455 191.892C309.233 196.351 310.657 181.664 310.657 181.664L305.537 178.934Z"
+                fill="#FFB8B8"
+              />
+              <path
+                id="Vector_36"
+                d="M316.85 161.206L315.011 168.55L311.859 174.32C311.859 174.32 301.091 181.401 301.091 184.024C301.091 184.024 305.819 177.992 311.859 184.024L317.243 171.041L316.85 161.206Z"
+                fill="#D0CDE1"
+              />
+              <path
+                id="Vector_37"
+                d="M325.859 106.963C332.503 106.963 337.89 103.736 337.89 99.7546C337.89 95.7734 332.503 92.5461 325.859 92.5461C319.214 92.5461 313.828 95.7734 313.828 99.7546C313.828 103.736 319.214 106.963 325.859 106.963Z"
+                fill="#0F1E22"
+              />
+              <path
+                id="Vector_38"
+                d="M349.68 100.359C349.68 100.359 341.275 95.6376 337.861 99.0472C334.447 102.457 348.104 107.702 348.104 107.702L349.68 100.359Z"
+                fill="#FFB8B8"
+              />
+              <path
+                id="Vector_39"
+                d="M352.832 126.324L354.67 125.012C354.67 125.012 356.771 121.865 358.61 122.914C360.448 123.963 371.217 118.98 371.217 118.98C371.217 118.98 367.277 120.816 367.277 117.669C367.277 114.521 366.752 115.046 364.125 115.046C361.499 115.046 361.499 116.357 360.448 114.521C359.398 112.685 359.923 111.636 358.084 112.685C356.246 113.735 354.145 112.948 353.62 112.161C353.094 111.374 343.639 110.063 343.639 110.063C343.639 110.063 347.316 99.3094 348.104 98.5226C348.892 97.7358 369.115 106.653 369.115 106.653C369.115 106.653 394.592 113.735 388.026 121.865C381.46 129.996 357.822 142.322 357.822 142.322L352.832 126.324Z"
+                fill="#D0CDE1"
+              />
+            </g>
+            <path
+              id="cameraLight"
+              d="M477.214 107.175L198.763 227.684L188.356 14.338L477.214 107.175Z"
+              fill="url(#paint1_linear)"
+              fill-opacity="0"
+            />
+            <g id="soft-box">
+              <path
+                id="Vector_40"
+                d="M404.743 52L452.126 52.2939C452.126 52.2939 530.116 93.7324 475.376 179.549C475.376 179.549 453.008 174.259 428.287 192.48C428.287 192.48 413.866 55.2328 404.743 52Z"
+                fill="#C3284D"
+              />
+              <path
+                id="Vector_41"
+                opacity="0.2"
+                d="M418.838 52.4296C427.326 87.8392 436.923 179.168 436.923 179.168C459.01 162.888 479.203 165.374 483.259 166.09C480.867 170.82 478.235 175.426 475.376 179.891C475.376 179.891 453.008 174.601 428.287 192.822C428.287 192.822 413.866 55.5749 404.743 52.3421L418.838 52.4296Z"
+                fill="black"
+              />
+              <path
+                id="Vector_42"
+                d="M475.67 96.3773L479.79 116.362L531.57 106.963L531.587 106.957L532.764 83.4462H522.759L475.67 96.3773Z"
+                fill="#3F3D56"
+              />
+              <path
+                id="Vector_43"
+                opacity="0.2"
+                d="M523.594 83.4462L531.57 106.963L531.587 106.957L532.764 83.4462H523.594Z"
+                fill="black"
+              />
+              <path
+                id="Vector_44"
+                d="M477.436 118.713C480.686 118.713 483.322 112.661 483.322 105.194C483.322 97.7279 480.686 91.6752 477.436 91.6752C474.185 91.6752 471.55 97.7279 471.55 105.194C471.55 112.661 474.185 118.713 477.436 118.713Z"
+                fill="#3F3D56"
+              />
+              <path
+                id="Vector_45"
+                d="M508.043 390.889C507.807 390.889 507.573 390.843 507.355 390.752C507.137 390.662 506.938 390.53 506.771 390.363C506.604 390.196 506.472 389.998 506.381 389.78C506.291 389.562 506.244 389.329 506.244 389.093V105.194C506.244 104.718 506.434 104.261 506.771 103.924C507.108 103.587 507.566 103.398 508.043 103.398C508.52 103.398 508.978 103.587 509.315 103.924C509.653 104.261 509.842 104.718 509.842 105.194V389.092C509.842 389.328 509.796 389.562 509.706 389.78C509.615 389.998 509.483 390.196 509.316 390.363C509.149 390.53 508.95 390.662 508.732 390.752C508.514 390.842 508.28 390.889 508.044 390.889H508.043Z"
+                fill="#3F3D56"
+              />
+              <path
+                id="Vector_46"
+                d="M483.324 440.851C483.058 440.851 482.796 440.793 482.555 440.68C482.315 440.567 482.103 440.403 481.934 440.198C481.764 439.993 481.643 439.754 481.578 439.496C481.512 439.239 481.505 438.971 481.556 438.71L504.522 321.137L444.213 413.001C444.083 413.199 443.916 413.369 443.721 413.503C443.525 413.636 443.306 413.729 443.074 413.777C442.843 413.826 442.604 413.828 442.371 413.784C442.139 413.74 441.917 413.651 441.72 413.521C441.522 413.391 441.352 413.224 441.219 413.029C441.086 412.834 440.992 412.614 440.944 412.383C440.896 412.151 440.895 411.913 440.939 411.681C440.984 411.449 441.073 411.228 441.203 411.031V411.031L506.539 311.513C506.767 311.164 507.11 310.906 507.508 310.783C507.906 310.659 508.335 310.677 508.721 310.834C509.108 310.991 509.427 311.277 509.626 311.643C509.824 312.009 509.889 312.433 509.809 312.842L485.088 439.398C485.008 439.807 484.788 440.175 484.467 440.44C484.145 440.705 483.741 440.85 483.324 440.851V440.851Z"
+                fill="#3F3D56"
+              />
+              <path
+                id="Vector_47"
+                d="M576.323 418.515C576.024 418.515 575.73 418.441 575.467 418.299C575.204 418.158 574.981 417.953 574.817 417.703L506.539 313.666C506.409 313.468 506.319 313.247 506.275 313.015C506.23 312.783 506.232 312.545 506.28 312.314C506.328 312.083 506.421 311.863 506.554 311.668C506.687 311.473 506.858 311.305 507.056 311.176C507.253 311.047 507.475 310.957 507.707 310.913C507.94 310.87 508.178 310.872 508.41 310.92C508.641 310.969 508.861 311.062 509.056 311.195C509.252 311.328 509.419 311.499 509.548 311.697V311.697L577.826 415.734C578.004 416.004 578.105 416.318 578.119 416.642C578.133 416.965 578.059 417.286 577.905 417.571C577.751 417.856 577.522 418.094 577.244 418.261C576.966 418.427 576.647 418.514 576.323 418.515V418.515Z"
+                fill="#3F3D56"
+              />
+            </g>
+          </g>
+          <defs>
+            <linearGradient
+              id="paint0_linear"
+              x1="140.855"
+              y1="218.903"
+              x2="177.248"
+              y2="197.938"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stop-color="#FEFFB6" stop-opacity="0.74" />
+              <stop
+                offset="0.750503"
+                stop-color="#FEFFB6"
+                stop-opacity="0.13"
+              />
+            </linearGradient>
+            <linearGradient
+              id="paint1_linear"
+              x1="477.214"
+              y1="107.175"
+              x2="99.008"
+              y2="125.623"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stop-color="#FEFFB6" stop-opacity="0.72" />
+              <stop
+                offset="0.750503"
+                stop-color="#FEFFB6"
+                stop-opacity="0.08"
+              />
+            </linearGradient>
+          </defs>
+        </svg>
+        <p class="article__main-parag article__main-parag_lineHBig">
+          Поэтому щелкнуть на камеру не так просто как щелкнуть на эту картинку
+          :)
+        </p>
+        <p class="article__main-parag article__main-parag_lineHBig">
+          Ну а что же снимает фотограф?
+        </p>
+      </article>
+    </section>
+
+    <section class="forth-screen">
+      <article class="article">
+        <h1 class="article__main-header">
+          Персональная фотосессия
+          <hr />
+        </h1>
+        <p class="article__main-parag">
+          Incididunt excepteur nisi veniam ut tempor enim nulla aute quis
+          laborum aliquip. Excepteur proident sit pariatur enim eiusmod aliquip
+          minim deserunt enim aliqua deserunt pariatur ullamco. Sint
+          exercitation id esse eu laboris qui officia do esse velit est.
+        </p>
+      </article>
+      <div class="swipe-scene">
+        <img src="media/swipe.png" alt="" class="swipe-call noSelect" />
+        <img
+          class="swipe-scene__photo swipe-scene__photo-left"
+          src="media/2.jpg"
+          alt=""
+        />
+        <img
+          class="swipe-scene__photo swipe-scene__photo-left"
+          src="media/3.jpg"
+          alt=""
+        />
+        <img
+          class="swipe-scene__photo swipe-scene__photo-left"
+          src="media/4.jpg"
+          alt=""
+        />
+        <img
+          class="swipe-scene__photo swipe-scene__photo-left"
+          src="media/5.jpg"
+          alt=""
+        />
+        <img
+          class="swipe-scene__photo swipe-scene__photo-left"
+          src="media/11.jpg"
+          alt=""
+        />
+        <img
+          class="swipe-scene__photo swipe-scene__photo-left"
+          src="media/12.jpg"
+          alt=""
+        />
+        <img
+          class="swipe-scene__photo swipe-scene__photo-left"
+          src="media/13.jpg"
+          alt=""
+        />
+        <img
+          class="swipe-scene__photo swipe-scene__photo-left"
+          src="media/14.jpg"
+          alt=""
+        />
+        <img
+          class="swipe-scene__photo swipe-scene__photo-left"
+          src="media/15.jpg"
+          alt=""
+        />
+
+        <img
+          class="swipe-scene__photo swipe-scene__photo-right"
+          src="media/1.jpg"
+          alt=""
+        />
+      </div>
+    </section>
+
+    <section class="fifth-screen colorBlack">
+      <div class="button-scene">
+        <a class="leave-page" href="http://litvinenko.fun/"><button class="main-button noSelect">Больше?</button></a>
+      </div>
+      <article class="article">
+        <h1 class="article__main-header colorBlack">
+          Brands
+          <hr class="backgroundColor" />
+        </h1>
+        <p class="article__main-parag">
+          Incididunt excepteur nisi veniam ut tempor enim nulla aute quis
+          laborum aliquip. Excepteur proident sit pariatur enim eiusmod aliquip
+          minim deserunt enim aliqua deserunt pariatur ullamco.
+        </p>
+      </article>
+      <picture class="fifth-screen__iphone">
+        <img src="media/iphone.png" alt="" class="fifth-screen__iphone-pic" />
+      </picture>
+      <article class="article">
+        <p class="article__main-parag">
+          Consequat Lorem aute aliqua commodo veniam officia culpa pariatur ea
+          fugiat veniam anim officia aute.
+        </p>
+      </article>
+      <div class="button-scene">
+        <a class="leave-page" href="#"><button class="main-button noSelect">Больше?</button></a>
+      </div>
+    </section>
+
+    <section class="sixth-screen">
+      <article class="article colorBlack">
+        <h1 class="article__main-header colorBlack">
+          Love story
+          <hr class="backgroundColor" />
+        </h1>
+        <p class="article__main-parag">
+          Incididunt excepteur nisi veniam ut tempor enim nulla aute quis
+          laborum aliquip. Excepteur proident sit pariatur enim eiusmod aliquip
+          minim deserunt enim aliqua deserunt pariatur ullamco.
+        </p>
+      </article>
+      <div class="container-grid-img">
+        <picture class="grid-img">
+          <img class="grid-img__item session3" src="media/3.jpg" alt="" />
+          <img class="grid-img__item session2" src="media/2.jpg" alt="" />
+          <img
+            class="grid-img__item session1 anchor"
+            src="media/1.jpg"
+            alt=""
+          />
+        </picture>
+        <picture class="grid-img">
+          <div class="grid-img__layer session1 anchor">
+            <p>Съемка БДСМ</p>
+          </div>
+          <img class="grid-img__item session3" src="media/3.jpg" alt="" />
+          <img class="grid-img__item session2" src="media/2.jpg" alt="" />
+          <img class="grid-img__item session1" src="media/1.jpg" alt="" />
+        </picture>
+        <picture class="grid-img">
+          <div class="grid-img__layer session2 anchor">
+            <p>Съемка БДСМ</p>
+          </div>
+          <img class="grid-img__item session3" src="media/3.jpg" alt="" />
+          <img class="grid-img__item session1" src="media/1.jpg" alt="" />
+          <img class="grid-img__item session2" src="media/2.jpg" alt="" />
+        </picture>
+        <picture class="grid-img">
+          <img class="grid-img__item session3" src="media/3.jpg" alt="" />
+          <img class="grid-img__item session1" src="media/1.jpg" alt="" />
+          <img
+            class="grid-img__item session2 anchor"
+            src="media/2.jpg"
+            alt=""
+          />
+        </picture>
+        <picture class="grid-img">
+          <img class="grid-img__item session1" src="media/1.jpg" alt="" />
+          <img class="grid-img__item session2" src="media/2.jpg" alt="" />
+          <img
+            class="grid-img__item session3 anchor"
+            src="media/3.jpg"
+            alt=""
+          />
+        </picture>
+        <picture class="grid-img">
+          <div class="grid-img__layer session3 anchor">
+            <p>Съемка БДСМ</p>
+          </div>
+          <img class="grid-img__item session1" src="media/1.jpg" alt="" />
+          <img class="grid-img__item session2" src="media/2.jpg" alt="" />
+          <img class="grid-img__item session3" src="media/3.jpg" alt="" />
+        </picture>
+        <button class="arrow-back"></button>
+      </div>
+            <div class="button-scene">
+        <a class="leave-page" href="#"><button class="main-button noSelect">Больше?</button></a>
+      </div>
+    </section>
+
+    <section class="seventh-screen">
+      <article class="article">
+        <h1 class="article__main-header">
+          Last Posts
+          <hr />
+        </h1>
+      </article>
+      <div class="insta-container">
+      <div class="insta-post">
+        <div class="insta-post__header">
+          <img src="media/anna_mobile_600px.png" alt="" />
+          <a class="noStyleLink" target="_blank" href="https://www.instagram.com/lytvynenko_anna/"><span class="insta-post__autor-name">lytvynenko_anna</span></a>
+        </div>
+        <div class="insta-post__photo">
+          <img alt="Картинка на посте" />
+        </div>
+        <div class="insta-post__info">
+          <div class="insta-post__likes-counter">
+            <a class="postLink noStyleLink noSelect"
+              ><svg
+                aria-label="Нравится"
+                class="like"
+                width="20"
+                height="18"
+                viewBox="0 0 20 18"
+                fill="white"
+                stroke="black"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M9.5961 2.62807L10.0054 3.18897L10.4076 2.62294C11.4431 1.16559 12.7108 0.5 14.4167 0.5C17.1873 0.5 19.5 2.94643 19.5 6.04167C19.5 8.85194 17.5098 10.6254 15.2774 12.4791C15.0616 12.635 14.8519 12.8232 14.6605 12.995C14.5781 13.0689 14.4992 13.1398 14.4246 13.2037L14.4245 13.2036L14.4155 13.2117L13.5822 13.9617L13.5822 13.9617L13.5781 13.9654C12.5358 14.9244 11.832 15.566 11.3374 15.9987C10.8357 16.4377 10.5747 16.6388 10.4094 16.7379C10.2454 16.8363 10.1271 16.875 10 16.875C9.90667 16.875 9.74518 16.8307 9.59058 16.7379C9.42703 16.6398 9.12808 16.4007 8.60886 15.9504C8.24212 15.6323 7.78374 15.2252 7.21091 14.7165C6.99072 14.521 6.75362 14.3104 6.49832 14.0842L6.49834 14.0841L6.49476 14.081L5.54932 13.2589C5.28673 12.9977 4.9878 12.7418 4.74035 12.5356C2.53637 10.6282 0.5 8.81623 0.5 6.04167C0.5 2.9445 2.81281 0.504273 5.57658 0.541621L5.57658 0.541667H5.58333C7.29092 0.541667 8.56058 1.20902 9.5961 2.62807Z"/></svg></a>
+            Нравится
+            <strong> <span class="insta-post__likes"></span> </strong>
+          </div>
+          <span class="insta-post__date"></span>
+        </div>
+        <div class="insta-post__content">
+          <a
+            class="noStyleLink"
+            target="_blank"
+            href="https://www.instagram.com/lytvynenko_anna/"
+            ><span class="insta-post__autor-name">lytvynenko_anna</span></a
+          >
+          <span class="insta-post__content-filler"></span>
+        </div>
+      </div>
+      <div class="insta-post">
+        <div class="insta-post__header">
+          <img src="media/anna_mobile_600px.png" alt="" />
+          <a
+            class="noStyleLink"
+            target="_blank"
+            href="https://www.instagram.com/lytvynenko_anna/"
+            ><span class="insta-post__autor-name">lytvynenko_anna</span></a
+          >
+        </div>
+        <div class="insta-post__photo">
+          <img alt="Картинка на посте" />
+        </div>
+        <div class="insta-post__info">
+          <div class="insta-post__likes-counter">
+            <a class="postLink noStyleLink noSelect"
+              ><svg
+                aria-label="Нравится"
+                class="like"
+                width="20"
+                height="18"
+                viewBox="0 0 20 18"
+                fill="white"
+                stroke="black"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9.5961 2.62807L10.0054 3.18897L10.4076 2.62294C11.4431 1.16559 12.7108 0.5 14.4167 0.5C17.1873 0.5 19.5 2.94643 19.5 6.04167C19.5 8.85194 17.5098 10.6254 15.2774 12.4791C15.0616 12.635 14.8519 12.8232 14.6605 12.995C14.5781 13.0689 14.4992 13.1398 14.4246 13.2037L14.4245 13.2036L14.4155 13.2117L13.5822 13.9617L13.5822 13.9617L13.5781 13.9654C12.5358 14.9244 11.832 15.566 11.3374 15.9987C10.8357 16.4377 10.5747 16.6388 10.4094 16.7379C10.2454 16.8363 10.1271 16.875 10 16.875C9.90667 16.875 9.74518 16.8307 9.59058 16.7379C9.42703 16.6398 9.12808 16.4007 8.60886 15.9504C8.24212 15.6323 7.78374 15.2252 7.21091 14.7165C6.99072 14.521 6.75362 14.3104 6.49832 14.0842L6.49834 14.0841L6.49476 14.081L5.54932 13.2589C5.28673 12.9977 4.9878 12.7418 4.74035 12.5356C2.53637 10.6282 0.5 8.81623 0.5 6.04167C0.5 2.9445 2.81281 0.504273 5.57658 0.541621L5.57658 0.541667H5.58333C7.29092 0.541667 8.56058 1.20902 9.5961 2.62807Z"/></svg></a>
+            Нравится
+            <strong> <span class="insta-post__likes"></span> </strong>
+          </div>
+          <span class="insta-post__date"></span>
+        </div>
+        <div class="insta-post__content">
+          <a
+            class="noStyleLink"
+            target="_blank"
+            href="https://www.instagram.com/lytvynenko_anna/"
+            ><span class="insta-post__autor-name">lytvynenko_anna</span></a
+          >
+          <span class="insta-post__content-filler"></span>
+        </div>
+      </div>
+      <div class="insta-post">
+        <div class="insta-post__header">
+          <img src="media/anna_mobile_600px.png" alt="" />
+          <a
+            class="noStyleLink"
+            target="_blank"
+            href="https://www.instagram.com/lytvynenko_anna/"
+            ><span class="insta-post__autor-name">lytvynenko_anna</span></a
+          >
+        </div>
+        <div class="insta-post__photo">
+          <img alt="Картинка на посте" />
+        </div>
+        <div class="insta-post__info">
+          <div class="insta-post__likes-counter">
+            <a class="postLink noStyleLink noSelect"
+              ><svg
+                aria-label="Нравится"
+                class="like"
+                width="20"
+                height="18"
+                viewBox="0 0 20 18"
+                fill="white"
+                stroke="black"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M9.5961 2.62807L10.0054 3.18897L10.4076 2.62294C11.4431 1.16559 12.7108 0.5 14.4167 0.5C17.1873 0.5 19.5 2.94643 19.5 6.04167C19.5 8.85194 17.5098 10.6254 15.2774 12.4791C15.0616 12.635 14.8519 12.8232 14.6605 12.995C14.5781 13.0689 14.4992 13.1398 14.4246 13.2037L14.4245 13.2036L14.4155 13.2117L13.5822 13.9617L13.5822 13.9617L13.5781 13.9654C12.5358 14.9244 11.832 15.566 11.3374 15.9987C10.8357 16.4377 10.5747 16.6388 10.4094 16.7379C10.2454 16.8363 10.1271 16.875 10 16.875C9.90667 16.875 9.74518 16.8307 9.59058 16.7379C9.42703 16.6398 9.12808 16.4007 8.60886 15.9504C8.24212 15.6323 7.78374 15.2252 7.21091 14.7165C6.99072 14.521 6.75362 14.3104 6.49832 14.0842L6.49834 14.0841L6.49476 14.081L5.54932 13.2589C5.28673 12.9977 4.9878 12.7418 4.74035 12.5356C2.53637 10.6282 0.5 8.81623 0.5 6.04167C0.5 2.9445 2.81281 0.504273 5.57658 0.541621L5.57658 0.541667H5.58333C7.29092 0.541667 8.56058 1.20902 9.5961 2.62807Z"
+                /></svg></a>
+            Нравится
+            <strong> <span class="insta-post__likes"></span> </strong>
+          </div>
+          <span class="insta-post__date"></span>
+        </div>
+        <div class="insta-post__content">
+          <a
+            class="noStyleLink"
+            target="_blank"
+            href="https://www.instagram.com/lytvynenko_anna/"
+            ><span class="insta-post__autor-name">lytvynenko_anna</span></a
+          >
+          <span class="insta-post__content-filler"></span>
+        </div>
+      </div>
+      </div>
+    </section>
+    <footer>
+      <div class="footer-left">
+      <a class=""><button class="footer__button text-left">О съемке</button></a>
+      </div>
+      <div class="arrow">
+        <img src="/media/back.png" alt="" class="arrow-left">
+      </div>
+      <div class="arrow">
+<img src="/media/back.png" alt="" class="arrow-right">
+      </div>
+      <div class="footer-right">
+      <a class=""><button class="footer__button text-right">О фотографе</button></a>
+      </div>
+    </footer>
+    <script src="libs/anime.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

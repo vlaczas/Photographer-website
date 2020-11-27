@@ -1,2 +1,2 @@
-# ph-website
- website of photographer
+# photographer-webapp
+HTML/CSS, Anime.js, JavaScript, BEM, mobile-first
