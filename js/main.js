@@ -1,14 +1,19 @@
-'use strict';
+import drawMenuWrapper from '../modules/menuAnim.js';
+import { footerAnim, leavePageDelayed } from '../modules/footerAnim.js';
+import move3d from '../modules/mainButton.js';
+
+('use strict');
 //consts
 const BODY = document.querySelector('body');
 const FIRST_PAGE = document.querySelector('.first-screen');
 const SECOND_PAGE = document.querySelector('.second-screen');
+const THIRD_PAGE = document.querySelector('.third-screen');
 const FORTH_PAGE = document.querySelector('.forth-screen');
 const FIFTH_PAGE = document.querySelector('.fifth-screen');
 const SIXTH_PAGE = document.querySelector('.sixth-screen');
 const SEVENTH_PAGE = document.querySelector('.seventh-screen');
 const LOGO = document.querySelector('.logo');
-const swipablePics = document.querySelectorAll('.swipe-scene__photo-left');
+const SECTION_HEADERS = document.querySelectorAll('.section-header');
 
 //to know the screen height
 let screenHeight = window.innerHeight;
@@ -27,11 +32,7 @@ document.querySelectorAll('.leave-page').forEach(elem =>
     leavePageDelayed(event.currentTarget);
   })
 );
-function leavePageDelayed(element) {
-  let targetURL = element.getAttribute('href');
-  drawMenuWrapper(true);
-  setTimeout(() => (window.location = targetURL), 900);
-}
+
 // LOGO animation
 anime({
   targets: '.logo path',
@@ -54,168 +55,11 @@ anime({
     });
   },
 });
-// MENU BUTTON ANIMATION start
-let nav__buttonLine1 = anime({
-  targets: '.nav__button-line:nth-of-type(1)',
-  transformOrigin: 0,
-  duration: 500,
-  backgroundColor: 'rgb(255, 255, 255)',
-  rotate: -67,
-  translateX: -23,
-  translateY: 15,
-  easing: 'easeOutBack',
-  autoplay: false,
-});
-let nav__buttonLine2 = anime({
-  targets: '.nav__button-line:nth-of-type(2)',
-  duration: 500,
-  backgroundColor: 'rgb(255, 255, 255)',
-  width: '33%',
-  translateY: 5,
-  translateX: 1,
-  easing: 'easeOutBack',
-  autoplay: false,
-});
-let nav__buttonLine3 = anime({
-  targets: '.nav__button-line:nth-of-type(3)',
-  duration: 500,
-  backgroundColor: 'rgb(255, 255, 255)',
-  rotate: 67,
-  translateX: 7,
-  translateY: 7,
-  easing: 'easeOutBack',
-  autoplay: false,
-});
-// MENU BUTTON ANIMATION end
-
-//Menu list animation
-document.querySelectorAll('.another-page-link').forEach(elem =>
-  elem.addEventListener('click', event => {
-    event.preventDefault();
-    let current = event.currentTarget;
-    nav__button.click();
-    setTimeout(() => {
-      window.location.href = `${current.getAttribute('href')}`;
-    }, 850);
-  })
-);
-
-let header__menuListOpened = anime({
-  targets: ['.menu li', '.menu__contacts img'],
-  duration: 550,
-  delay: anime.stagger(100, { start: 100 }),
-  translateY: [150, 0],
-  opacity: [0, 1],
-  autoplay: false,
-  easing: 'easeOutCubic',
-});
-let header__menuListClosed = anime({
-  targets: ['.menu li', '.menu__contacts img'],
-  duration: 350,
-  delay: anime.stagger(40),
-  translateY: [0, -50],
-  opacity: [1, 0],
-  autoplay: false,
-  easing: 'easeOutCubic',
-});
-
-// MENU BUTTON LISTENER
-let nav__button = document.querySelector('.nav__button');
-let header__menu = document.querySelector('.header__menu');
-let menuCounterClicks = 0;
-nav__button.addEventListener('click', () => {
-  if (menuCounterClicks == 0) {
-    nav__buttonLine1.play();
-    nav__buttonLine3.play();
-    nav__buttonLine2.play();
-    header__menuListOpened.play();
-    setTimeout(() => document.querySelector('.menu').classList.toggle('flex'), 300);
-    menuCounterClicks++;
-    drawMenuWrapper();
-  } else {
-    nav__buttonLine1.reverse();
-    nav__buttonLine3.reverse();
-    nav__buttonLine2.reverse();
-    nav__buttonLine1.play();
-    nav__buttonLine3.play();
-    nav__buttonLine2.play();
-
-    if (document.querySelector('.menu').classList.contains('flex')) {
-      setTimeout(() => document.querySelector('.menu').classList.toggle('flex'), 450);
-      header__menuListClosed.play();
-    } else {
-      header__menuListOpened.play();
-      document.querySelector('.menu').classList.toggle('flex');
-    }
-    drawMenuWrapper(open);
-  }
-});
 
 //screen size change
 window.addEventListener('orientationchange', () => {
   window.location.reload();
 });
-
-//menu drop-down animation
-//drawing menu
-
-const ctx = canva.getContext('2d');
-function drawMenuWrapper(opened = true, instantly = false) {
-  canva.width = window.innerWidth;
-  canva.height = window.innerHeight * 1.2;
-  let contrPointY;
-  if (!opened) contrPointY = canva.height;
-  else contrPointY = 0;
-  const capStart = canva.height / 5;
-  const capEnd = canva.height + capStart / 2;
-  let speedSlow = canva.height / 100;
-  let speedFast = canva.height / 25;
-  if (instantly) {
-    speedSlow = canva.height;
-    speedFast = canva.height;
-  }
-  let menuY = contrPointY;
-  window.requestAnimationFrame(drawMenu);
-  function drawMenu() {
-    // open menu canvas
-    switch (opened) {
-      case true:
-        if (contrPointY <= capStart) contrPointY += speedSlow;
-        else if (contrPointY < capEnd) {
-          contrPointY += speedFast;
-          menuY += speedFast;
-        } else {
-          menuY += speedSlow;
-        }
-        break;
-      //close menu canvas
-      case false:
-        if (contrPointY >= canva.height - capStart) contrPointY -= speedSlow;
-        else if (contrPointY >= -capStart / 2) {
-          contrPointY -= speedFast;
-          menuY -= speedFast;
-        } else {
-          menuY -= speedSlow;
-        }
-        break;
-    }
-    ctx.clearRect(0, 0, canva.width, canva.height);
-    ctx.fillStyle = 'rgb(239, 209, 174)';
-    ctx.beginPath();
-    ctx.moveTo(0, 0);
-    ctx.lineTo(0, menuY);
-    ctx.quadraticCurveTo(canva.width / 2, contrPointY, canva.width, menuY);
-    ctx.lineTo(canva.width, 0);
-    ctx.fill();
-    if (menuY <= canva.height && menuY >= 0) {
-      window.requestAnimationFrame(drawMenu);
-    }
-  }
-  if (!open) {
-    setTimeout(() => (canva.height = 0), 900);
-  }
-  open = !open;
-}
 
 //Animation of first screen text
 anime({
@@ -307,43 +151,26 @@ function questAnim() {
   }
 }
 
-let iPhoneLeftPos;
 let rgbColor = 0;
-let rgbColorRedBlue = 255;
-let rgbColorRed = 255;
-let rgbColorGreen = 255;
-let backgroundColorChangeY;
-let screenFiveMoveEnd;
 function backColorAnim() {
   //anim of BRANDS screen
-  if (scrollY < FORTH_PAGE.offsetTop) BODY.style.backgroundColor = `rgb(0, 0, 0)`;
-
-  //black after white
-  if (scrollY > SEVENTH_PAGE.offsetTop - 100) {
-    rgbColorRedBlue = (SEVENTH_PAGE.offsetTop - 100 - scrollY) * 2 + 209;
-    rgbColorRedBlue < 0 ? (rgbColorRedBlue = 0) : false;
-    rgbColorRed = (SEVENTH_PAGE.offsetTop - 100 - scrollY) * 2.5 + 238;
-    rgbColorRed < 0 ? (rgbColorRed = 0) : false;
-    rgbColorGreen = (SEVENTH_PAGE.offsetTop - 100 - scrollY) * 1.7 + 174;
-    rgbColorGreen < 0 ? (rgbColorGreen = 0) : false;
-    BODY.style.backgroundColor = `rgb(${rgbColorRed},${rgbColorRedBlue},${rgbColorGreen})`;
-    return;
+  //
+  if (scrollY < FORTH_PAGE.offsetTop - 250) {
+    BODY.style.backgroundColor = `rgb(0, 0, 0)`;
+    SECTION_HEADERS.forEach(elem => (elem.style.color = `rgb(0, 0, 0)`));
   }
-  //white
-  if (scrollY > SIXTH_PAGE.offsetTop - 100) {
-    rgbColorRedBlue = (SIXTH_PAGE.offsetTop - 100 - scrollY) / 2 + 255;
-    rgbColorRedBlue < 209 ? (rgbColorRedBlue = 209) : false;
-    rgbColorRed = (SIXTH_PAGE.offsetTop - 100 - scrollY) / 4 + 255;
-    rgbColorRed < 239 ? (rgbColorRed = 239) : false;
-    rgbColorGreen = SIXTH_PAGE.offsetTop - 100 - scrollY + 255;
-    rgbColorGreen < 174 ? (rgbColorGreen = 174) : false;
-    BODY.style.backgroundColor = `rgb(${rgbColorRed},${rgbColorRedBlue},${rgbColorGreen})`;
+  //black after white
+  if (scrollY > SEVENTH_PAGE.offsetTop - 150) {
+    rgbColor < 0 ? (rgbColor = 0) : (rgbColor = 255 + (SEVENTH_PAGE.offsetTop - scrollY - 150)) * 1.5;
+    BODY.style.backgroundColor = `rgb(${rgbColor},${rgbColor},${rgbColor})`;
+    SECTION_HEADERS.forEach(elem => (elem.style.color = `rgb(${rgbColor},${rgbColor},${rgbColor})`));
     return;
   }
   //anim of backgroud color white
-  if (scrollY > FORTH_PAGE.offsetTop - 100) {
-    rgbColor > 255 ? (rgbColor = 255) : (rgbColor = (scrollY - FORTH_PAGE.offsetTop - 100) * 1.5);
+  if (scrollY > FORTH_PAGE.offsetTop - 250) {
+    rgbColor > 255 ? (rgbColor = 255) : (rgbColor = (scrollY - FORTH_PAGE.offsetTop + 250) * 1.5);
     BODY.style.backgroundColor = `rgb(${rgbColor},${rgbColor},${rgbColor})`;
+    SECTION_HEADERS.forEach(elem => (elem.style.color = `rgb(${rgbColor},${rgbColor},${rgbColor})`));
   }
 }
 //SVG SCREEN 3
@@ -357,98 +184,15 @@ photosession_svg.addEventListener('click', () => {
   }, 120);
 });
 
-//SCREEN 4 SWIPE
-let targetOfSwipe;
-let diffX;
-let mainDiffY;
-let diffY;
-let zIndexIterator = 4;
+//SCREEN 4
 
-let anchorPic = document.querySelector('.swipe-scene__photo-right');
-const anchorPicTop = window.getComputedStyle(anchorPic).getPropertyValue('top');
-anchorPic.addEventListener('click', moveBack, { once: true });
-
-swipablePics.forEach(elem => {
-  elem.addEventListener('touchend', endSwipe, { once: true });
-  elem.addEventListener('touchmove', moveSwipe);
-  elem.addEventListener('touchstart', startSwipe, { once: true });
-});
-document
-  .querySelector('.swipe-scene__photo:nth-last-of-type(2)')
-  .addEventListener('pointerdown', () => fadeout.play(), { once: true });
-let fadeout = anime({
-  targets: '.swipe-call',
-  opacity: 0,
-  easing: 'linear',
-  autoplay: false,
-  complete: anime => (anime.animatables[0].target.style.display = 'none'),
-});
-
-function startSwipe(event) {
-  event.preventDefault();
-  targetOfSwipe = event.target;
-  targetOfSwipe.style.zIndex = ++zIndexIterator;
-  diffY = event.changedTouches[0].clientY - targetOfSwipe.getBoundingClientRect().top;
-  diffX =
-    event.changedTouches[0].clientX - targetOfSwipe.getBoundingClientRect().left - event.changedTouches[0].radiusX;
-}
-function moveSwipe(event) {
-  event.preventDefault();
-  mainDiffY = event.changedTouches[0].pageY - FORTH_PAGE.offsetTop;
-  targetOfSwipe.style.top = mainDiffY - diffY + 'px';
-  if (event.changedTouches[0].clientX - diffX + targetOfSwipe.width > window.innerWidth - 25) {
-    return;
-  }
-  targetOfSwipe.style.left = event.changedTouches[0].clientX - diffX + 'px';
-}
-
-function endSwipe(event) {
-  event.preventDefault();
-  anime({
-    targets: targetOfSwipe,
-    left: '65%',
-    top: `${anchorPicTop}`,
-    duration: 300,
-    easing: 'linear',
-    width: '25%',
-    rotate: 10,
-    complete: anim => {
-      anim.animatables[0].target.removeEventListener('touchmove', moveSwipe);
-      anim.animatables[0].target.addEventListener('click', moveBack, {
-        once: true,
-      });
-    },
-  });
-}
-
-function moveBack(event) {
-  event.target.style.zIndex = ++zIndexIterator;
-  anime({
-    targets: event.target,
-    left: '5%',
-    top: FORTH_PAGE.clientHeight * 0.55,
-    width: '50%',
-    rotate: -5,
-    duration: 300,
-    easing: 'linear',
-    complete: anim => {
-      anim.animatables[0].target.addEventListener('touchend', endSwipe, {
-        once: true,
-      });
-      anim.animatables[0].target.addEventListener('touchmove', moveSwipe);
-      anim.animatables[0].target.addEventListener('touchstart', startSwipe, {
-        once: true,
-      });
-    },
-  });
-}
 //Screen 5 Iphone animation swipe
 let iphoneImg = document.querySelector('.fifth-screen__iphone-pic');
 iphoneImg.addEventListener('touchstart', handleStartSwipe);
 iphoneImg.addEventListener('touchmove', handleMoveSwipe);
 iphoneImg.addEventListener('touchend', handleEndSwipe);
 let touchFirst;
-let currentBackgroundPosX = window.innerWidth * 0.03;
+let currentBackgroundPosX = 14;
 let listNumberOfImg = 2;
 function handleStartSwipe(event) {
   event.preventDefault();
@@ -458,7 +202,7 @@ function handleMoveSwipe(event) {
   event.preventDefault();
   let touchActive = event.touches[0].clientX;
   let swiperPos = touchActive - touchFirst + currentBackgroundPosX;
-  iphoneImg.style.backgroundPosition = `${swiperPos}px 1vh`;
+  iphoneImg.style.backgroundPosition = `${swiperPos}px 35%`;
 }
 function handleEndSwipe(event) {
   let touchLast = event.changedTouches[0].clientX;
@@ -467,65 +211,15 @@ function handleEndSwipe(event) {
     currentBackgroundPosX -= iphoneImg.clientWidth * 0.9;
     if (currentBackgroundPosX < -(iphoneImg.clientWidth * 0.9 * (listNumberOfImg - 1)))
       currentBackgroundPosX += iphoneImg.clientWidth * 0.9;
-    iphoneImg.style.backgroundPosition = `${currentBackgroundPosX}px 1vh`;
+    iphoneImg.style.backgroundPosition = `${currentBackgroundPosX}px 35%`;
   } else {
     currentBackgroundPosX += iphoneImg.clientWidth * 0.9;
-    if (currentBackgroundPosX > window.innerWidth * 0.03) currentBackgroundPosX = window.innerWidth * 0.03;
-    iphoneImg.style.backgroundPosition = `${currentBackgroundPosX}px 1vh`;
+    if (currentBackgroundPosX > 14) currentBackgroundPosX = 14;
+    iphoneImg.style.backgroundPosition = `${currentBackgroundPosX}px 35%`;
   }
 }
 
-//SCREEN 6 Grid anim
-
-let flipper;
-
-let anchor = document.querySelectorAll('.anchor');
-anchor.forEach(elem => {
-  elem.addEventListener('click', flipImg);
-});
-let arrow_back = document.querySelector('.arrow-back');
-arrow_back.onclick = () => {
-  flipper.reverse();
-  flipper.play();
-  anchor.forEach(elem => {
-    elem.addEventListener('click', flipImg);
-  });
-};
-function flipImg(event) {
-  let targetSessionClass = [...event.currentTarget.classList].find(elem => elem.includes('session'));
-
-  anchor.forEach(elem => {
-    elem.removeEventListener('click', flipImg);
-  });
-
-  flipper = anime.timeline({
-    delay: anime.stagger(70),
-    duration: 200,
-    easing: 'linear',
-  });
-  flipper.add({
-    targets: '.anchor',
-    rotateY: [0, 90],
-  });
-  flipper.add({
-    targets: `img.${targetSessionClass}`,
-    rotateY: [90, 180],
-    begin: function (anim) {
-      for (let item of anim.animatables) {
-        item.target.classList.add('onTop');
-      }
-    },
-  });
-  flipper.add(
-    {
-      targets: arrow_back,
-      translateX: [-50, 0],
-      translateY: ['-50%', '-50%'],
-      duration: 300,
-    },
-    '-=300'
-  );
-}
+//SCREEN 6
 
 //SCREEN 7
 const postContentFiller = document.querySelectorAll('.insta-post__content-filler');
@@ -595,108 +289,9 @@ fetch('./js/jsons/data.json')
     );
   });
 
-//main-button anim
-const mainButton = document.querySelectorAll('.main-button');
-let currButton;
-mainButton.forEach(elem => elem.addEventListener('mousemove', move3d));
 
-function move3d(event) {
-  currButton = event.target;
-  //define middle of the button to contol the movement
-  let width = currButton.clientWidth / 2;
-  let height = currButton.clientHeight / 2;
-  let x = event.clientX - currButton.getBoundingClientRect().left;
-  let y = event.clientY - currButton.getBoundingClientRect().top;
-  anime({
-    targets: currButton,
-    rotateY: (x - width) / 10,
-    rotateX: -(y - height),
-    translateZ: [-10, -10],
-    duration: 0,
-  });
-}
 
-mainButton.forEach(elem =>
-  //back to normal position
-  elem.addEventListener('mouseleave', event => {
-    currButton.style.transform = '';
-    anime({
-      targets: currButton,
-      duration: 200,
-      rotateY: 0,
-      rotateX: 0,
-      translateZ: [-10, -10],
-    });
-  })
-);
-mainButton.forEach(elem =>
-  elem.addEventListener('click', event => {
-    anime({
-      targets: currButton,
-      duration: 100,
-      direction: 'alternate',
-      translateZ: -30,
-    });
-  })
-);
 
-//drop down menu animation 3d
-const mainMenu = document.querySelector('.menu');
-const menuItems = document.querySelector('.menu__list');
-mainMenu.addEventListener('mousemove', move3dmenu);
-
-function move3dmenu(event) {
-  //define middle of the button to contol the movement
-  let width = menuItems.clientWidth / 2;
-  let height = menuItems.clientHeight / 2;
-  let x = event.clientX - menuItems.getBoundingClientRect().left;
-  let y = event.clientY - menuItems.getBoundingClientRect().top;
-  anime({
-    targets: menuItems,
-    rotateY: (x - width) / 400,
-    rotateX: -(y - height) / 400,
-    translateZ: [-20, -20],
-    duration: 100,
-    easing: 'linear',
-  });
-}
-
-//footer animation
-document.querySelectorAll('.footer__button').forEach(elem => elem.addEventListener('click', animRect));
-function animRect(event) {
-  let target = event.target.parentElement;
-  let animeRect = anime.timeline({
-    targets: '.arrow-left',
-    duration: 300,
-    easing: 'easeInOutQuint',
-  });
-  animeRect.add({
-    right: [10, -10],
-  });
-  animeRect.add(
-    {
-      targets: '.arrow-right',
-      left: [10, -10],
-    },
-    0
-  );
-  animeRect.add({
-    targets: '.arrow-left',
-    translateX: 10,
-    translateY: -10,
-    rotate: 90,
-  });
-  animeRect.add(
-    {
-      targets: '.arrow-right',
-      rotate: [180, 270],
-      translateX: -10,
-      translateY: -10,
-      complete: () => leavePageDelayed(target),
-    },
-    300
-  );
-}
 
 //lazy loading for images class
 // let lazyImgs = document.querySelectorAll('.lazy-load');

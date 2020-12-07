@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      html,
+      body {
+        min-height: 100%;
+      }
+
+      body {
+        font-family: sans-serif;
+        overflow-x: hidden;
+        margin: 0;
+      }
+
+      .slides {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        width: 1020px;
+        max-width: 100%;
+        margin: auto;
+        overflow: hidden;
+      }
+
+      .slide {
+        position: relative;
+        width: 32%;
+      }
+      @media (max-width: 780px) {
+        .slide {
+          width: 48%;
+        }
+      }
+      @media (max-width: 450px) {
+        .slide {
+          width: 100%;
+        }
+      }
+
+      .canvas {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        pointer-events: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .plane {
+        padding-top: calc(64000% / 382);
+      }
+      .plane img {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+      <section class="slide">
+        <div class="canvas"></div>
+        <div class="plane">
+          <img
+            data-sampler="texture0"
+            src="https://raw.githubusercontent.com/ivanalbizu/WEBGL-texture-Hover/main/src/img/woman-01.jpg"
+            crossorigin="anonymous"
+          />
+          <img
+            data-sampler="texture1"
+            src="https://raw.githubusercontent.com/ivanalbizu/WEBGL-texture-Hover/main/src/img/woman-02.jpg"
+            crossorigin="anonymous"
+          />
+          <img
+            data-sampler="map"
+            src="../media/glmap.jpg"
+            crossorigin="anonymous"
+          />
+        </div>
+        <div class="slide__content">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        </div>
+      </section>
+    <script type="module" src="../js/services.js"></script>
+    <script src="../libs/anime.min.js"></script>
+    <script src="../libs/curtains.umd.min.js"></script>
+  </body>
+</html>
