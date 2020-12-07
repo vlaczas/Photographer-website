@@ -1,6 +1,12 @@
 //drop down menu animation 3d
 const mainMenu = document.querySelector('.menu');
 const menuItems = document.querySelector('.menu__list');
+//to open screen with menu down blank
+
+let open = true;
+drawMenuWrapper(true, true);
+window.addEventListener('load', () => drawMenuWrapper(false));
+
 mainMenu.addEventListener('mousemove', move3dmenu);
 
 function move3dmenu(event) {
@@ -67,7 +73,7 @@ document.querySelectorAll('.another-page-link').forEach(elem =>
 let header__menuListOpened = anime({
   targets: ['.menu li', '.menu__contacts img'],
   duration: 550,
-  delay: anime.stagger(100, { start: 100 }),
+  delay: anime.stagger(100, { start: 300 }),
   translateY: [150, 0],
   opacity: [0, 1],
   autoplay: false,

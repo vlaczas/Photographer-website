@@ -1,4 +1,3 @@
-import drawMenuWrapper from '../modules/menuAnim.js';
 import { footerAnim, leavePageDelayed } from '../modules/footerAnim.js';
 import move3d from '../modules/mainButton.js';
 
@@ -20,10 +19,7 @@ let screenHeight = window.innerHeight;
 let screenWidth = window.innerWidth;
 let mobileScreen = true;
 if (screenWidth > 769) mobileScreen = false;
-//to open screen with menu down blank
-let open = true;
-drawMenuWrapper(true, true);
-window.addEventListener('load', () => drawMenuWrapper(false));
+
 
 //to leave the page with anim
 document.querySelectorAll('.leave-page').forEach(elem =>
