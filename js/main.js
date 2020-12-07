@@ -18,16 +18,32 @@ const SECTION_HEADERS = document.querySelectorAll('.section-header');
 let screenHeight = window.innerHeight;
 let screenWidth = window.innerWidth;
 let mobileScreen = true;
-if (screenWidth > 769) mobileScreen = false;
+if (screenWidth > 1024) mobileScreen = false;
 
+//mouse move anim
+if (!mobileScreen) {
+  let cursor = document.querySelectorAll('.cursor');
+  document.addEventListener('mousemove', event => {
+    cursor.forEach(item => {
+      item.style.display = 'block';
+      anime({
+        targets: item,
+        duration: 0,
+        easing: 'linear',
+        left: event.clientX,
+        top: event.clientY,
+      });
+    });
+  });
+}
+  //to leave the page with anim
+  document.querySelectorAll('.leave-page').forEach(elem =>
+    elem.addEventListener('click', event => {
+      event.preventDefault();
+      leavePageDelayed(event.currentTarget);
+    })
+  );
 
-//to leave the page with anim
-document.querySelectorAll('.leave-page').forEach(elem =>
-  elem.addEventListener('click', event => {
-    event.preventDefault();
-    leavePageDelayed(event.currentTarget);
-  })
-);
 
 // LOGO animation
 anime({
@@ -156,8 +172,8 @@ function backColorAnim() {
     SECTION_HEADERS.forEach(elem => (elem.style.color = `rgb(0, 0, 0)`));
   }
   //black after white
-  if (scrollY > SEVENTH_PAGE.offsetTop - 150) {
-    rgbColor < 0 ? (rgbColor = 0) : (rgbColor = 255 + (SEVENTH_PAGE.offsetTop - scrollY - 150)) * 1.5;
+  if (scrollY > SIXTH_PAGE.offsetTop - 150) {
+    rgbColor < 0 ? (rgbColor = 0) : (rgbColor = 255 + (SIXTH_PAGE.offsetTop - scrollY - 150)) * 1.5;
     BODY.style.backgroundColor = `rgb(${rgbColor},${rgbColor},${rgbColor})`;
     SECTION_HEADERS.forEach(elem => (elem.style.color = `rgb(${rgbColor},${rgbColor},${rgbColor})`));
     return;
@@ -181,6 +197,27 @@ photosession_svg.addEventListener('click', () => {
 });
 
 //SCREEN 4
+document.querySelectorAll('.hover-scale').forEach(elem => {
+  elem.addEventListener('mouseenter', () => {
+    anime({
+      targets: elem,
+      duration: 500,
+      easing: "linear",
+      scaleX: 1.05,
+      scaleY: 1.05
+    })
+  })
+  elem.addEventListener('mouseout', () => {
+        anime({
+      targets: elem,
+      duration: 500,
+      easing: "linear",
+      scaleX: 1,
+      scaleY: 1
+    })
+  })
+  })
+
 
 //Screen 5 Iphone animation swipe
 let iphoneImg = document.querySelector('.fifth-screen__iphone-pic');
@@ -284,10 +321,6 @@ fetch('./js/jsons/data.json')
       })
     );
   });
-
-
-
-
 
 //lazy loading for images class
 // let lazyImgs = document.querySelectorAll('.lazy-load');

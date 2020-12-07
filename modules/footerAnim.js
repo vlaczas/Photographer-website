@@ -1,3 +1,4 @@
+import drawMenuWrapper from '../modules/menuAnim.js';
 //footer animation
 footerAnim();
 
