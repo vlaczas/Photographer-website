@@ -12,26 +12,12 @@ let logoLoaderAnim;
 if (logoLoader) {
   logoLoaderAnim = anime({
     targets: '.logo-loader path',
-    strokeDashoffset: [anime.setDashoffset, 0],
     easing: 'easeInOutSine',
     duration: 500,
-    delay: anime.stagger(200),
-    begin: function (anim) {
+    begin: () => {
       logoLoader.style.opacity = '1';
       logoLoader.style.display = 'flex';
-    },
-
-    complete: function (anim) {
-      document.querySelectorAll('.logo-loader path').forEach(element => {
-        element.setAttribute('fill', 'black');
-        let i = 0;
-        let opacityFill = setInterval(() => {
-          element.setAttribute('fill-opacity', `${i}`);
-          i += 0.1;
-          if (i > 1.1) clearInterval(opacityFill);
-        }, 20);
-      });
-    },
+    }
   });
 }
 function loaderScreen() {

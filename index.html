@@ -219,31 +219,17 @@
         Photographer <br />
         Litvinenko
       </h1>
-      <svg class="logo-loader" viewBox="0 0 138 35" xmlns="http://www.w3.org/2000/svg">
+               <svg class="logo-loader" viewBox="0 0 35 35" xmlns="http://www.w3.org/2000/svg">
         <path
           d="M 20 0 L 5 35 H 10 L 20 11 L 30 35 H 35 Z"
           stroke="black"
           stroke-width="2"
-          fill-opacity="0"
+          fill-opacity="1"
+          fill = "url(#black-white-grad)"
         />
-        <path
-          d="M 40 0 V 35 H 45 V 15 L 60 35 H 65 V 0 H 60 V 25 Z"
-          stroke="black"
-          stroke-width="2"
-          fill-opacity="0"
-        />
-        <path
-          d="M 70 0 V 35 H 75 V 15 L 90 35 H 95 V 0 H 90 V 25 Z"
-          stroke="black"
-          stroke-width="2"
-          fill-opacity="0"
-        />
-        <path
-          d="M 115 0 L 100 35 H 105 L 115 11 L 125 35 H 130 Z"
-          stroke="black"
-          stroke-width="2"
-          fill-opacity="0"
-        />
+        <defs>
+        <linearGradient y2="0%" x2="0%" y1="100%" x1="0%" id="black-white-grad"><stop stop-color="#00000" offset="0%" id="black_white_grad1"/><stop stop-color="#FFFFFF" offset="0%" id="black_white_grad2"/></linearGradient>
+    </defs>
       </svg>
       <svg class="logo" viewBox="0 0 138 35" xmlns="http://www.w3.org/2000/svg">
         <path
@@ -272,7 +258,8 @@
         />
       </svg>
     </section>
-
+    <script>
+    black_white_grad1.setAttribute('offset', '10%')</script>
     <section class="first-screen">
       <article class="article">
         <h2 class="article__helper-header">Привет!</h2>
@@ -295,7 +282,8 @@
         alt=""
       />
     </section>
-
+    <script>
+    black_white_grad1.setAttribute('offset', '20%')</script>
     <section class="second-screen">
       <h1 class="section-header second-screen__section-header">
         Что же<br />
@@ -327,7 +315,8 @@
         >
       </div>
     </section>
-
+    <script>
+    black_white_grad1.setAttribute('offset', '30%')</script>
     <section class="third-screen">
       <article class="article">
         <p class="article__main-parag article__main-parag_lineHBig">
@@ -661,7 +650,8 @@
         </p>
       </article>
     </section>
-
+    <script>
+    black_white_grad1.setAttribute('offset', '40%')</script>
     <section class="forth-screen">
       <h1 class="section-header">Portrait</h1>
       <div class="photo-portrait"> 
@@ -688,7 +678,8 @@
         </picture>
       </div>
     </section>
-
+    <script>
+    black_white_grad1.setAttribute('offset', '50%')</script>
     <section class="fifth-screen">
       <!-- <div class="button-scene">
         <a class="leave-page" href="http://litvinenko.fun/"><button class="main-button noSelect">Больше?</button></a>
@@ -716,11 +707,13 @@
         <a class="leave-page" href="#"><button class="main-button noSelect">Больше?</button></a>
       </div> -->
     </section>
-
+    <script>
+    black_white_grad1.setAttribute('offset', '60%')</script>
     <section class="sixth-screen">
     <h1 class="section-header">Videos</h1>
     </section>
-
+    <script>
+    black_white_grad1.setAttribute('offset', '70%')</script>
     <section class="seventh-screen">
       <article class="article">
         <h1 class="article__main-header">
@@ -855,6 +848,8 @@
       </div>
       </div>
     </section>
+    <script>
+    black_white_grad1.setAttribute('offset', '80%')</script>   
     <footer>
       <div class="footer-left">
       <a class=""><button class="footer__button text-left">О съемке</button></a>
@@ -869,7 +864,11 @@
       <a class=""><button class="footer__button text-right">О фотографе</button></a>
       </div>
     </footer>
+    <script>
+    black_white_grad1.setAttribute('offset', '90%')</script>
     <script src="libs/anime.min.js"></script>
+    <script>
+    black_white_grad1.setAttribute('offset', '100%')</script>
     <script type="module" src="js/main.js"></script>
   </body>
 </html>
