@@ -46,7 +46,7 @@ if (!mobileScreen) {
 
 
 // LOGO animation
-anime({
+const logoAnim = anime({
   targets: '.logo path',
   strokeDashoffset: [anime.setDashoffset, 0],
   easing: 'easeInOutSine',
@@ -66,6 +66,7 @@ anime({
       }, 20);
     });
   },
+  autoplay: false
 });
 
 //screen size change
@@ -74,14 +75,20 @@ window.addEventListener('orientationchange', () => {
 });
 
 //Animation of first screen text
-anime({
+const titleAnim = anime({
   targets: '.header__text-video',
   translateY: [-100, 0],
   opacity: 1,
   duration: 500,
   delay: 500,
   easing: 'linear',
+  autoplay: false
 });
+
+window.addEventListener('load', () => {
+  titleAnim.play();
+  logoAnim.play();
+})
 
 //Scroll listener
 //SCREEN 2 animation

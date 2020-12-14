@@ -1,11 +1,58 @@
 //drop down menu animation 3d
 const mainMenu = document.querySelector('.menu');
 const menuItems = document.querySelector('.menu__list');
+const logoLoader = document.querySelector('.logo-loader');
 //to open screen with menu down blank
 
 let open = true;
-drawMenuWrapper(true, true);
-window.addEventListener('load', () => drawMenuWrapper(false));
+drawMenuWrapper(true, true, true);
+window.addEventListener('load', loaderScreen);
+//logo loader anim
+let logoLoaderAnim; 
+if (logoLoader) {
+  logoLoaderAnim = anime({
+    targets: '.logo-loader path',
+    strokeDashoffset: [anime.setDashoffset, 0],
+    easing: 'easeInOutSine',
+    duration: 500,
+    delay: anime.stagger(200),
+    begin: function (anim) {
+      logoLoader.style.opacity = '1';
+      logoLoader.style.display = 'flex';
+    },
+
+    complete: function (anim) {
+      document.querySelectorAll('.logo-loader path').forEach(element => {
+        element.setAttribute('fill', 'black');
+        let i = 0;
+        let opacityFill = setInterval(() => {
+          element.setAttribute('fill-opacity', `${i}`);
+          i += 0.1;
+          if (i > 1.1) clearInterval(opacityFill);
+        }, 20);
+      });
+    },
+  });
+}
+function loaderScreen() {
+  try {
+    if (logoLoaderAnim.completed) {
+      drawMenuWrapper(false, false, true);
+      anime({
+        targets: logoLoader,
+        opacity: 0,
+        duration: 300,
+        easing: 'linear',
+        complete: () => (logoLoader.style.display = 'none'),
+      });
+    } else {
+      setTimeout(() => loaderScreen(), 100);
+    }
+  } catch (error) {
+    drawMenuWrapper(false, false, true);
+  }
+
+}
 
 let screenWidth = window.innerWidth;
 let mobileScreen = true;
@@ -128,7 +175,7 @@ nav__button.addEventListener('click', () => {
 //menu drop-down animation
 //drawing menu
 const ctx = canva.getContext('2d');
-export default function drawMenuWrapper(opened = true, instantly = false) {
+export default function drawMenuWrapper(opened = true, instantly = false, loadscreen = false) {
   canva.width = window.innerWidth;
   canva.height = window.innerHeight * 1.2;
   let contrPointY;
@@ -141,6 +188,11 @@ export default function drawMenuWrapper(opened = true, instantly = false) {
   if (instantly) {
     speedSlow = canva.height;
     speedFast = canva.height;
+  }
+  if (loadscreen) {
+    canva.style.zIndex = 1000;
+  } else {
+    canva.style.zIndex = 100;
   }
   let menuY = contrPointY;
   window.requestAnimationFrame(drawMenu);

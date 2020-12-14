@@ -61,7 +61,7 @@ function moveSwipe(event) {
   event.type === 'touchmove' ? (pointerType = event.touches[0]) : (pointerType = event);
   diffX = pointerType.clientX - startX + currentPos;
   //initial left of the first elem
-  let curr = 22;
+  let curr = 23;
   for (let elem of services) {
     if (diffX > 170) diffX = 160;
     else if (diffX < -490 ) diffX = -470;
@@ -70,11 +70,11 @@ function moveSwipe(event) {
     elem.style.left = leftPos + 'px';
     //position to scale
         if (leftPos < 50) elem.style.transform = `translate(-50%) scale(1)`;
-        else if (180 >= leftPos && leftPos > 50) {
+        else if (181 >= leftPos && leftPos > 50) {
           elem.style.transform = `translate(-50%) scale(${1 + (leftPos - 50) / 65})`;
           //define active Tab
           if (1 + (leftPos - 50) / 65 > 2.5) activeTab = elem;
-        } else if (181 < leftPos && leftPos < 310) {
+        } else if (182 < leftPos && leftPos < 310) {
           elem.style.transform = `translate(-50%) scale(${3 - (leftPos - 181) / 65})`;
           if (3 - (leftPos - 181) / 65 > 2.5) activeTab = elem;
         } else elem.style.transform = `translate(-50%) scale(1)`;
@@ -93,7 +93,7 @@ function endSwipe(event) {
 const arrows = document.querySelector('.arrows');
 arrows.addEventListener('click', event => {
 
-  let curr = 22;
+  let curr = 23;
   let diffX;
     if (event.target.classList.contains('arrow-left')) {
       diffX = 158 + currentPos;
@@ -110,11 +110,11 @@ arrows.addEventListener('click', event => {
         elem.style.left = leftPos + 'px';
         //position to scale
         if(leftPos<50) elem.style.transform = `translate(-50%) scale(1)`;
-         else if (180 >= leftPos && leftPos > 50) {
+         else if (181 >= leftPos && leftPos > 50) {
           elem.style.transform = `translate(-50%) scale(${1 + (leftPos - 50) / 65})`;
           //define active Tab
           if (1 + (leftPos - 50) / 65 > 2.5) activeTab = elem;
-        } else if (181 < leftPos && leftPos < 310) {
+        } else if (182 < leftPos && leftPos < 310) {
           elem.style.transform = `translate(-50%) scale(${3 - (leftPos - 181) / 65})`;
           if (3 - (leftPos - 181) / 65 > 2.5) activeTab = elem;
         }

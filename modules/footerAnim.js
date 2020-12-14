@@ -44,6 +44,6 @@ export function leavePageDelayed(element) {
   drawMenuWrapper(true);
   setTimeout(() => {
   window.location = targetURL;
-  drawMenuWrapper(false);
+  drawMenuWrapper(false, true);
   }, 900);
 }
