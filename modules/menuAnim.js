@@ -10,35 +10,30 @@ window.addEventListener('load', loaderScreen);
 //logo loader anim
 let logoLoaderAnim; 
 if (logoLoader) {
+  logoLoader.style.opacity = '1';
+  logoLoader.style.display = 'flex';
+  let i = 0;
   logoLoaderAnim = anime({
-    targets: '.logo-loader path',
-    easing: 'easeInOutSine',
-    duration: 500,
-    begin: () => {
-      logoLoader.style.opacity = '1';
-      logoLoader.style.display = 'flex';
-    }
-  });
+    targets: black_white_grad1,
+    duration: 5000,
+    easing: 'linear',
+    offset: '100%',
+    direction: 'alternate',
+    loop: true
+  })
 }
 function loaderScreen() {
-  try {
-    if (logoLoaderAnim.completed) {
       drawMenuWrapper(false, false, true);
+      logoLoaderAnim.remove(black_white_grad1);
       anime({
         targets: logoLoader,
         opacity: 0,
         duration: 300,
         easing: 'linear',
+        begin: () => black_white_grad1.setAttribute('offset', '100%'),
         complete: () => (logoLoader.style.display = 'none'),
       });
-    } else {
-      setTimeout(() => loaderScreen(), 100);
     }
-  } catch (error) {
-    drawMenuWrapper(false, false, true);
-  }
-
-}
 
 let screenWidth = window.innerWidth;
 let mobileScreen = true;
