@@ -6,7 +6,7 @@ import WebglHover from '../modules/webglAnim.js';
 let screenHeight = window.innerHeight;
 let screenWidth = window.innerWidth;
 let mobileScreen = true;
-if (screenWidth > 759) mobileScreen = false;
+if (screenWidth > 1024) mobileScreen = false;
 
 //to leave the page with anim
 document.querySelectorAll('.leave-page').forEach(elem =>
@@ -15,6 +15,21 @@ document.querySelectorAll('.leave-page').forEach(elem =>
     leavePageDelayed(event.currentTarget);
   })
 );
+
+//mouse move anim
+if (!mobileScreen) {
+  const cursor = document.querySelector('.cursor');
+  cursor.style.display = 'block';
+  document.addEventListener('mousemove', event => {
+      anime({
+        targets: cursor,
+        duration: 0,
+        easing: 'linear',
+        left: event.clientX,
+        top: event.clientY,
+      });
+    });
+}
 
 //screen size change
 window.addEventListener('orientationchange', () => {
@@ -66,7 +81,7 @@ function moveSwipe(event) {
     //add 158px for next elem in array
     curr += 158;
   }
-  
+      console.log(activeTab);
 }
 //save end point to get the difference between old and new swipe
 function endSwipe(event) {
@@ -108,8 +123,9 @@ arrows.addEventListener('click', event => {
         curr += 158;
       });
     currentPos = diffX; 
-
 })
+
+
 
 //every slide webGL
 document.querySelectorAll('.slide').forEach(slide => {

@@ -7,22 +7,26 @@ let open = true;
 drawMenuWrapper(true, true);
 window.addEventListener('load', () => drawMenuWrapper(false));
 
-mainMenu.addEventListener('mousemove', move3dmenu);
+let screenWidth = window.innerWidth;
+let mobileScreen = true;
+if (screenWidth > 1024) mobileScreen = false;
 
-function move3dmenu(event) {
-  //define middle of the button to contol the movement
-  let width = menuItems.clientWidth / 2;
-  let height = menuItems.clientHeight / 2;
-  let x = event.clientX - menuItems.getBoundingClientRect().left;
-  let y = event.clientY - menuItems.getBoundingClientRect().top;
-  anime({
-    targets: menuItems,
-    rotateY: (x - width) / 400,
-    rotateX: -(y - height) / 400,
-    translateZ: [-20, -20],
-    duration: 100,
-    easing: 'linear',
-  });
+if (!mobileScreen) {
+  mainMenu.addEventListener('mousemove', move3dmenu);
+  function move3dmenu(event) {
+    //define middle of the button to contol the movement
+    let width = menuItems.clientWidth / 2;
+    let height = menuItems.clientHeight / 2;
+    let x = event.clientX - menuItems.getBoundingClientRect().left;
+    let y = event.clientY - menuItems.getBoundingClientRect().top;
+    anime({
+      targets: menuItems,
+      rotateY: (x - width) / 400,
+      rotateX: -(y - height) / 400,
+      duration: 100,
+      easing: 'linear',
+    });
+  }
 }
 // MENU BUTTON ANIMATION start
 let nav__buttonLine1 = anime({
@@ -99,7 +103,7 @@ nav__button.addEventListener('click', () => {
     nav__buttonLine3.play();
     nav__buttonLine2.play();
     header__menuListOpened.play();
-    setTimeout(() => document.querySelector('.menu').classList.toggle('flex'), 300);
+    setTimeout(() => mainMenu.classList.toggle('flex'), 300);
     menuCounterClicks++;
     drawMenuWrapper();
   } else {
@@ -110,17 +114,16 @@ nav__button.addEventListener('click', () => {
     nav__buttonLine3.play();
     nav__buttonLine2.play();
 
-    if (document.querySelector('.menu').classList.contains('flex')) {
-      setTimeout(() => document.querySelector('.menu').classList.toggle('flex'), 450);
+    if (mainMenu.classList.contains('flex')) {
+      setTimeout(() => mainMenu.classList.toggle('flex'), 450);
       header__menuListClosed.play();
     } else {
       header__menuListOpened.play();
-      document.querySelector('.menu').classList.toggle('flex');
+      mainMenu.classList.toggle('flex');
     }
     drawMenuWrapper(open);
   }
 });
-
 
 //menu drop-down animation
 //drawing menu
@@ -164,6 +167,7 @@ export default function drawMenuWrapper(opened = true, instantly = false) {
         }
         break;
     }
+    ctx.lineWidth = 5;
     ctx.clearRect(0, 0, canva.width, canva.height);
     ctx.fillStyle = 'rgb(255, 255, 255)';
     ctx.beginPath();
@@ -172,6 +176,8 @@ export default function drawMenuWrapper(opened = true, instantly = false) {
     ctx.quadraticCurveTo(canva.width / 2, contrPointY, canva.width, menuY);
     ctx.lineTo(canva.width, 0);
     ctx.fill();
+    ctx.strokeStyle = 'rgb(150, 150, 150)';
+    ctx.stroke();
     if (menuY <= canva.height && menuY >= 0) {
       window.requestAnimationFrame(drawMenu);
     }

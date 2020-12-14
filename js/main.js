@@ -23,9 +23,9 @@ if (screenWidth > 1024) mobileScreen = false;
 //mouse move anim
 if (!mobileScreen) {
   let cursor = document.querySelectorAll('.cursor');
+  cursor.forEach(item => item.style.display = 'block');
   document.addEventListener('mousemove', event => {
-    cursor.forEach(item => {
-      item.style.display = 'block';
+    cursor.forEach((item, index) => {
       anime({
         targets: item,
         duration: 0,
@@ -178,7 +178,7 @@ function backColorAnim() {
     SECTION_HEADERS.forEach(elem => (elem.style.color = `rgb(${rgbColor},${rgbColor},${rgbColor})`));
     return;
   }
-  //anim of backgroud color white
+  //anim of background color white
   if (scrollY > FORTH_PAGE.offsetTop - 250) {
     rgbColor > 255 ? (rgbColor = 255) : (rgbColor = (scrollY - FORTH_PAGE.offsetTop + 250) * 1.5);
     BODY.style.backgroundColor = `rgb(${rgbColor},${rgbColor},${rgbColor})`;
@@ -218,15 +218,38 @@ document.querySelectorAll('.hover-scale').forEach(elem => {
   })
   })
 
+//upward anim of images 
+let upwardAnimImages = document.querySelectorAll('.upward-anim');
+let upwardObserver = new IntersectionObserver(upwardAnim, {rootMargin: '-50px'}); 
+upwardAnimImages.forEach(elem => upwardObserver.observe(elem));
+function upwardAnim(entries) {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) {
+      let image = entry.target;
+      image.classList.remove('lazy-load');
+      upwardObserver.unobserve(image);
+      anime({
+        targets: image,
+        easing: 'linear',
+        duration: 300,
+        translateY: [300, 0]
+      })
+    }
+  })
+}
 
 //Screen 5 Iphone animation swipe
-let iphoneImg = document.querySelector('.fifth-screen__iphone-pic');
+const leftArrow = document.querySelector('.fifth-screen__arrow-left');
+const rightArrow = document.querySelector('.fifth-screen__arrow-right');
+leftArrow.addEventListener('click', handleEndSwipe);
+rightArrow.addEventListener('click', handleEndSwipe);
+const iphoneImg = document.querySelector('.fifth-screen__iphone-pic');
 iphoneImg.addEventListener('touchstart', handleStartSwipe);
 iphoneImg.addEventListener('touchmove', handleMoveSwipe);
 iphoneImg.addEventListener('touchend', handleEndSwipe);
 let touchFirst;
 let currentBackgroundPosX = 14;
-let listNumberOfImg = 2;
+const listNumberOfImg = 2;
 function handleStartSwipe(event) {
   event.preventDefault();
   touchFirst = event.touches[0].clientX;
@@ -238,9 +261,16 @@ function handleMoveSwipe(event) {
   iphoneImg.style.backgroundPosition = `${swiperPos}px 35%`;
 }
 function handleEndSwipe(event) {
-  let touchLast = event.changedTouches[0].clientX;
+  let touchLast;
+  try {
+    touchLast = event.changedTouches[0].clientX;
+    touchLast = touchFirst > touchLast;
+  } catch (error) {
+    event.target.classList.contains('arrow-left') ? touchLast = false : touchLast = true;
+  }
 
-  if (touchFirst > touchLast) {
+
+  if (touchLast) {
     currentBackgroundPosX -= iphoneImg.clientWidth * 0.9;
     if (currentBackgroundPosX < -(iphoneImg.clientWidth * 0.9 * (listNumberOfImg - 1)))
       currentBackgroundPosX += iphoneImg.clientWidth * 0.9;
@@ -323,15 +353,16 @@ fetch('./js/jsons/data.json')
   });
 
 //lazy loading for images class
-// let lazyImgs = document.querySelectorAll('.lazy-load');
-// let lazyObserver = new IntersectionObserver(lazyLoad, {rootMargin: '100px'});
-// lazyImgs.forEach(elem => lazyObserver.observe(elem));
-// function lazyLoad(entries, observer) {
-//   entries.forEach(entry => {
-//     if(entry.isIntersecting) {
-//     let image = entry.target;
-//     image.src = image.dataset.src;
-//     image.classList.remove('lazy-load');
-//     image.unobserve(image);
-//   }});
-// };
+let lazyImgs = document.querySelectorAll('.lazy-load');
+let lazyObserver = new IntersectionObserver(lazyLoad, {rootMargin: '200px'});
+lazyImgs.forEach(elem => lazyObserver.observe(elem));
+function lazyLoad(entries) {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) {
+    let image = entry.target;
+    image.src = image.dataset.src;
+    image.classList.remove('lazy-load');
+    lazyObserver.unobserve(image);
+  }});
+};
+

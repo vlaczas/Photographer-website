@@ -42,5 +42,8 @@ export function footerAnim() {
 export function leavePageDelayed(element) {
   let targetURL = element.getAttribute('href');
   drawMenuWrapper(true);
-  setTimeout(() => (window.location = targetURL), 900);
+  setTimeout(() => {
+  window.location = targetURL;
+  drawMenuWrapper(false);
+  }, 900);
 }
