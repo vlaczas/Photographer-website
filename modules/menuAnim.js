@@ -12,7 +12,6 @@ let logoLoaderAnim;
 if (logoLoader) {
   logoLoader.style.opacity = '1';
   logoLoader.style.display = 'flex';
-  let i = 0;
   logoLoaderAnim = anime({
     targets: black_white_grad1,
     duration: 5000,
@@ -39,7 +38,7 @@ let screenWidth = window.innerWidth;
 let mobileScreen = true;
 if (screenWidth > 1024) mobileScreen = false;
 
-// if (!mobileScreen) {
+if (!mobileScreen) {
   mainMenu.addEventListener('mousemove', move3dmenu);
   //define middle of the button to contol the movement
   let width = menuItems.clientWidth / 2;
@@ -56,7 +55,7 @@ if (screenWidth > 1024) mobileScreen = false;
       easing: 'linear',
     });
   }
-// }
+}
 // MENU BUTTON ANIMATION start
 let nav__buttonLine1 = anime({
   targets: '.nav__button-line:nth-of-type(1)',
