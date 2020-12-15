@@ -39,7 +39,7 @@ let screenWidth = window.innerWidth;
 let mobileScreen = true;
 if (screenWidth > 1024) mobileScreen = false;
 
-if (!mobileScreen) {
+// if (!mobileScreen) {
   mainMenu.addEventListener('mousemove', move3dmenu);
   //define middle of the button to contol the movement
   let width = menuItems.clientWidth / 2;
@@ -51,12 +51,11 @@ if (!mobileScreen) {
       targets: menuItems,
       rotateY: (x - width) / 400,
       rotateX: -(y - height) / 400,
-      rotateZ: [0, 0],
       duration: 100,
       easing: 'linear',
     });
   }
-}
+// }
 // MENU BUTTON ANIMATION start
 let nav__buttonLine1 = anime({
   targets: '.nav__button-line:nth-of-type(1)',
