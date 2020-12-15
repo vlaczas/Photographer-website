@@ -51,6 +51,7 @@ if (screenWidth > 1024) mobileScreen = false;
       targets: menuItems,
       rotateY: (x - width) / 400,
       rotateX: -(y - height) / 400,
+      translateZ: [40, 40],
       duration: 100,
       easing: 'linear',
     });
