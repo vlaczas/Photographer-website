@@ -43,7 +43,7 @@ export function leavePageDelayed(element) {
   let targetURL = element.getAttribute('href');
   drawMenuWrapper(true);
   setTimeout(() => {
-  window.location = targetURL;
-  drawMenuWrapper(false, true);
+    window.location = targetURL;
+    drawMenuWrapper(false, true);
   }, 900);
 }

@@ -8,7 +8,7 @@ let open = true;
 drawMenuWrapper(true, true, true);
 window.addEventListener('load', loaderScreen);
 //logo loader anim
-let logoLoaderAnim; 
+let logoLoaderAnim;
 if (logoLoader) {
   logoLoader.style.opacity = '1';
   logoLoader.style.display = 'flex';
@@ -19,21 +19,21 @@ if (logoLoader) {
     easing: 'linear',
     offset: '100%',
     direction: 'alternate',
-    loop: true
-  })
+    loop: true,
+  });
 }
 function loaderScreen() {
-      drawMenuWrapper(false, false, true);
-      logoLoaderAnim.remove(black_white_grad1);
-      anime({
-        targets: logoLoader,
-        opacity: 0,
-        duration: 300,
-        easing: 'linear',
-        begin: () => black_white_grad1.setAttribute('offset', '100%'),
-        complete: () => (logoLoader.style.display = 'none'),
-      });
-    }
+  drawMenuWrapper(false, false, true);
+  logoLoaderAnim.remove(black_white_grad1);
+  anime({
+    targets: logoLoader,
+    opacity: 0,
+    duration: 300,
+    easing: 'linear',
+    begin: () => black_white_grad1.setAttribute('offset', '100%'),
+    complete: () => (logoLoader.style.display = 'none'),
+  });
+}
 
 let screenWidth = window.innerWidth;
 let mobileScreen = true;
@@ -41,16 +41,17 @@ if (screenWidth > 1024) mobileScreen = false;
 
 if (!mobileScreen) {
   mainMenu.addEventListener('mousemove', move3dmenu);
+  //define middle of the button to contol the movement
+  let width = menuItems.clientWidth / 2;
+  let height = menuItems.clientHeight / 2;
   function move3dmenu(event) {
-    //define middle of the button to contol the movement
-    let width = menuItems.clientWidth / 2;
-    let height = menuItems.clientHeight / 2;
     let x = event.clientX - menuItems.getBoundingClientRect().left;
     let y = event.clientY - menuItems.getBoundingClientRect().top;
     anime({
       targets: menuItems,
       rotateY: (x - width) / 400,
       rotateX: -(y - height) / 400,
+      rotateZ: [0, 0],
       duration: 100,
       easing: 'linear',
     });

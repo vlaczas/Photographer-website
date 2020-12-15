@@ -23,7 +23,7 @@ if (screenWidth > 1024) mobileScreen = false;
 //mouse move anim
 if (!mobileScreen) {
   let cursor = document.querySelectorAll('.cursor');
-  cursor.forEach(item => item.style.display = 'block');
+  cursor.forEach(item => (item.style.display = 'block'));
   document.addEventListener('mousemove', event => {
     cursor.forEach((item, index) => {
       anime({
@@ -36,14 +36,13 @@ if (!mobileScreen) {
     });
   });
 }
-  //to leave the page with anim
-  document.querySelectorAll('.leave-page').forEach(elem =>
-    elem.addEventListener('click', event => {
-      event.preventDefault();
-      leavePageDelayed(event.currentTarget);
-    })
-  );
-
+//to leave the page with anim
+document.querySelectorAll('.leave-page').forEach(elem =>
+  elem.addEventListener('click', event => {
+    event.preventDefault();
+    leavePageDelayed(event.currentTarget);
+  })
+);
 
 // LOGO animation
 const logoAnim = anime({
@@ -66,7 +65,7 @@ const logoAnim = anime({
       }, 20);
     });
   },
-  autoplay: false
+  autoplay: false,
 });
 
 //screen size change
@@ -82,13 +81,13 @@ const titleAnim = anime({
   duration: 500,
   delay: 500,
   easing: 'linear',
-  autoplay: false
+  autoplay: false,
 });
 
 window.addEventListener('load', () => {
   titleAnim.play();
   logoAnim.play();
-})
+});
 
 //Scroll listener
 //SCREEN 2 animation
@@ -209,29 +208,29 @@ document.querySelectorAll('.hover-scale').forEach(elem => {
     anime({
       targets: elem,
       duration: 500,
-      easing: "linear",
+      easing: 'linear',
       scaleX: 1.05,
-      scaleY: 1.05
-    })
-  })
+      scaleY: 1.05,
+    });
+  });
   elem.addEventListener('mouseout', () => {
-        anime({
+    anime({
       targets: elem,
       duration: 500,
-      easing: "linear",
+      easing: 'linear',
       scaleX: 1,
-      scaleY: 1
-    })
-  })
-  })
+      scaleY: 1,
+    });
+  });
+});
 
-//upward anim of images 
+//upward anim of images
 let upwardAnimImages = document.querySelectorAll('.upward-anim');
-let upwardObserver = new IntersectionObserver(upwardAnim, {rootMargin: '-50px'}); 
+let upwardObserver = new IntersectionObserver(upwardAnim, { rootMargin: '-50px' });
 upwardAnimImages.forEach(elem => upwardObserver.observe(elem));
 function upwardAnim(entries) {
   entries.forEach(entry => {
-    if(entry.isIntersecting) {
+    if (entry.isIntersecting) {
       let image = entry.target;
       image.classList.remove('lazy-load');
       upwardObserver.unobserve(image);
@@ -239,10 +238,10 @@ function upwardAnim(entries) {
         targets: image,
         easing: 'linear',
         duration: 300,
-        translateY: [300, 0]
-      })
+        translateY: [300, 0],
+      });
     }
-  })
+  });
 }
 
 //Screen 5 Iphone animation swipe
@@ -273,9 +272,8 @@ function handleEndSwipe(event) {
     touchLast = event.changedTouches[0].clientX;
     touchLast = touchFirst > touchLast;
   } catch (error) {
-    event.target.classList.contains('arrow-left') ? touchLast = false : touchLast = true;
+    event.target.classList.contains('arrow-left') ? (touchLast = false) : (touchLast = true);
   }
-
 
   if (touchLast) {
     currentBackgroundPosX -= iphoneImg.clientWidth * 0.9;
@@ -361,15 +359,15 @@ fetch('./js/jsons/data.json')
 
 //lazy loading for images class
 let lazyImgs = document.querySelectorAll('.lazy-load');
-let lazyObserver = new IntersectionObserver(lazyLoad, {rootMargin: '200px'});
+let lazyObserver = new IntersectionObserver(lazyLoad, { rootMargin: '200px' });
 lazyImgs.forEach(elem => lazyObserver.observe(elem));
 function lazyLoad(entries) {
   entries.forEach(entry => {
-    if(entry.isIntersecting) {
-    let image = entry.target;
-    image.src = image.dataset.src;
-    image.classList.remove('lazy-load');
-    lazyObserver.unobserve(image);
-  }});
-};
-
+    if (entry.isIntersecting) {
+      let image = entry.target;
+      image.src = image.dataset.src;
+      image.classList.remove('lazy-load');
+      lazyObserver.unobserve(image);
+    }
+  });
+}
