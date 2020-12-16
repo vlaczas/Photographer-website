@@ -61,8 +61,8 @@ function moveSwipe(event) {
   //initial left of the first elem
   let curr = 23;
   for (let elem of services) {
-    if (diffX > 170) diffX = 160;
-    else if (diffX < -490) diffX = -470;
+    if (diffX > 170) diffX = 158;
+    else if (diffX < -170) diffX = -158;
     elem.style.transition = '';
     let leftPos = curr + diffX;
     elem.style.left = leftPos + 'px';
@@ -79,7 +79,6 @@ function moveSwipe(event) {
     //add 158px for next elem in array
     curr += 158;
   }
-  console.log(activeTab);
 }
 //save end point to get the difference between old and new swipe
 function endSwipe(event) {
@@ -100,8 +99,8 @@ arrows.addEventListener('click', event => {
     return;
   }
   services.forEach(elem => {
-    if (diffX > 170) diffX = 160;
-    else if (diffX < -490) diffX = -470;
+    if (diffX > 170) diffX = 158;
+    else if (diffX < -170) diffX = -158;
     elem.style.transition = 'all 0.5s ease';
     let leftPos = curr + diffX;
     elem.style.left = leftPos + 'px';
@@ -119,6 +118,7 @@ arrows.addEventListener('click', event => {
     curr += 158;
   });
   currentPos = diffX;
+   console.log(activeTab);
 });
 
 //every slide webGL

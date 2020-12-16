@@ -9,7 +9,7 @@ const SECOND_PAGE = document.querySelector('.second-screen');
 const THIRD_PAGE = document.querySelector('.third-screen');
 const FORTH_PAGE = document.querySelector('.forth-screen');
 const FIFTH_PAGE = document.querySelector('.fifth-screen');
-const SIXTH_PAGE = document.querySelector('.sixth-screen');
+const SIXTH_PAGE = document.querySelector('.love-story');
 const SEVENTH_PAGE = document.querySelector('.seventh-screen');
 const LOGO = document.querySelector('.logo');
 const SECTION_HEADERS = document.querySelectorAll('.section-header');
@@ -172,14 +172,13 @@ function questAnim() {
 let rgbColor = 0;
 function backColorAnim() {
   //anim of BRANDS screen
-  //
   if (scrollY < FORTH_PAGE.offsetTop - 250) {
     BODY.style.backgroundColor = `rgb(0, 0, 0)`;
     SECTION_HEADERS.forEach(elem => (elem.style.color = `rgb(0, 0, 0)`));
   }
   //black after white
-  if (scrollY > SIXTH_PAGE.offsetTop - 150) {
-    rgbColor < 0 ? (rgbColor = 0) : (rgbColor = 255 + (SIXTH_PAGE.offsetTop - scrollY - 150)) * 1.5;
+  if (scrollY > SIXTH_PAGE.offsetTop + 150) {
+    rgbColor < 0 ? (rgbColor = 0) : (rgbColor = 255 + (SIXTH_PAGE.offsetTop + 150 - scrollY)) * 1.5;
     BODY.style.backgroundColor = `rgb(${rgbColor},${rgbColor},${rgbColor})`;
     SECTION_HEADERS.forEach(elem => (elem.style.color = `rgb(${rgbColor},${rgbColor},${rgbColor})`));
     return;
