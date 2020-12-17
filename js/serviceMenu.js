@@ -118,8 +118,13 @@ arrows.addEventListener('click', event => {
     curr += 158;
   });
   currentPos = diffX;
-   console.log(activeTab);
 });
+
+//react to the slider changes to show relevant photos
+function showCurrentTab(selectedTab) {
+
+}
+
 
 //every slide webGL
 document.querySelectorAll('.slide').forEach(slide => {
