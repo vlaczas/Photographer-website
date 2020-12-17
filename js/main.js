@@ -327,7 +327,11 @@ fetch('./js/jsons/data.json')
         );
         str = arr.join('');
       } else {
-        arr.splice(60, 0, '<span>...&nbsp;</span><button class="insta-post__more" type="button">ещё</button>');
+        arr.splice(
+          60,
+          0,
+          '<span>...&nbsp;</span><button class="insta-post__more" type="button">ещё&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</button>'
+        );
         str = arr.join('');
       }
       postContentFiller[i].innerHTML = str;
