@@ -5,6 +5,7 @@ footerAnim();
 export function footerAnim() {
   document.querySelectorAll('.footer__button').forEach(elem => elem.addEventListener('click', animRect));
   function animRect(event) {
+    event.preventDefault();
     let target = event.target.parentElement;
     let animeRect = anime.timeline({
       targets: '.arrow-left',

@@ -147,72 +147,21 @@
       </section>
         <div class="cursor"></div>
     </header>
-    <main>
-
-    <section class="service-container">
-      <svg class="logo-loader" viewBox="0 0 40 35" xmlns="http://www.w3.org/2000/svg">
-        <path
-          d="M 20 0 L 5 35 H 10 L 20 11 L 30 35 H 35 Z"
-          stroke="black"
-          stroke-width="0.5"
-          fill-opacity="1"
-          fill = "url(#black-white-grad)"
-        />
-        <defs>
-        <linearGradient y2="0%" x2="0%" y1="100%" x1="0%" id="black-white-grad"><stop stop-color="#00000" offset="0%" id="black_white_grad1"/><stop stop-color="#FFFFFF" offset="0%" id="black_white_grad2"/></linearGradient>
-    </defs>
-      </svg>
-      <section class="header-slider">
-        <h1 class="services">Portrait</h1>
-        <h1 class="services">Love story</h1>
-        <h1 class="services">Brands</h1>
-        <!-- <h1 class="services">Videos</h1> -->
-      </section>
-      <div class="arrows">
-        <div class="arrow">
-          <img tabindex="0" src="/media/back.png" alt="" class="focus-ring arrow-left noSelect" />
-        </div>
-        <div class="arrow">
-          <img tabindex="0" src="/media/back.png" alt="" class="focus-ring arrow-right noSelect" />
-        </div>
+    <footer>
+      <div class="footer-left">
+        <a tabindex="-1" href="/pages/services.html"><button class="footer__button text-left focus-ring">Услуги</button></a>
       </div>
-      <div class="current-tab">
-          <div class="slide text-right no-margin">
-            <div class="canvas"></div>
-            <div class="plane">
-              <img data-sampler="texture0" crossorigin src="../media/portrait1-large.jpg" />
-              <img data-sampler="texture1" crossorigin src="../media/portrait2-large.jpg" />
-              <img data-sampler="map" crossorigin src="../media/glmap.jpg" />
-            </div>
-          </div>
-
-          <div class="slide text-left">
-            <div class="canvas"></div>
-            <div class="plane">
-              <img data-sampler="texture0" src="../media/portrait4-large.jpg" />
-              <img data-sampler="texture1" src="../media/portrait5-large.jpg" />
-              <img data-sampler="map" src="../media/glmap.jpg" />
-            </div>
-          </div>
+      <div class="arrow">
+        <img src="/media/back.png" alt="" class="arrow-left">
       </div>
-      </section>
-      <footer>
-        <div class="footer-left">
-          <a tabindex="-1" class="focus-ring noSelect" href="/pages/about.html"><button class="footer__button text-left focus-ring noSelect">О фотографе</button></a>
-        </div>
-        <div class="arrow">
-          <img src="../media/back.png" alt="" class="arrow-left noSelect" />
-        </div>
-        <div class="arrow">
-          <img src="../media/back.png" alt="" class="arrow-right noSelect" />
-        </div>
-        <div class="footer-right">
-          <a tabindex="-1" href="/pages/price.html" class="focus-ring noSelect"><button class="footer__button text-right focus-ring noSelect">Прайс</button></a>
-        </div>
-      </footer>
-    </main>
-    <script src="../libs/anime.min.js"></script>
-    <script src="../libs/curtains.umd.min.js"></script>
-    <script type="module" src="../js/serviceMenu.js"></script>
+      <div class="arrow">
+        <img src="/media/back.png" alt="" class="arrow-right noSelect">
+      </div>
+      <div class="footer-right">
+      <a tabindex="-1" href="/pages/about.html"><button class="footer__button text-right focus-ring">О фотографе</button></a>
+      </div>
+    </footer>
+    <script src="libs/anime.min.js"></script>
+    <script type="module" src="js/main.js"></script>
   </body>
 </html>

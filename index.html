@@ -644,7 +644,7 @@
       <p class="user-action">cвайпай</p>
       <picture class="fifth-screen__iphone">
         <img draggable="false" src="media/iphone.png" alt="" class="fifth-screen__iphone-pic" />
-          <img draggable="false" src="/media/back.png" alt="" tabindex="0" class="arrow-right filter-none fifth-screen__arrow-right focus-ring">
+          <img draggable="false" src="/media/back.png" alt="" tabindex="0" class="arrow-right filter-none fifth-screen__arrow-right focus-ring noSelect">
           <img draggable="false" src="/media/back.png" alt="" tabindex="0" class="arrow-left filter-none fifth-screen__arrow-left focus-ring">
       </picture>
       <article class="article colorBlack">
@@ -658,8 +658,8 @@
     </section>
 
     <h1 class="section-header">Love story</h1>
+    <p class="user-action">кликай</p>
     <div class="love-story">
-      <p class="user-action">кликай</p>
       <picture>
         <a class="noStyleLink leave-page" href="/pages/services.html"><div>Картинка 1</div></a> 
         <img class="love-story__img lazy-load" data-src="/media/lovestory1-large.jpg" src="/media/lovestory1-largeRep.jpg" alt="" srcset="">
@@ -811,16 +811,16 @@
  
     <footer>
       <div class="footer-left">
-      <a href="/pages/services.html"><button class="footer__button text-left">Услуги</button></a>
+        <a tabindex="-1" href="/pages/services.html"><button class="footer__button text-left focus-ring">Услуги</button></a>
       </div>
       <div class="arrow">
         <img src="/media/back.png" alt="" class="arrow-left">
       </div>
       <div class="arrow">
-<img src="/media/back.png" alt="" class="arrow-right">
+        <img src="/media/back.png" alt="" class="arrow-right noSelect">
       </div>
       <div class="footer-right">
-      <a href="/pages/about.html"><button class="footer__button text-right">О фотографе</button></a>
+      <a tabindex="-1" href="/pages/about.html"><button class="footer__button text-right focus-ring">О фотографе</button></a>
       </div>
     </footer>
     <script src="libs/anime.min.js"></script>
