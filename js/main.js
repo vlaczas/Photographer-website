@@ -177,8 +177,8 @@ function backColorAnim() {
     SECTION_HEADERS.forEach(elem => (elem.style.color = `rgb(0, 0, 0)`));
   }
   //black after white
-  if (scrollY > SIXTH_PAGE.offsetTop) {
-    rgbColor < 0 ? (rgbColor = 0) : (rgbColor = 255 + (SIXTH_PAGE.offsetTop - scrollY)) * 1.5;
+  if (scrollY > SIXTH_PAGE.offsetTop -100) {
+    rgbColor < 0 ? (rgbColor = 0) : (rgbColor = 255 + (SIXTH_PAGE.offsetTop - 100 - scrollY)) * 1.5;
     BODY.style.backgroundColor = `rgb(${rgbColor},${rgbColor},${rgbColor})`;
     SECTION_HEADERS.forEach(elem => (elem.style.color = `rgb(${rgbColor},${rgbColor},${rgbColor})`));
     return;
@@ -319,7 +319,7 @@ fetch('./js/jsons/data.json')
       let photo = opened.last_post[i].display_url;
       let str = opened.last_post[i].caption.replace(/\n/g, '<br>');
       let arr = str.split('');
-      if (str.indexOf('<br>') > 0 && str.indexOf('<br>') < 60) {
+      if (str.indexOf('<br>') > 0 && str.indexOf('<br>') < 50) {
         arr.splice(
           str.indexOf('<br>'),
           0,
@@ -328,7 +328,7 @@ fetch('./js/jsons/data.json')
         str = arr.join('');
       } else {
         arr.splice(
-          60,
+          50,
           0,
           '<span>...&nbsp;</span><button tabindex="0" class="insta-post__more noSelect focus-ring" type="button">ещё</button><span><br><br></span>'
         );
