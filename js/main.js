@@ -254,7 +254,7 @@ iphoneImg.addEventListener('touchmove', handleMoveSwipe);
 iphoneImg.addEventListener('touchend', handleEndSwipe);
 let touchFirst;
 let currentBackgroundPosX = 14;
-const listNumberOfImg = 6;
+const listNumberOfImg = 10;
 function handleStartSwipe(event) {
   event.preventDefault();
   touchFirst = event.touches[0].clientX;
@@ -275,12 +275,12 @@ function handleEndSwipe(event) {
   }
 
   if (touchLast) {
-    currentBackgroundPosX -= iphoneImg.clientWidth * 0.9;
-    if (currentBackgroundPosX < -(iphoneImg.clientWidth * 0.9 * (listNumberOfImg - 1)))
-      currentBackgroundPosX += iphoneImg.clientWidth * 0.9;
+    currentBackgroundPosX -= iphoneImg.clientWidth * 0.91;
+    if (currentBackgroundPosX < -(iphoneImg.clientWidth * 0.91 * (listNumberOfImg - 1)))
+      currentBackgroundPosX += iphoneImg.clientWidth * 0.91;
     iphoneImg.style.backgroundPosition = `${currentBackgroundPosX}px 50%`;
   } else {
-    currentBackgroundPosX += iphoneImg.clientWidth * 0.9;
+    currentBackgroundPosX += iphoneImg.clientWidth * 0.91;
     if (currentBackgroundPosX > 14) currentBackgroundPosX = 14;
     iphoneImg.style.backgroundPosition = `${currentBackgroundPosX}px 50%`;
   }
