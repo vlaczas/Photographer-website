@@ -30,11 +30,6 @@ if (!mobileScreen) {
   });
 }
 
-//screen size change
-window.addEventListener('orientationchange', () => {
-  window.location.reload();
-});
-
 const services = document.querySelectorAll('.services');
 const services_scene = document.querySelector('.header-slider');
 services_scene.addEventListener('touchstart', startSwipe);
@@ -61,8 +56,8 @@ function moveSwipe(event) {
   //initial left of the first elem
   let curr = 23;
   for (let elem of services) {
-    if (diffX > 170) diffX = 158;
-    else if (diffX < -170) diffX = -158;
+    if (diffX > 170) diffX = 160;
+    else if (diffX < -170) diffX = -160;
     elem.style.transition = '';
     let leftPos = curr + diffX;
     elem.style.left = leftPos + 'px';
@@ -88,19 +83,24 @@ function endSwipe(event) {
 }
 //listen arrows to translate tabs
 const arrows = document.querySelector('.arrows');
-arrows.addEventListener('click', event => {
+arrows.addEventListener('click', arrowsMoveTab);
+
+function arrowsMoveTab(event, numberOfTab) {
   let curr = 23;
-  let diffX;
-  if (event.target.classList.contains('arrow-left')) {
+  if (event?.target.classList.contains('arrow-left')) {
     diffX = 158 + currentPos;
-  } else if (event.target.classList.contains('arrow-right')) {
+  } else if (event?.target.classList.contains('arrow-right')) {
     diffX = -158 + currentPos;
+  } else if (Number.isInteger(numberOfTab)) {
+    diffX = 158 - 158 * numberOfTab;
+    console.log(numberOfTab);
   } else {
     return;
   }
+
   services.forEach(elem => {
-    if (diffX > 170) diffX = 158;
-    else if (diffX < -170) diffX = -158;
+    if (diffX > 170) diffX = 160;
+    else if (diffX < -170) diffX = -160;
     elem.style.transition = 'all 0.5s ease';
     let leftPos = curr + diffX;
     elem.style.left = leftPos + 'px';
@@ -118,12 +118,9 @@ arrows.addEventListener('click', event => {
     curr += 158;
   });
   currentPos = diffX;
-});
+};
 
-//react to the slider changes to show relevant photos
-function showCurrentTab(selectedTab) {
 
-}
 
 
 //every slide webGL

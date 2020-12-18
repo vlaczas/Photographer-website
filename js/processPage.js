@@ -28,11 +28,6 @@ if (!mobileScreen) {
   });
 }
 
-//screen size change
-window.addEventListener('orientationchange', () => {
-  window.location.reload();
-});
-
 //thread anim
 const canvaThread = document.querySelector('.canvas-thread');
 const container = document.querySelector('.container');

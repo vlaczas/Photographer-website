@@ -68,11 +68,6 @@ const logoAnim = anime({
   autoplay: false,
 });
 
-//screen size change
-window.addEventListener('orientationchange', () => {
-  window.location.reload();
-});
-
 //Animation of first screen text
 const titleAnim = anime({
   targets: '.header__text-video',
