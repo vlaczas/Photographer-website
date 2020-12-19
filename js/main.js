@@ -1,7 +1,11 @@
 import { footerAnim, leavePageDelayed } from '../modules/footerAnim.js';
 import move3d from '../modules/mainButton.js';
+import initImgs from '../modules/initImgs.js';
 
 ('use strict');
+
+initImgs();
+
 //consts
 const BODY = document.querySelector('body');
 const FIRST_PAGE = document.querySelector('.first-screen');
@@ -356,17 +360,3 @@ fetch('./js/jsons/data.json')
     );
   });
 
-//lazy loading for images class
-let lazyImgs = document.querySelectorAll('.lazy-load');
-let lazyObserver = new IntersectionObserver(lazyLoad, { rootMargin: '200px' });
-lazyImgs.forEach(elem => lazyObserver.observe(elem));
-function lazyLoad(entries) {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      let image = entry.target;
-      image.src = image.dataset.src;
-      image.classList.remove('lazy-load');
-      lazyObserver.unobserve(image);
-    }
-  });
-}
