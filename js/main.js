@@ -1,4 +1,3 @@
-import { footerAnim, leavePageDelayed } from '../modules/footerAnim.js';
 import move3d from '../modules/mainButton.js';
 import initImgs from '../modules/initImgs.js';
 
@@ -29,7 +28,7 @@ if (!mobileScreen) {
   let cursor = document.querySelectorAll('.cursor');
   cursor.forEach(item => (item.style.display = 'block'));
   document.addEventListener('mousemove', event => {
-    cursor.forEach((item, index) => {
+    cursor.forEach(item => {
       anime({
         targets: item,
         duration: 0,
@@ -40,13 +39,6 @@ if (!mobileScreen) {
     });
   });
 }
-//to leave the page with anim
-document.querySelectorAll('.leave-page').forEach(elem =>
-  elem.addEventListener('click', event => {
-    event.preventDefault();
-    leavePageDelayed(event.currentTarget);
-  })
-);
 
 // LOGO animation
 const logoAnim = anime({
@@ -86,6 +78,7 @@ const titleAnim = anime({
 window.addEventListener('load', () => {
   titleAnim.play();
   logoAnim.play();
+  iphoneImg.style.background = `url(../media/brands-slider.jpg) 0 50% / 1135% no-repeat transparent`;
 });
 
 //Scroll listener
@@ -252,8 +245,8 @@ iphoneImg.addEventListener('touchstart', handleStartSwipe);
 iphoneImg.addEventListener('touchmove', handleMoveSwipe);
 iphoneImg.addEventListener('touchend', handleEndSwipe);
 let touchFirst;
-let currentBackgroundPosX = 14;
-const listNumberOfImg = 10;
+let currentBackgroundPosX = 0;
+const numberOfImg = 12;
 function handleStartSwipe(event) {
   event.preventDefault();
   touchFirst = event.touches[0].clientX;
@@ -274,18 +267,16 @@ function handleEndSwipe(event) {
   }
 
   if (touchLast) {
-    currentBackgroundPosX -= iphoneImg.clientWidth * 0.91;
-    if (currentBackgroundPosX < -(iphoneImg.clientWidth * 0.91 * (listNumberOfImg - 1)))
-      currentBackgroundPosX += iphoneImg.clientWidth * 0.91;
+    currentBackgroundPosX -= iphoneImg.clientWidth * 0.945;
+    if (currentBackgroundPosX < -(iphoneImg.clientWidth * (numberOfImg - 1)))
+      currentBackgroundPosX += iphoneImg.clientWidth * 0.945;
     iphoneImg.style.backgroundPosition = `${currentBackgroundPosX}px 50%`;
   } else {
-    currentBackgroundPosX += iphoneImg.clientWidth * 0.91;
-    if (currentBackgroundPosX > 14) currentBackgroundPosX = 14;
+    currentBackgroundPosX += iphoneImg.clientWidth * 0.945;
+    if (currentBackgroundPosX > 0) currentBackgroundPosX = 0;
     iphoneImg.style.backgroundPosition = `${currentBackgroundPosX}px 50%`;
   }
 }
-
-//SCREEN 6
 
 //SCREEN 7
 const postContentFiller = document.querySelectorAll('.insta-post__content-filler');

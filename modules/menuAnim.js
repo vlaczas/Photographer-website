@@ -61,7 +61,6 @@ let nav__buttonLine1 = anime({
   targets: '.nav__button-line:nth-of-type(1)',
   transformOrigin: 0,
   duration: 500,
-  backgroundColor: 'rgb(208, 208, 228)',
   rotate: -67,
   translateX: -23,
   translateY: 15,
@@ -71,7 +70,6 @@ let nav__buttonLine1 = anime({
 let nav__buttonLine2 = anime({
   targets: '.nav__button-line:nth-of-type(2)',
   duration: 500,
-  backgroundColor: 'rgb(208, 208, 228)',
   width: '33%',
   translateY: 5,
   translateX: 1,
@@ -81,7 +79,6 @@ let nav__buttonLine2 = anime({
 let nav__buttonLine3 = anime({
   targets: '.nav__button-line:nth-of-type(3)',
   duration: 500,
-  backgroundColor: 'rgb(208, 208, 228)',
   rotate: 67,
   translateX: 7,
   translateY: 7,
