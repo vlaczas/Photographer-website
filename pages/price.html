@@ -210,10 +210,110 @@
     </section>
     <section class="quest-tab">
       <h2 class="quest-tab__question">Количество часов</h2>
-      <input type="range" id="hours_number" name="hours-number"
+      <input type="range" id="hours_number" name="hours_number"
          min="1" max="5" value="2">
+      <label for="hours_number">2</label>
+      <div class="additionalServ-check">
+        <div class="studio-check checkButton">
+          <input type="checkbox" id="studio-check" value="Студия">
+          <label for="studio-check" class="check-display"></label>
+          <label for="studio-check">Студия</label>
+        </div>
+
+        <div class="makeUp-check checkButton">
+          <input type="checkbox" id="makeUp-check" value="Макияж">
+          <label for="makeUp-check" class="check-display"></label>
+          <label for="makeUp-check">Макияж</label>
+        </div>
+        <div class="barber-check checkButton">
+          <input type="checkbox" id="barber-check" value="Прическа">
+          <label for="barber-check" class="check-display"></label>
+          <label for="barber-check">Прическа</label>
+        </div>
+
+        <div class="stylist-check checkButton">
+          <input type="checkbox" id="stylist-check" value="2 образа от стилиста">
+          <label for="stylist-check" class="check-display"></label>
+          <label for="stylist-check">2 образа от стилиста</label>
+        </div>
+        <h2 class="quest-tab__question">Есть ли идея?</h2>
+        <div class="idea-check checkButton">
+          <input type="checkbox" id="idea-check" value="Идея">
+          <label for="idea-check" class="check-display"></label>
+          <label for="idea-check">Идея</label>
+        </div>
+      </div>
     </section>
 
+    <section class="quest-tab">
+      <div class="veriable-item for-brands">
+        <h2 class="quest-tab__question">Есть ли модель?</h2>
+        <div class="model-check checkButton">
+            <input type="checkbox" id="model-check" value="Модель">
+            <label for="model-check" class="check-display"></label>
+            <label for="model-check">Модель</label>
+        </div>
+      </div>
+      <div class="veriable-item for-family for-report">
+        <h2 class="quest-tab__question">Количество человек для съемки</h2>
+        <input type="range" id="people_number" name="people_number"
+          min="2" max="10" value="2">
+        <label for="people_number">2</label>
+      </div>
+      <div class="veriable-item for-brands for-report">
+        <h2 class="quest-tab__question">Количество кадров для обработки</h2>
+        <input type="range" id="people_number" name="people_number"
+          min="0" max="100" value="0" step="5">
+        <label for="people_number">0</label>
+      </div>
+
+      <div class="veriable-item for-report">
+        <h2 class="quest-tab__question">Название мероприятия</h2>
+
+        <div class="type-event1">
+      <input type="radio" id="wedding-ph" name="type-event" value="Свадьба">
+      <label class="quest-tab__radio" for="wedding-ph">
+        <div class="indicator"></div>
+        <span>Свадьба</span>
+      </label>
+      </div>
+
+      <div class="type-event2">
+      <input type="radio" id="girldsParty-ph" name="type-event" value="Девичник">
+      <label class="quest-tab__radio" for="girldsParty-ph">
+        <div class="indicator"></div>
+        <span>Девичник</span>
+      </label>
+      </div>
+
+      <div class="type-event3">
+      <input type="radio" id="сorporative-ph" name="type-event" value="Корпоратив">
+      <label class="quest-tab__radio" for="сorporative-ph">
+        <div class="indicator"></div>
+        <span>Корпоратив</span>
+      </label>
+      </div>
+
+      <div class="type-event4">
+      <input type="radio" id="birthday-ph" name="type-event" value="День рождения">
+      <label class="quest-tab__radio" for="birthday-ph">
+        <div class="indicator"></div>
+        <span>День рождения</span>
+      </label>
+      </div>
+
+      <div class="type-event5">
+      <input type="radio" id="other-ph" name="type-event" value="Другое">
+      <label class="quest-tab__radio" for="other-ph">
+        <div class="indicator"></div>
+        <span>Другое</span>
+      </label>
+      </div>
+      </div>
+    </section>
+    <div class="button-scene">
+      <button id="calculate" class="main-button focus-ring noSelect">ПОСЧИТАТЬ</button>
+    </div>
     <div class="button-scene">
       <a tabindex="-1" href="#top"><button class="main-button focus-ring noSelect">ВВЕРХ</button></a>
     </div>
