@@ -165,6 +165,13 @@
 
     <h1 class="article__main-header">Price</h1>
     <h1 class="article__main-header">Calculator</h1>
+    <img class="centered-margin" src="https://media.giphy.com/media/3owzW5c1tPq63MPmWk/giphy-downsized.gif" alt="" srcset="">
+    <section class="modal-window">
+      <span tabindex="0" class="modal-window__cross focus-ring noSelect">X</span>
+      <h2 class="quest-tab__question">Result</h2>
+      <table class="modal-window__table"></table>
+    </section>
+
     <section class="quest-tab">
       <h2 class="quest-tab__question">Вид съемки</h2>
 
@@ -240,7 +247,7 @@
         <div class="idea-check checkButton">
           <input type="checkbox" id="idea-check" value="Идея">
           <label for="idea-check" class="check-display"></label>
-          <label for="idea-check">Идея</label>
+          <label for="idea-check">Идея<sub>(просто интересно)</sub></label>
         </div>
       </div>
     </section>
@@ -255,16 +262,16 @@
         </div>
       </div>
       <div class="veriable-item for-family for-report">
-        <h2 class="quest-tab__question">Количество человек для съемки</h2>
+        <h2 class="quest-tab__question">Количество человек на съемке</h2>
         <input type="range" id="people_number" name="people_number"
           min="2" max="10" value="2">
         <label for="people_number">2</label>
       </div>
       <div class="veriable-item for-brands for-report">
         <h2 class="quest-tab__question">Количество кадров для обработки</h2>
-        <input type="range" id="people_number" name="people_number"
+        <input type="range" id="retouch_number" name="retouch_number"
           min="0" max="100" value="0" step="5">
-        <label for="people_number">0</label>
+        <label for="retouch_number">0</label>
       </div>
 
       <div class="veriable-item for-report">
