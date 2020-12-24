@@ -45,8 +45,8 @@ typePhList.forEach(element => {
 });
 function addNewQuestions(event) {
   order = {
-    "Вид съемки": 'Индивидуальная/Контент съемка',
-    "Количество часов": hours_number.value,
+    'Вид съемки': 'Индивидуальная/Контент съемка',
+    'Количество часов': hours_number.value,
   };
   order['Вид съемки'] = event.target.value;
   checkboxInput.forEach(elem => (elem.checked = false));
@@ -73,7 +73,7 @@ function addNewQuestions(event) {
     delete order['Количество часов'];
     order['Количество луков'] = hours_number.value;
     order['Количество кадров для обработки'] = retouch_number.value;
-    idea_check.style.display = "none";
+    idea_check.style.display = 'none';
     idea_check.previousElementSibling.style.display = 'none';
     stylist_check.style.display = 'none';
     additionalServ.style.display = '';
@@ -96,11 +96,11 @@ function addNewQuestions(event) {
   thirdTab.style.display = 'none';
   thirdTabQuests.forEach(element => {
     element.style.display = 'none';
-  }); 
+  });
 
   if (event.target.value === 'Репортаж') {
     thirdTab.style.display = 'block';
-    questForReport.forEach(elem => elem.style.display = 'block');
+    questForReport.forEach(elem => (elem.style.display = 'block'));
     order['Количество часов'] = hours_number.value;
     order['Количество человек на съемке'] = people_number.value;
   }
@@ -117,47 +117,46 @@ function addNewQuestions(event) {
 }
 
 //listen to range inputs
-  const rangeInput = document.querySelectorAll(`input[type='range']`);
-  rangeInput.forEach(elem => elem.addEventListener('input', changeRangeValue));
-  function changeRangeValue(event) {
-    event.target.nextElementSibling.textContent = event.target.value;
-    order[`${event.target.previousElementSibling.textContent}`] = event.target.value;
-  }
-//listen to checkbox input 
-  const checkboxInput = document.querySelectorAll(`input[type='checkbox']`);
-  checkboxInput.forEach(elem => elem.addEventListener('change', changeCheckboxValue));
-  function changeCheckboxValue(event) {
-    order[`${event.target.value}`] = event.target.checked;
-  }
-//listen to event radio 
-  const eventInput = document.querySelectorAll('input[name="type-event"]');
-  eventInput.forEach(elem => elem.addEventListener('change', saveEventType));
+const rangeInput = document.querySelectorAll(`input[type='range']`);
+rangeInput.forEach(elem => elem.addEventListener('input', changeRangeValue));
+function changeRangeValue(event) {
+  event.target.nextElementSibling.textContent = event.target.value;
+  order[`${event.target.previousElementSibling.textContent}`] = event.target.value;
+}
+//listen to checkbox input
+const checkboxInput = document.querySelectorAll(`input[type='checkbox']`);
+checkboxInput.forEach(elem => elem.addEventListener('change', changeCheckboxValue));
+function changeCheckboxValue(event) {
+  order[`${event.target.value}`] = event.target.checked;
+}
+//listen to event radio
+const eventInput = document.querySelectorAll('input[name="type-event"]');
+eventInput.forEach(elem => elem.addEventListener('change', saveEventType));
 function saveEventType(event) {
   order['Вид мероприятия'] = event.target.value;
 }
 
 //calculate button
 calculate.addEventListener('click', doCalculation);
-function doCalculation() { 
-  const oneLookCost = 70;
+function doCalculation() {
+  const oneBrandCost = 700;
   const oneHourIndividCost = 1500;
   const oneHourIndividAddCost = 1000;
   const oneHourReportCost = 700;
-  const oneHourLoveCost = 2000; 
+  const oneHourLoveCost = 2000;
   const StudioHourCost = 500;
   const MakeUpCost = 400;
-  const BarberCost = 500; 
+  const BarberCost = 500;
   const StylistCost = 1200;
   const OnePhotoRetouch = 50;
   const NumOfPeopleAddCost = 100;
   const ArrOfServices = new Map();
   let studioCost, makeUpCost, barberCost, stylistCost, photoRetouchCost, numOfPeopleCost;
 
-
-  const hours = order['Количество луков'] || order['Количество часов'];
+  const hours = order['Количество луков'] / 10 || order['Количество часов'];
   const PhotographerCost =
-    hours > 5
-      ? hours * oneLookCost
+    order['Вид съемки'] === 'Съемка одежды'
+      ? hours * oneBrandCost
       : order['Вид съемки'] === 'Индивидуальная/Контент съемка'
       ? oneHourIndividCost + (hours - 1) * oneHourIndividAddCost
       : order['Вид съемки'] === 'Репортаж'
@@ -165,13 +164,13 @@ function doCalculation() {
       : order['Вид съемки'] === 'Love Story' || order['Вид съемки'] === 'Семейная'
       ? oneHourLoveCost + (hours - 1) * oneHourIndividAddCost
       : false;
-    ArrOfServices.set('Стоимость фотографа', PhotographerCost);
+  ArrOfServices.set('Стоимость фотографа', PhotographerCost);
 
   if (order['Студия']) {
-  studioCost = hours > 5 ? (hours / 10) * StudioHourCost : hours * StudioHourCost;
-  ArrOfServices.set('Студия', studioCost);
+    studioCost = hours > 5 ? (hours / 10) * StudioHourCost : hours * StudioHourCost;
+    ArrOfServices.set('Студия', studioCost);
   }
-  
+
   if (order['Макияж']) {
     makeUpCost = MakeUpCost;
     ArrOfServices.set('Макияж', makeUpCost);
@@ -188,76 +187,94 @@ function doCalculation() {
   }
 
   if (order['Количество кадров для обработки']) {
-    console.log(1231);
     photoRetouchCost =
       order['Количество кадров для обработки'] > 5
         ? order['Количество кадров для обработки'] * OnePhotoRetouch * 0.8
         : order['Количество кадров для обработки'] * OnePhotoRetouch;
     ArrOfServices.set('Количество кадров для обработки', photoRetouchCost);
   }
-  
 
   if (order['Количество человек на съемке'] > 2 && order['Вид съемки'] === 'Семейная') {
     numOfPeopleCost = (order['Количество человек на съемке'] - 2) * NumOfPeopleAddCost;
     ArrOfServices.set('Количество человек на съемке', numOfPeopleCost);
   }
-  
+
   let totalSum = 0;
-  ArrOfServices.forEach(val => totalSum += val);
-  createModal(ArrOfServices, totalSum);
+  ArrOfServices.forEach(val => (totalSum += val));
+  createModal(ArrOfServices, totalSum, hours);
 }
 
-//modal window init 
-const modal = document.querySelector('.modal-window'); 
+//modal window init
+const modal = document.querySelector('.modal-window');
 
-function createModal(map, totalSum) {
-const table = modal.querySelector('table');
-const tBody = document.createElement('tbody');
-map.forEach((val, key) => {
-  const tr = document.createElement("tr");
-  const thKey = document.createElement('th');
-  const tdVal = document.createElement('td');
+function createModal(map, totalSum, hours) {
+  const table = modal.querySelector('table');
+  const tBody = document.createElement('tbody');
+  const span = modal.querySelector('p span');
+  map.forEach((val, key) => {
+    const tr = document.createElement('tr');
+    const thKey = document.createElement('th');
+    const tdVal = document.createElement('td');
 
-  tdVal.textContent = val + ' грн.';  
-  thKey.textContent = key + ':';
+    tdVal.textContent = val + ' грн.';
+    thKey.textContent = key + ':';
 
-  tr.append(thKey, tdVal);
-  tBody.append(tr);
-})
+    tr.append(thKey, tdVal);
+    tBody.append(tr);
+  });
   table.append(tBody);
   const th = document.createElement('th');
   th.textContent = 'Итого:';
   const td = document.createElement('td');
   td.textContent = totalSum + ' грн.';
   const tr = document.createElement('tr');
-  tr.append(th,td);
+  tr.append(th, td);
   const tfoot = document.createElement('tfoot');
   tfoot.append(tr);
   tBody.after(tfoot);
+  if (!(order['Вид съемки'] === 'Съемка одежды' || order['Вид съемки'] === 'Репортаж')) {
+    span.innerHTML = `
+    , а главное это количество кадров в полной ретуше — <strong>${retouchedPhotosNumber(hours)}</strong>, два из которых вы получите уже на следующий день после съемки`;
+  }
   modal.style.display = 'block';
   windowAnim.play();
 }
 
-//modal window anim 
- const windowAnim = anime({
-   targets: modal,
-   opacity: [0, 1],
-   scaleX: [0.8, 1],
-   scaleY: [0.8, 1],
-   translateY: ['-150%', '-50%'],
-   easing: 'easeOutQuint',
-   duration: 500,
-   autoplay: false,
-   complete() {this.reverse()}
- });
+function retouchedPhotosNumber(hours) {
+  return order['Вид съемки'] === 'Семейная' || order['Вид съемки'] === 'Love Story' ? hours * 30 : hours * 12;
+}
+
+//modal window anim
+const windowAnim = anime({
+  targets: modal,
+  opacity: [0, 1],
+  scaleX: [0.8, 1],
+  scaleY: [0.8, 1],
+  translateY: ['-150%', '-50%'],
+  easing: 'easeOutQuint',
+  duration: 500,
+  autoplay: false,
+  complete() {
+    this.reverse();
+  },
+});
 
 document.querySelector('.modal-window__cross').addEventListener('click', () => {
   windowAnim.play();
   const tBody = modal.querySelector('tbody');
   const tfoot = modal.querySelector('tfoot');
+  const span = modal.querySelector('p span');
   setTimeout(() => {
     tBody.remove();
     tfoot.remove();
+    span.innerHTML = '';
     modal.style.display = '';
   }, 500);
 });
+
+let prom = new Promise((resolve, reject) => {
+  const img = new Image();
+  img.onload = () => img;
+  img.src = '../media/brands-slider.jpg';
+});
+

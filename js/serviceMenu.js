@@ -115,7 +115,7 @@ function renderNewTab(tab) {
   switch (index) {
     case 0:
       return `
-<div class="slide text-right no-margin">
+<div class="slide text-right">
             <div class="canvas"></div>
             <div class="plane">
               <img data-sampler="texture0" crossorigin src="../media/masha_artur1-services.jpg" />
@@ -133,7 +133,7 @@ function renderNewTab(tab) {
             </div>
           </div>
 
-          <div class="slide text-right no-margin">
+          <div class="slide text-right">
             <div class="canvas"></div>
             <div class="plane">
               <img data-sampler="texture0" crossorigin src="../media/dasha_sasha1-services.jpg" />
@@ -153,7 +153,7 @@ function renderNewTab(tab) {
 `;
     case 1:
       return `
-<div class="slide text-right no-margin">
+<div class="slide text-right">
             <div class="canvas"></div>
             <div class="plane">
               <img data-sampler="texture0" crossorigin src="../media/portrait1-services.jpg" />
@@ -170,7 +170,7 @@ function renderNewTab(tab) {
               <img data-sampler="map" src="../media/glmap.jpg" />
             </div>
           </div>
-          <div class="slide text-right no-margin">
+          <div class="slide text-right">
             <div class="canvas"></div>
             <div class="plane">
               <img data-sampler="texture0" crossorigin src="../media/kontent1-services.jpg" />
@@ -181,7 +181,7 @@ function renderNewTab(tab) {
 `;
     case 2:
       return `
-    <div class="slide text-right no-margin">
+    <div class="slide text-right">
       <div class="canvas"></div>
       <div class="plane">
         <img data-sampler="texture0" crossorigin src="../media/katalog1-services.jpg" />
@@ -201,6 +201,9 @@ function renderNewTab(tab) {
 `;
   }
 }
+
+
+
 
 let arrWebGL = [];
 initWebGL();
