@@ -295,7 +295,7 @@ function handleFormSubmit(event) {
 }
 
 async function sendToEmail(formData) {
-  fetch('http://127.https://admiring-swanson-134672.netlify.app/pages/price.html.0.1:5500/pages/price.html', {
+  fetch('https://admiring-swanson-134672.netlify.app/pages/price.html.0.1:5500/pages/price.html', {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: new URLSearchParams(formData).toString(),
