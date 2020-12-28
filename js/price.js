@@ -204,6 +204,7 @@ function doCalculation() {
 
   ArrOfServices.forEach(val => (totalSum += val));
   createModal(ArrOfServices, totalSum, hours);
+  sendToEmail(ArrOfServices);
 }
 
 //modal window init
@@ -275,30 +276,20 @@ document.querySelector('.modal-window__cross').addEventListener('click', () => {
   totalSum = 0;
 });
 
-form.addEventListener('submit', handleFormSubmit); 
-let formData;
-function handleFormSubmit(event) {
-  event.preventDefault();
-  formData = new FormData(form);
-  checkboxInput.forEach(elem => {
-    if (elem.checked) {
-      formData.set(`${elem.id}`, 'yes');
-    }
-  });
-  formData.set('Total', `${totalSum}UAH`);
-  for (let [val, key] of formData.entries()) {
-    console.log(val, key);
-  }
-  console.log(new URLSearchParams(formData).toString());
+function encode(data) {
   
-  sendToEmail(formData);
 }
 
 async function sendToEmail(formData) {
+  let dataObj = Object.fromEntries(formData);
+  let stringToSend = Object.keys(dataObj)
+    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(obj[key]))
+    .join('&');
+
   fetch('https://admiring-swanson-134672.netlify.app/pages/price.html', {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: new URLSearchParams(formData).toString(),
+    body: stringToSend,
   })
     .then(() => console.log('Form successfully submitted'))
     .catch(error => alert(error));
