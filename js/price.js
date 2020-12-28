@@ -279,8 +279,8 @@ document.querySelector('.modal-window__cross').addEventListener('click', () => {
 });
 
 function encode(obj) {
-  return Object.keys(dataObj)
-    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(dataObj[key]))
+  return Object.keys(obj)
+    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(obj[key]))
     .join('&');
 }
 async function sendToEmail(formData) {
