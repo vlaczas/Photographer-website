@@ -204,7 +204,6 @@ function doCalculation() {
 
   ArrOfServices.forEach(val => (totalSum += val));
   createModal(ArrOfServices, totalSum, hours);
-  sendToEmail(ArrOfServices);
 }
 
 //modal window init
@@ -278,20 +277,3 @@ document.querySelector('.modal-window__cross').addEventListener('click', () => {
   totalSum = 0;
 });
 
-function encode(obj) {
-  return Object.keys(obj)
-    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(obj[key]))
-    .join('&');
-}
-async function sendToEmail(formData) {
-  let dataObj = Object.fromEntries(formData);
-  dataObj['form-name'] = 'Order';
-  console.log(dataObj);
-
-  fetch('/', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: encode(dataObj),
-  })
-    .catch(error => alert(error));
-}
