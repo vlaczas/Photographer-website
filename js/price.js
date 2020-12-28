@@ -288,11 +288,10 @@ async function sendToEmail(formData) {
   dataObj['form-name'] = form.getAttribute('name');
   console.log(dataObj);
 
-  fetch('https://admiring-swanson-134672.netlify.app/pages/price.html', {
+  fetch('/', {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: encode(dataObj),
   })
-    .then(alert('asd'))
     .catch(error => alert(error));
 }
