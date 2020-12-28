@@ -237,7 +237,9 @@ function createModal(map, totalSum, hours) {
   tBody.after(tfoot);
   if (!(order['Вид съемки'] === 'Brand' || order['Вид съемки'] === 'Reportage')) {
     span.innerHTML = `
-    , а главное это количество кадров в полной ретуше — <strong>${retouchedPhotosNumber(hours)}</strong>, два из которых вы получите уже на следующий день после съемки`;
+    , а главное это количество кадров в полной ретуше — <strong>${retouchedPhotosNumber(
+      hours
+    )}</strong>, два из которых вы получите уже на следующий день после съемки`;
   }
   modal.style.display = 'block';
   windowAnim.play();
@@ -276,17 +278,19 @@ document.querySelector('.modal-window__cross').addEventListener('click', () => {
   totalSum = 0;
 });
 
-async function sendToEmail(formData) {
-  let dataObj = Object.fromEntries(formData);
-  let stringToSend = Object.keys(dataObj)
+function encode(obj) {
+  return Object.keys(dataObj)
     .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(dataObj[key]))
     .join('&');
+}
+async function sendToEmail(formData) {
+  let dataObj = Object.fromEntries(formData);
 
-    console.log(stringToSend);
   fetch('https://admiring-swanson-134672.netlify.app/pages/price.html', {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: stringToSend,
+    body: encode(dataObj),
   })
+    .then(alert('asd'))
     .catch(error => alert(error));
 }
