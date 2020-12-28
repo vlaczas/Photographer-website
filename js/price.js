@@ -286,11 +286,12 @@ async function sendToEmail(formData) {
     .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(obj[key]))
     .join('&');
 
+    console.log(stringToSend);
   fetch('https://admiring-swanson-134672.netlify.app/pages/price.html', {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: stringToSend,
   })
-    .then(() => console.log('Form successfully submitted'))
+    .then(() => navigate('https://admiring-swanson-134672.netlify.app/pages/price.html'))
     .catch(error => alert(error));
 }
