@@ -26,7 +26,7 @@ if (!mobileScreen) {
 }
 
 let order = {
-  'Вид съемки': 'Индивидуальная/Контент съемка',
+  'Вид съемки': 'Personal/Content',
   'Количество часов': 2,
 };
 //calculator logic
@@ -48,13 +48,13 @@ typePhList.forEach(element => {
 });
 function addNewQuestions(event) {
   order = {
-    'Вид съемки': 'Индивидуальная/Контент съемка',
+    'Вид съемки': 'Personal/Content',
     'Количество часов': hours_number.value,
   };
   order['Вид съемки'] = event.target.value;
   checkboxInput.forEach(elem => (elem.checked = false));
 
-  if (event.target.value === 'Репортаж') {
+  if (event.target.value === 'Reportage') {
     secondTabH2.textContent = 'Количество часов';
     hours_number.setAttribute('name', 'hours_number');
     hours_number.setAttribute('min', '1');
@@ -64,7 +64,7 @@ function addNewQuestions(event) {
     hours_number.nextElementSibling.textContent = hours_number.value;
     additionalServ.style.display = 'none';
     order['Количество кадров для обработки'] = retouch_number.value;
-  } else if (event.target.value === 'Съемка одежды') {
+  } else if (event.target.value === 'Brand') {
     secondTabH2.textContent = 'Количество луков';
     hours_number.setAttribute('name', 'number_of_looks');
     hours_number.setAttribute('min', '10');
@@ -101,18 +101,18 @@ function addNewQuestions(event) {
     element.style.display = 'none';
   });
 
-  if (event.target.value === 'Репортаж') {
+  if (event.target.value === 'Reportage') {
     thirdTab.style.display = 'block';
     questForReport.forEach(elem => (elem.style.display = 'block'));
     order['Количество часов'] = hours_number.value;
     order['Количество человек на съемке'] = people_number.value;
   }
 
-  if (event.target.value === 'Съемка одежды') {
+  if (event.target.value === 'Brand') {
     thirdTab.style.display = 'block';
     questForBrands.forEach(elem => (elem.style.display = 'block'));
   }
-  if (event.target.value === 'Семейная') {
+  if (event.target.value === 'Family') {
     thirdTab.style.display = 'block';
     questForFamily.forEach(elem => (elem.style.display = 'block'));
     order['Количество человек на съемке'] = people_number.value;
@@ -158,13 +158,13 @@ function doCalculation() {
 
   const hours = order['Количество луков'] / 10 || order['Количество часов'];
   const PhotographerCost =
-    order['Вид съемки'] === 'Съемка одежды'
+    order['Вид съемки'] === 'Brand'
       ? hours * oneBrandCost
-      : order['Вид съемки'] === 'Индивидуальная/Контент съемка'
+      : order['Вид съемки'] === 'Personal/Content'
       ? oneHourIndividCost + (hours - 1) * oneHourIndividAddCost
-      : order['Вид съемки'] === 'Репортаж'
+      : order['Вид съемки'] === 'Reportage'
       ? hours * oneHourReportCost
-      : order['Вид съемки'] === 'Love Story' || order['Вид съемки'] === 'Семейная'
+      : order['Вид съемки'] === 'Love Story' || order['Вид съемки'] === 'Family'
       ? oneHourLoveCost + (hours - 1) * oneHourIndividAddCost
       : false;
   ArrOfServices.set('Стоимость фотографа', PhotographerCost);
@@ -197,7 +197,7 @@ function doCalculation() {
     ArrOfServices.set('Количество кадров для обработки', photoRetouchCost);
   }
 
-  if (order['Количество человек на съемке'] > 2 && order['Вид съемки'] === 'Семейная') {
+  if (order['Количество человек на съемке'] > 2 && order['Вид съемки'] === 'Family') {
     numOfPeopleCost = (order['Количество человек на съемке'] - 2) * NumOfPeopleAddCost;
     ArrOfServices.set('Количество человек на съемке', numOfPeopleCost);
   }
@@ -234,7 +234,7 @@ function createModal(map, totalSum, hours) {
   const tfoot = document.createElement('tfoot');
   tfoot.append(tr);
   tBody.after(tfoot);
-  if (!(order['Вид съемки'] === 'Съемка одежды' || order['Вид съемки'] === 'Репортаж')) {
+  if (!(order['Вид съемки'] === 'Brand' || order['Вид съемки'] === 'Reportage')) {
     span.innerHTML = `
     , а главное это количество кадров в полной ретуше — <strong>${retouchedPhotosNumber(hours)}</strong>, два из которых вы получите уже на следующий день после съемки`;
   }
@@ -243,7 +243,7 @@ function createModal(map, totalSum, hours) {
 }
 
 function retouchedPhotosNumber(hours) {
-  return order['Вид съемки'] === 'Семейная' || order['Вид съемки'] === 'Love Story' ? hours * 30 : hours * 12;
+  return order['Вид съемки'] === 'Family' || order['Вид съемки'] === 'Love Story' ? hours * 30 : hours * 12;
 }
 
 //modal window anim
@@ -272,6 +272,7 @@ document.querySelector('.modal-window__cross').addEventListener('click', () => {
     span.innerHTML = '';
     modal.style.display = '';
   }, 500);
+  totalSum = 0;
 });
 
 form.addEventListener('submit', handleFormSubmit); 
@@ -281,19 +282,20 @@ function handleFormSubmit(event) {
   formData = new FormData(form);
   checkboxInput.forEach(elem => {
     if (elem.checked) {
-      formData.set(`${elem.value}`, 'да');
+      formData.set(`${elem.id}`, 'yes');
     }
   });
-  formData.set('Итого', `${totalSum}грн`);
+  formData.set('Total', `${totalSum}UAH`);
   for (let [val, key] of formData.entries()) {
     console.log(val, key);
   }
-
+  console.log(new URLSearchParams(formData).toString());
+  
   sendToEmail(formData);
 }
 
 async function sendToEmail(formData) {
-  fetch('https://admiring-swanson-134672.netlify.app/pages/price.html', {
+  fetch('http://127.https://admiring-swanson-134672.netlify.app/pages/price.html.0.1:5500/pages/price.html', {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: new URLSearchParams(formData).toString(),
