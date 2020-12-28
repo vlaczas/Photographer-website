@@ -276,10 +276,6 @@ document.querySelector('.modal-window__cross').addEventListener('click', () => {
   totalSum = 0;
 });
 
-function encode(data) {
-  
-}
-
 async function sendToEmail(formData) {
   let dataObj = Object.fromEntries(formData);
   let stringToSend = Object.keys(dataObj)
