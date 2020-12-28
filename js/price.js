@@ -285,6 +285,8 @@ function encode(obj) {
 }
 async function sendToEmail(formData) {
   let dataObj = Object.fromEntries(formData);
+  dataObj['form-name'] = form.getAttribute('name');
+  console.log(dataObj);
 
   fetch('https://admiring-swanson-134672.netlify.app/pages/price.html', {
     method: 'POST',
