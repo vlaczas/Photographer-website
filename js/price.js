@@ -4,7 +4,7 @@ import move3d from '../modules/mainButton.js';
 
 let screenHeight = window.innerHeight;
 let screenWidth = window.innerWidth;
-const form = document.querySelector('form');
+
 let totalSum = 0;
 
 let mobileScreen = true;
@@ -31,17 +31,17 @@ let order = {
 };
 //calculator logic
 //type of ph
-const typePhList = form.querySelectorAll(`input[name='type-ph']`);
-const secondTabH2 = form.querySelector('.quest-tab:nth-of-type(2) .quest-tab__question');
-const additionalServ = form.querySelector('.additionalServ-check');
+const typePhList = document.querySelectorAll(`input[name='type-ph']`);
+const secondTabH2 = document.querySelector('.quest-tab:nth-of-type(3) .quest-tab__question');
+const additionalServ = document.querySelector('.additionalServ-check');
 const idea_check = additionalServ.querySelector('.idea-check');
 const stylist_check = additionalServ.querySelector('.stylist-check');
-const thirdTab = form.querySelector('.quest-tab:nth-of-type(3)');
+const thirdTab = document.querySelector('.quest-tab:nth-of-type(4)');
 
-const thirdTabQuests = form.querySelectorAll('.veriable-item');
-const questForBrands = form.querySelectorAll('.for-brands');
-const questForFamily = form.querySelectorAll('.for-family');
-const questForReport = form.querySelectorAll('.for-report');
+const thirdTabQuests = document.querySelectorAll('.veriable-item');
+const questForBrands = document.querySelectorAll('.for-brands');
+const questForFamily = document.querySelectorAll('.for-family');
+const questForReport = document.querySelectorAll('.for-report');
 
 typePhList.forEach(element => {
   element.addEventListener('change', addNewQuestions);
@@ -120,20 +120,20 @@ function addNewQuestions(event) {
 }
 
 //listen to range inputs
-const rangeInput = form.querySelectorAll(`input[type='range']`);
+const rangeInput = document.querySelectorAll(`input[type='range']`);
 rangeInput.forEach(elem => elem.addEventListener('input', changeRangeValue));
 function changeRangeValue(event) {
   event.target.nextElementSibling.textContent = event.target.value;
   order[`${event.target.previousElementSibling.textContent}`] = event.target.value;
 }
 //listen to checkbox input
-const checkboxInput = form.querySelectorAll(`input[type='checkbox']`);
+const checkboxInput = document.querySelectorAll(`input[type='checkbox']`);
 checkboxInput.forEach(elem => elem.addEventListener('change', changeCheckboxValue));
 function changeCheckboxValue(event) {
   order[`${event.target.value}`] = event.target.checked;
 }
 //listen to event radio
-const eventInput = form.querySelectorAll('input[name="type-event"]');
+const eventInput = document.querySelectorAll('input[name="type-event"]');
 eventInput.forEach(elem => elem.addEventListener('change', saveEventType));
 function saveEventType(event) {
   order['Вид мероприятия'] = event.target.value;
@@ -285,7 +285,7 @@ function encode(obj) {
 }
 async function sendToEmail(formData) {
   let dataObj = Object.fromEntries(formData);
-  dataObj['form-name'] = form.getAttribute('name');
+  dataObj['form-name'] = 'Order';
   console.log(dataObj);
 
   fetch('/', {
