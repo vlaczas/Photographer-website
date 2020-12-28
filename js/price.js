@@ -288,6 +288,5 @@ async function sendToEmail(formData) {
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: stringToSend,
   })
-    .then(() => navigate('https://admiring-swanson-134672.netlify.app/pages/price.html'))
     .catch(error => alert(error));
 }
