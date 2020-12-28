@@ -279,7 +279,7 @@ document.querySelector('.modal-window__cross').addEventListener('click', () => {
 async function sendToEmail(formData) {
   let dataObj = Object.fromEntries(formData);
   let stringToSend = Object.keys(dataObj)
-    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(obj[key]))
+    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(dataObj[key]))
     .join('&');
 
     console.log(stringToSend);
