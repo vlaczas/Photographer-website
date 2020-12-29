@@ -68,7 +68,6 @@ function arrowsMoveTab(event, numberOfTab) {
 
 //render new tab
 let timer;
-const userAction = document.querySelector('.user-action')
 function moveTab(elem) {
   if (currentTab === elem) {
     return;
@@ -96,7 +95,7 @@ function moveTab(elem) {
         tabContainer.remove();
         arrWebGL.forEach(elem => elem.webGLCurtain.dispose());
         arrWebGL = [];
-        userAction.after(tabNewContainer);
+        arrows.after(tabNewContainer);
         initWebGL();
         timer = null;
       },
