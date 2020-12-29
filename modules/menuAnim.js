@@ -3,6 +3,9 @@ const mainMenu = document.querySelector('.menu');
 const menuItems = document.querySelector('.menu__list');
 const logoLoader = document.querySelector('.logo-loader');
 //to open screen with menu down blank
+const screenHeight = window.innerHeight;+
+
+document.documentElement.style.setProperty('--vh100', `${screenHeight}px`);
 
 let open = true;
 drawMenuWrapper(true, true, true);
@@ -163,16 +166,18 @@ export default function drawMenuWrapper(opened = true, instantly = false, loadsc
   const capEnd = canva.height + capStart / 2;
   let speedSlow = canva.height / 100;
   let speedFast = canva.height / 25;
+  let menuY = contrPointY;
   if (instantly) {
     speedSlow = canva.height;
     speedFast = canva.height;
+    menuY = canva.height;
   }
   if (loadscreen) {
     canva.style.zIndex = 1000;
   } else {
     canva.style.zIndex = 100;
   }
-  let menuY = contrPointY;
+  
   window.requestAnimationFrame(drawMenu);
   function drawMenu() {
     // open menu canvas

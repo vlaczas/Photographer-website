@@ -7,14 +7,14 @@
     <link rel="apple-touch-icon" sizes="180x180" href="../media/favicon/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="../media/favicon/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="  ../media/favicon/favicon-16x16.png" />
-    <link rel="manifest" href="../media/favicon/site.webmanifest" />
-    <link rel="mask-icon" href="../media/favicon/safari-pinned-tab.svg" color="#5bbad5" />
+    <link rel="manifest" href="/media/favicon/site.webmanifest" />
+    <link rel="mask-icon" href="/media/favicon/safari-pinned-tab.svg" color="#5bbad5" />
     <meta name="apple-mobile-web-app-title" content="Anna Photographer" />
     <meta name="application-name" content="Anna Photographer" />
     <meta name="msapplication-TileColor" content="#00aba9" />
     <meta name="theme-color" content="#ffffff" />
     <title>Anna | Services</title>
-    <link rel="stylesheet" href="../styles/style.min.css" />
+    <link rel="stylesheet" href="/styles/style.min.css" />
     <link href="https://fonts.googleapis.com/css?family=Raleway:900" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Raleway:200" rel="stylesheet" />
@@ -178,8 +178,9 @@
             <img src="/media/back.png" alt="" class="focus-ring arrow-right noSelect" />
           </div>
         </div>
+        <p class="user-action colorFont">кликай</p>
         <div class="current-tab">
-          <div class="slide text-right">
+          <div data-text="Personal" class="slide text-right">
             <div class="canvas"></div>
             <div class="plane">
               <img data-sampler="texture0" crossorigin src="../media/portrait1-services.jpg" />
@@ -188,7 +189,7 @@
             </div>
           </div>
 
-          <div class="slide text-left">
+          <div data-text="Street" class="slide text-left">
             <div class="canvas"></div>
             <div class="plane">
               <img data-sampler="texture0" src="../media/srteet1-services.jpg" />
@@ -196,7 +197,7 @@
               <img data-sampler="map" src="../media/glmap.jpg" />
             </div>
           </div>
-          <div class="slide text-right">
+          <div data-text="Content" class="slide text-right">
             <div class="canvas"></div>
             <div class="plane">
               <img data-sampler="texture0" crossorigin src="../media/kontent1-services.jpg" />
@@ -205,9 +206,10 @@
             </div>
           </div>
         </div>
+      
       </section>
       <div class="button-scene">
-        <a tabindex="-1" href="#top"><button class="main-button focus-ring noSelect">ВВЕРХ</button></a>
+        <a tabindex="-1" href="/pages/services/portraits.html"><button class="main-button focus-ring noSelect">Больше фото</button></a>
       </div>
       <footer>
         <div class="footer-left">
@@ -220,8 +222,8 @@
         </div>
       </footer>
     </main>
-    <script src="../libs/anime.min.js"></script>
-    <script src="../libs/curtains.umd.min.js"></script>
+    <script src="/libs/anime.min.js"></script>
+    <script src="/libs/curtains.umd.min.js"></script>
     <script type="module" src="../js/serviceMenu.js"></script>
   </body>
 </html>

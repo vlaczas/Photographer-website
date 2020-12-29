@@ -68,6 +68,7 @@ function arrowsMoveTab(event, numberOfTab) {
 
 //render new tab
 let timer;
+const userAction = document.querySelector('.user-action')
 function moveTab(elem) {
   if (currentTab === elem) {
     return;
@@ -95,7 +96,7 @@ function moveTab(elem) {
         tabContainer.remove();
         arrWebGL.forEach(elem => elem.webGLCurtain.dispose());
         arrWebGL = [];
-        arrows.after(tabNewContainer);
+        userAction.after(tabNewContainer);
         initWebGL();
         timer = null;
       },
@@ -110,12 +111,15 @@ function moveTab(elem) {
   }, 600);
 }
 
+
+//html template of the tab + new link for the button
+const button = document.querySelector('.button-scene');
 function renderNewTab(tab) {
   let index = [...services].indexOf(tab);
   switch (index) {
     case 0:
       return `
-<div class="slide text-right">
+          <div data-text="Love Story" class="slide text-right">
             <div class="canvas"></div>
             <div class="plane">
               <img data-sampler="texture0" crossorigin src="../media/masha_artur1-services.jpg" />
@@ -127,22 +131,13 @@ function renderNewTab(tab) {
           <div class="slide text-left">
             <div class="canvas"></div>
             <div class="plane">
-              <img data-sampler="texture0" src="../media/liza_artem1-services.jpg" />
-              <img data-sampler="texture1" src="../media/liza_artem2-services.jpg" />
-              <img data-sampler="map" src="../media/glmap.jpg" />
-            </div>
-          </div>
-
-          <div class="slide text-right">
-            <div class="canvas"></div>
-            <div class="plane">
               <img data-sampler="texture0" crossorigin src="../media/dasha_sasha1-services.jpg" />
               <img data-sampler="texture1" crossorigin src="../media/dasha_sasha2-services.jpg" />
               <img data-sampler="map" crossorigin src="../media/glmap.jpg" />
             </div>
           </div>
 
-          <div class="slide text-left">
+          <div data-text="Family" class="slide text-right">
             <div class="canvas"></div>
             <div class="plane">
               <img data-sampler="texture0" src="../media/family1-services.jpg" />
@@ -152,8 +147,9 @@ function renderNewTab(tab) {
           </div>
 `;
     case 1:
+      button.setAttribute('href', '/pages/services/portraits.html');
       return `
-<div class="slide text-right">
+<div data-text="Personal" class="slide text-right">
             <div class="canvas"></div>
             <div class="plane">
               <img data-sampler="texture0" crossorigin src="../media/portrait1-services.jpg" />
@@ -162,7 +158,7 @@ function renderNewTab(tab) {
             </div>
           </div>
 
-          <div class="slide text-left">
+          <div data-text="Street" class="slide text-left">
             <div class="canvas"></div>
             <div class="plane">
               <img data-sampler="texture0" src="../media/srteet1-services.jpg" />
@@ -170,7 +166,7 @@ function renderNewTab(tab) {
               <img data-sampler="map" src="../media/glmap.jpg" />
             </div>
           </div>
-          <div class="slide text-right">
+          <div data-text="Content" class="slide text-right">
             <div class="canvas"></div>
             <div class="plane">
               <img data-sampler="texture0" crossorigin src="../media/kontent1-services.jpg" />
@@ -181,7 +177,7 @@ function renderNewTab(tab) {
 `;
     case 2:
       return `
-    <div class="slide text-right">
+    <div data-text="Lookbook" class="slide text-right">
       <div class="canvas"></div>
       <div class="plane">
         <img data-sampler="texture0" crossorigin src="../media/katalog1-services.jpg" />
@@ -190,7 +186,7 @@ function renderNewTab(tab) {
       </div>
     </div>
 
-    <div class="slide text-left">
+    <div data-text="campaign" class="slide text-left">
       <div class="canvas"></div>
       <div class="plane">
         <img data-sampler="texture0" src="../media/lookbook1-services.jpg" />
@@ -201,9 +197,6 @@ function renderNewTab(tab) {
 `;
   }
 }
-
-
-
 
 let arrWebGL = [];
 initWebGL();
