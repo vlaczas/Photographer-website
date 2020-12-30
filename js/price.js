@@ -1,4 +1,5 @@
 import move3d from '../modules/mainButton.js';
+import * as moduleOpener from '../modules/moduleOpener.js';
 
 ('use strict');
 
@@ -276,4 +277,5 @@ document.querySelector('.modal-window__cross').addEventListener('click', () => {
   }, 500);
   totalSum = 0;
 });
+
 
