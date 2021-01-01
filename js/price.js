@@ -161,12 +161,12 @@ function doCalculation() {
     order['Вид съемки'] === 'Brand'
       ? hours * oneBrandCost
       : order['Вид съемки'] === 'Personal/Content'
-      ? oneHourIndividCost + (hours - 1) * oneHourIndividAddCost
-      : order['Вид съемки'] === 'Reportage'
-      ? hours * oneHourReportCost
-      : order['Вид съемки'] === 'Love Story' || order['Вид съемки'] === 'Family'
-      ? oneHourLoveCost + (hours - 1) * oneHourIndividAddCost
-      : false;
+        ? oneHourIndividCost + (hours - 1) * oneHourIndividAddCost
+        : order['Вид съемки'] === 'Reportage'
+          ? hours * oneHourReportCost
+          : order['Вид съемки'] === 'Love Story' || order['Вид съемки'] === 'Family'
+            ? oneHourLoveCost + (hours - 1) * oneHourIndividAddCost
+            : false;
   ArrOfServices.set('Стоимость фотографа', PhotographerCost);
 
   if (order['Студия']) {
@@ -276,4 +276,10 @@ document.querySelector('.modal-window__cross').addEventListener('click', () => {
   }, 500);
   totalSum = 0;
 });
+
+const readMe = 1;
+
+readMe.value = 2;
+
+console.log(readMe);
 
