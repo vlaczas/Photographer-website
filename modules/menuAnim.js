@@ -3,11 +3,12 @@ const mainMenu = document.querySelector('.menu');
 const menuItems = document.querySelector('.menu__list');
 const logoLoader = document.querySelector('.logo-loader');
 //to open screen with menu down blank
-const screenHeight = window.innerHeight;+
+const screenHeight = window.innerHeight;
 
 document.documentElement.style.setProperty('--vh100', `${screenHeight}px`);
 
 let open = true;
+document.body.style.overflow = 'hidden';
 drawMenuWrapper(true, true, true);
 window.addEventListener('load', loaderScreen);
 //logo loader anim
@@ -33,7 +34,10 @@ function loaderScreen() {
     duration: 300,
     easing: 'linear',
     begin: () => black_white_grad1.setAttribute('offset', '100%'),
-    complete: () => (logoLoader.style.display = 'none'),
+    complete: () => {
+      logoLoader.style.display = 'none';
+      document.body.style.overflow = '';
+    }
   });
 }
 
@@ -89,18 +93,6 @@ let nav__buttonLine3 = anime({
   autoplay: false,
 });
 // MENU BUTTON ANIMATION end
-
-//Menu list animation
-document.querySelectorAll('.another-page-link').forEach(elem =>
-  elem.addEventListener('click', event => {
-    event.preventDefault();
-    let current = event.currentTarget;
-    nav__button.click();
-    setTimeout(() => {
-      window.location.href = `${current.getAttribute('href')}`;
-    }, 850);
-  })
-);
 
 let header__menuListOpened = anime({
   targets: ['.menu li', '.menu__contacts img'],
@@ -177,7 +169,7 @@ export default function drawMenuWrapper(opened = true, instantly = false, loadsc
   } else {
     canva.style.zIndex = 100;
   }
-  
+
   window.requestAnimationFrame(drawMenu);
   function drawMenu() {
     // open menu canvas
