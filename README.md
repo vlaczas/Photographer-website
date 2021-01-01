@@ -1,2 +1,3 @@
 # photographer-webapp
-HTML/CSS, Anime.js, JavaScript, BEM, mobile-first
+HTML/SCSS, Anime.js, curtain.js, JavaScript, mobile-first
+The webstite hosts on Netlify. 
