@@ -1,7 +1,10 @@
-import { footerAnim, leavePageDelayed } from '../modules/footerAnim.js';
 import move3d from '../modules/mainButton.js';
+import initImgs from '../modules/initImgs.js';
 
 ('use strict');
+
+initImgs();
+
 //consts
 const BODY = document.querySelector('body');
 const FIRST_PAGE = document.querySelector('.first-screen');
@@ -25,7 +28,7 @@ if (!mobileScreen) {
   let cursor = document.querySelectorAll('.cursor');
   cursor.forEach(item => (item.style.display = 'block'));
   document.addEventListener('mousemove', event => {
-    cursor.forEach((item, index) => {
+    cursor.forEach(item => {
       anime({
         targets: item,
         duration: 0,
@@ -36,13 +39,6 @@ if (!mobileScreen) {
     });
   });
 }
-//to leave the page with anim
-document.querySelectorAll('.leave-page').forEach(elem =>
-  elem.addEventListener('click', event => {
-    event.preventDefault();
-    leavePageDelayed(event.currentTarget);
-  })
-);
 
 // LOGO animation
 const logoAnim = anime({
@@ -68,11 +64,6 @@ const logoAnim = anime({
   autoplay: false,
 });
 
-//screen size change
-window.addEventListener('orientationchange', () => {
-  window.location.reload();
-});
-
 //Animation of first screen text
 const titleAnim = anime({
   targets: '.header__text-video',
@@ -87,6 +78,7 @@ const titleAnim = anime({
 window.addEventListener('load', () => {
   titleAnim.play();
   logoAnim.play();
+  iphoneImg.style.background = `url(../media/brands-slider.jpg) 0 50% / 1135% no-repeat transparent`;
 });
 
 //Scroll listener
@@ -177,8 +169,8 @@ function backColorAnim() {
     SECTION_HEADERS.forEach(elem => (elem.style.color = `rgb(0, 0, 0)`));
   }
   //black after white
-  if (scrollY > SIXTH_PAGE.offsetTop + 150) {
-    rgbColor < 0 ? (rgbColor = 0) : (rgbColor = 255 + (SIXTH_PAGE.offsetTop + 150 - scrollY)) * 1.5;
+  if (scrollY > SIXTH_PAGE.offsetTop -100) {
+    rgbColor < 0 ? (rgbColor = 0) : (rgbColor = 255 + (SIXTH_PAGE.offsetTop - 100 - scrollY)) * 1.5;
     BODY.style.backgroundColor = `rgb(${rgbColor},${rgbColor},${rgbColor})`;
     SECTION_HEADERS.forEach(elem => (elem.style.color = `rgb(${rgbColor},${rgbColor},${rgbColor})`));
     return;
@@ -253,8 +245,8 @@ iphoneImg.addEventListener('touchstart', handleStartSwipe);
 iphoneImg.addEventListener('touchmove', handleMoveSwipe);
 iphoneImg.addEventListener('touchend', handleEndSwipe);
 let touchFirst;
-let currentBackgroundPosX = 14;
-const listNumberOfImg = 6;
+let currentBackgroundPosX = 0;
+const numberOfImg = 12;
 function handleStartSwipe(event) {
   event.preventDefault();
   touchFirst = event.touches[0].clientX;
@@ -275,18 +267,16 @@ function handleEndSwipe(event) {
   }
 
   if (touchLast) {
-    currentBackgroundPosX -= iphoneImg.clientWidth * 0.9;
-    if (currentBackgroundPosX < -(iphoneImg.clientWidth * 0.9 * (listNumberOfImg - 1)))
-      currentBackgroundPosX += iphoneImg.clientWidth * 0.9;
+    currentBackgroundPosX -= iphoneImg.clientWidth * 0.945;
+    if (currentBackgroundPosX < -(iphoneImg.clientWidth * (numberOfImg - 1)))
+      currentBackgroundPosX += iphoneImg.clientWidth * 0.945;
     iphoneImg.style.backgroundPosition = `${currentBackgroundPosX}px 50%`;
   } else {
-    currentBackgroundPosX += iphoneImg.clientWidth * 0.9;
-    if (currentBackgroundPosX > 14) currentBackgroundPosX = 14;
+    currentBackgroundPosX += iphoneImg.clientWidth * 0.945;
+    if (currentBackgroundPosX > 0) currentBackgroundPosX = 0;
     iphoneImg.style.backgroundPosition = `${currentBackgroundPosX}px 50%`;
   }
 }
-
-//SCREEN 6
 
 //SCREEN 7
 const postContentFiller = document.querySelectorAll('.insta-post__content-filler');
@@ -319,15 +309,19 @@ fetch('./js/jsons/data.json')
       let photo = opened.last_post[i].display_url;
       let str = opened.last_post[i].caption.replace(/\n/g, '<br>');
       let arr = str.split('');
-      if (str.indexOf('<br>') > 0 && str.indexOf('<br>') < 60) {
+      if (str.indexOf('<br>') > 0 && str.indexOf('<br>') < 50) {
         arr.splice(
           str.indexOf('<br>'),
           0,
-          ' <span>...&nbsp;</span><button class="insta-post__more" type="button">ещё</button>'
+          ' <span>...&nbsp;</span><button tabindex="0" class="insta-post__more noSelect focus-ring" type="button">ещё</button><span><br><br></span>'
         );
         str = arr.join('');
       } else {
-        arr.splice(60, 0, '<span>...&nbsp;</span><button class="insta-post__more" type="button">ещё</button>');
+        arr.splice(
+          50,
+          0,
+          '<span>...&nbsp;</span><button tabindex="0" class="insta-post__more noSelect focus-ring" type="button">ещё</button><span><br><br></span>'
+        );
         str = arr.join('');
       }
       postContentFiller[i].innerHTML = str;
@@ -349,6 +343,7 @@ fetch('./js/jsons/data.json')
           easing: 'easeInQuint',
           begin: () => {
             event.target.previousSibling.remove();
+            event.target.nextSibling.remove();
             event.target.remove();
           },
         });
@@ -356,17 +351,3 @@ fetch('./js/jsons/data.json')
     );
   });
 
-//lazy loading for images class
-let lazyImgs = document.querySelectorAll('.lazy-load');
-let lazyObserver = new IntersectionObserver(lazyLoad, { rootMargin: '200px' });
-lazyImgs.forEach(elem => lazyObserver.observe(elem));
-function lazyLoad(entries) {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      let image = entry.target;
-      image.src = image.dataset.src;
-      image.classList.remove('lazy-load');
-      lazyObserver.unobserve(image);
-    }
-  });
-}

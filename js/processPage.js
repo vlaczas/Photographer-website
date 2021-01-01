@@ -1,17 +1,7 @@
-import { footerAnim, leavePageDelayed } from '../modules/footerAnim.js';
-
 let screenHeight = window.innerHeight;
 let screenWidth = window.innerWidth;
 let mobileScreen = true;
 if (screenWidth > 1024) mobileScreen = false;
-
-//to leave the page with anim
-document.querySelectorAll('.leave-page').forEach(elem =>
-  elem.addEventListener('click', event => {
-    event.preventDefault();
-    leavePageDelayed(event.currentTarget);
-  })
-);
 
 //mouse move anim
 if (!mobileScreen) {
@@ -27,11 +17,6 @@ if (!mobileScreen) {
     });
   });
 }
-
-//screen size change
-window.addEventListener('orientationchange', () => {
-  window.location.reload();
-});
 
 //thread anim
 const canvaThread = document.querySelector('.canvas-thread');

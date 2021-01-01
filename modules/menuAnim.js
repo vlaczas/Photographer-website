@@ -3,8 +3,12 @@ const mainMenu = document.querySelector('.menu');
 const menuItems = document.querySelector('.menu__list');
 const logoLoader = document.querySelector('.logo-loader');
 //to open screen with menu down blank
+const screenHeight = window.innerHeight;
+
+document.documentElement.style.setProperty('--vh100', `${screenHeight}px`);
 
 let open = true;
+document.body.style.overflow = 'hidden';
 drawMenuWrapper(true, true, true);
 window.addEventListener('load', loaderScreen);
 //logo loader anim
@@ -30,7 +34,10 @@ function loaderScreen() {
     duration: 300,
     easing: 'linear',
     begin: () => black_white_grad1.setAttribute('offset', '100%'),
-    complete: () => (logoLoader.style.display = 'none'),
+    complete: () => {
+      logoLoader.style.display = 'none';
+      document.body.style.overflow = '';
+    }
   });
 }
 
@@ -61,7 +68,6 @@ let nav__buttonLine1 = anime({
   targets: '.nav__button-line:nth-of-type(1)',
   transformOrigin: 0,
   duration: 500,
-  backgroundColor: 'rgb(208, 208, 228)',
   rotate: -67,
   translateX: -23,
   translateY: 15,
@@ -71,7 +77,6 @@ let nav__buttonLine1 = anime({
 let nav__buttonLine2 = anime({
   targets: '.nav__button-line:nth-of-type(2)',
   duration: 500,
-  backgroundColor: 'rgb(208, 208, 228)',
   width: '33%',
   translateY: 5,
   translateX: 1,
@@ -81,7 +86,6 @@ let nav__buttonLine2 = anime({
 let nav__buttonLine3 = anime({
   targets: '.nav__button-line:nth-of-type(3)',
   duration: 500,
-  backgroundColor: 'rgb(208, 208, 228)',
   rotate: 67,
   translateX: 7,
   translateY: 7,
@@ -89,18 +93,6 @@ let nav__buttonLine3 = anime({
   autoplay: false,
 });
 // MENU BUTTON ANIMATION end
-
-//Menu list animation
-document.querySelectorAll('.another-page-link').forEach(elem =>
-  elem.addEventListener('click', event => {
-    event.preventDefault();
-    let current = event.currentTarget;
-    nav__button.click();
-    setTimeout(() => {
-      window.location.href = `${current.getAttribute('href')}`;
-    }, 850);
-  })
-);
 
 let header__menuListOpened = anime({
   targets: ['.menu li', '.menu__contacts img'],
@@ -166,16 +158,18 @@ export default function drawMenuWrapper(opened = true, instantly = false, loadsc
   const capEnd = canva.height + capStart / 2;
   let speedSlow = canva.height / 100;
   let speedFast = canva.height / 25;
+  let menuY = contrPointY;
   if (instantly) {
     speedSlow = canva.height;
     speedFast = canva.height;
+    menuY = canva.height;
   }
   if (loadscreen) {
     canva.style.zIndex = 1000;
   } else {
     canva.style.zIndex = 100;
   }
-  let menuY = contrPointY;
+
   window.requestAnimationFrame(drawMenu);
   function drawMenu() {
     // open menu canvas
