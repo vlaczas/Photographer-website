@@ -33,11 +33,11 @@ let order = {
 //calculator logic
 //type of ph
 const typePhList = document.querySelectorAll(`input[name='type-ph']`);
-const secondTabH2 = document.querySelector('.quest-tab:nth-of-type(3) .quest-tab__question');
+const secondTabH2 = document.querySelector('.quest-tab:nth-of-type(4) .quest-tab__question');
 const additionalServ = document.querySelector('.additionalServ-check');
 const idea_check = additionalServ.querySelector('.idea-check');
 const stylist_check = additionalServ.querySelector('.stylist-check');
-const thirdTab = document.querySelector('.quest-tab:nth-of-type(4)');
+const thirdTab = document.querySelector('.quest-tab:nth-of-type(5)');
 
 const thirdTabQuests = document.querySelectorAll('.veriable-item');
 const questForBrands = document.querySelectorAll('.for-brands');

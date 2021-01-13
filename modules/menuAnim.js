@@ -148,7 +148,7 @@ nav__button.addEventListener('click', () => {
 //menu drop-down animation
 //drawing menu
 const ctx = canva.getContext('2d');
-export default function drawMenuWrapper(opened = true, instantly = false, loadscreen = false) {
+function drawMenuWrapper(opened = true, instantly = false, loadscreen = false) {
   canva.width = window.innerWidth;
   canva.height = window.innerHeight * 1.2;
   let contrPointY;
