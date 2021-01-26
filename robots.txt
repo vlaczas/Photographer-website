@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /pages/services
+Disallow: /pages/process.html
+Disallow: /pages/about.html
+Sitemap: https://litvinenko.fun/sitemap.xml
