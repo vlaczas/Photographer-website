@@ -111,8 +111,7 @@ function moveTab(elem) {
 }
 
 
-//html template of the tab + new link for the button
-const button = document.querySelector('.button-scene');
+//html template of the tab
 function renderNewTab(tab) {
   let index = [...services].indexOf(tab);
   switch (index) {
@@ -146,9 +145,8 @@ function renderNewTab(tab) {
           </div>
 `;
     case 1:
-      button.setAttribute('href', '/pages/services/portraits.html');
       return `
-<div data-text="Personal" class="slide text-right">
+<div data-text="Studio" class="slide text-right">
             <div class="canvas"></div>
             <div class="plane">
               <img data-sampler="texture0" crossorigin src="../media/portrait1-services.jpg" />

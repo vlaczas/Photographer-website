@@ -426,8 +426,8 @@ li::before {
     margin: 100px auto;
     flex-wrap: nowrap;
     &__anna {
-      width: 30vw;
       display: block;
+      width: 30px;
     }
   }
 }
@@ -441,7 +441,7 @@ li::before {
 @media screen and (min-width: 1400px) {
   .first-screen {
     &__anna {
-      width: 40vw;
+      width: 35vw;
     }
   }
 }

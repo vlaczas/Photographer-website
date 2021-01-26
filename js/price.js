@@ -6,6 +6,11 @@ import * as moduleOpener from '../modules/moduleOpener.js';
 let screenHeight = window.innerHeight;
 let screenWidth = window.innerWidth;
 
+window.onload = () => {
+  document.querySelector('.gif').src = '/media/zac.gif';
+}
+
+
 let totalSum = 0;
 
 let mobileScreen = true;
