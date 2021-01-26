@@ -1,8 +1,31 @@
 $font: clamp(14px, 4vw, 16px);
-$fonth1: clamp(20px, 5vw, 36px);
+$fonth1: clamp(25px, 5vw, 36px);
 $fontSuper: min(10vw, 120px);
 $fontColor: #dfdddd;
 $secondColor: #7c7c7c;
+
+@font-face {
+  font-family: 'Raleway';
+  src: local('Raleway') 
+      url('./fonts/Raleway-Medium.ttf') 
+      format('truetype');
+  font-weight: 500;
+}
+@font-face {
+  font-family: 'Raleway';
+  src: local('Raleway') 
+      url('./fonts/Raleway-Bold.ttf') 
+      format('truetype');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'Raleway';
+  src: local('Raleway') 
+      url('./fonts/Raleway-Black.ttf') 
+      format('truetype');
+  font-weight: 900;
+}
 
 html {
   height: 100%;
@@ -13,7 +36,7 @@ html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Raleway', Arial, sans-seriFf;
+  font-family: 'Raleway', sans-serif;
   -webkit-font-smoothing: antialiased;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
@@ -130,9 +153,8 @@ body {
     left: -13px;
     color: $secondColor;
     width: 20px;
-    font-size: 7.5px;
-    font-weight: bolder;
-    letter-spacing: -2px;
+    font-size: 8px;
+    font-weight: 700;
     writing-mode: vertical-rl;
     text-orientation: upright;
   }
@@ -273,8 +295,9 @@ body {
     width: 90%;
     display: flex;
     margin: auto;
+    justify-content: space-evenly;
     img {
-      margin: auto;
+      margin: auto 0;
     }
   }
   &__list {
@@ -386,7 +409,7 @@ li::before {
     text-transform: uppercase;
     text-align: center;
     line-height: 1.5;
-    margin: 35px auto;
+    margin: 70px auto 35px;
     color: white;
     font-size: $fontSuper;
     font-weight: 900;
@@ -418,6 +441,7 @@ li::before {
     width: 50vw;
     display: block;
     user-select: none;
+    margin-left: 35px;
   }
 }
 @media (orientation: landscape) {
@@ -427,7 +451,7 @@ li::before {
     flex-wrap: nowrap;
     &__anna {
       display: block;
-      width: 30px;
+      width: 30vw;
     }
   }
 }
@@ -464,6 +488,7 @@ hr {
   &__helper-header {
     margin: 10px 0;
     user-select: none;
+    font-size: $fonth1;
   }
   &__main-header {
     font-size: $fontSuper;
@@ -502,7 +527,7 @@ hr {
   margin: 0 auto;
   opacity: 0;
   width: 40%;
-  position: absolute;
+  position: fixed;
   height: 100%;
   left: 0;
   right: 0;
@@ -513,7 +538,7 @@ hr {
   }
 }
 .section-header {
-  font-size: 20vw;
+  font-size: 19vw;
   text-transform: uppercase;
   text-align: center;
   text-indent: 0;
@@ -788,7 +813,7 @@ hr {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-size: 12px;
     color: black;
-    font-weight: 400;
+    font-weight: 500;
     // border: 1px solid black;
     border-radius: 10px;
     &__autor-name {

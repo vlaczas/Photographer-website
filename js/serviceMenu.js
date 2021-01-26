@@ -126,16 +126,7 @@ function renderNewTab(tab) {
             </div>
           </div>
 
-          <div class="slide text-left">
-            <div class="canvas"></div>
-            <div class="plane">
-              <img data-sampler="texture0" crossorigin src="../media/dasha_sasha1-services.jpg" />
-              <img data-sampler="texture1" crossorigin src="../media/dasha_sasha2-services.jpg" />
-              <img data-sampler="map" crossorigin src="../media/glmap.jpg" />
-            </div>
-          </div>
-
-          <div data-text="Family" class="slide text-right">
+          <div data-text="Family" class="slide text-left">
             <div class="canvas"></div>
             <div class="plane">
               <img data-sampler="texture0" src="../media/family1-services.jpg" />
