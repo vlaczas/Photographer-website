@@ -1,4 +1,3 @@
-import move3d from '../modules/mainButton.js';
 import WebglHover from '../modules/webglAnim.js';
 
 ('use strict');
@@ -120,18 +119,18 @@ function renderNewTab(tab) {
           <div data-text="Love Story" class="slide text-right">
             <div class="canvas"></div>
             <div class="plane">
-              <img data-sampler="texture0" crossorigin src="../media/masha_artur1-services.jpg" />
-              <img data-sampler="texture1" crossorigin src="../media/masha_artur2-services.jpg" />
-              <img data-sampler="map" crossorigin src="../media/glmap.jpg" />
+              <img data-sampler="texture0" crossorigin src="media/masha_artur1-services.jpg" />
+              <img data-sampler="texture1" crossorigin src="media/masha_artur2-services.jpg" />
+              <img data-sampler="map" crossorigin src="media/glmap.jpg" />
             </div>
           </div>
 
           <div data-text="Family" class="slide text-left">
             <div class="canvas"></div>
             <div class="plane">
-              <img data-sampler="texture0" src="../media/family1-services.jpg" />
-              <img data-sampler="texture1" src="../media/family2-services.jpg" />
-              <img data-sampler="map" src="../media/glmap.jpg" />
+              <img data-sampler="texture0" src="media/family1-services.jpg" />
+              <img data-sampler="texture1" src="media/family2-services.jpg" />
+              <img data-sampler="map" src="media/glmap.jpg" />
             </div>
           </div>
 `;
@@ -140,26 +139,26 @@ function renderNewTab(tab) {
 <div data-text="Studio" class="slide text-right">
             <div class="canvas"></div>
             <div class="plane">
-              <img data-sampler="texture0" crossorigin src="../media/portrait1-services.jpg" />
-              <img data-sampler="texture1" crossorigin src="../media/portrait2-services.jpg" />
-              <img data-sampler="map" crossorigin src="../media/glmap.jpg" />
+              <img data-sampler="texture0" crossorigin src="media/portrait1-services.jpg" />
+              <img data-sampler="texture1" crossorigin src="media/portrait2-services.jpg" />
+              <img data-sampler="map" crossorigin src="media/glmap.jpg" />
             </div>
           </div>
 
           <div data-text="Street" class="slide text-left">
             <div class="canvas"></div>
             <div class="plane">
-              <img data-sampler="texture0" src="../media/srteet1-services.jpg" />
-              <img data-sampler="texture1" src="../media/srteet2-services.jpg" />
-              <img data-sampler="map" src="../media/glmap.jpg" />
+              <img data-sampler="texture0" src="media/srteet1-services.jpg" />
+              <img data-sampler="texture1" src="media/srteet2-services.jpg" />
+              <img data-sampler="map" src="media/glmap.jpg" />
             </div>
           </div>
           <div data-text="Content" class="slide text-right">
             <div class="canvas"></div>
             <div class="plane">
-              <img data-sampler="texture0" crossorigin src="../media/kontent1-services.jpg" />
-              <img data-sampler="texture1" crossorigin src="../media/kontent2-services.jpg" />
-              <img data-sampler="map" crossorigin src="../media/glmap.jpg" />
+              <img data-sampler="texture0" crossorigin src="media/kontent1-services.jpg" />
+              <img data-sampler="texture1" crossorigin src="media/kontent2-services.jpg" />
+              <img data-sampler="map" crossorigin src="media/glmap.jpg" />
             </div>
           </div>
 `;
@@ -168,18 +167,18 @@ function renderNewTab(tab) {
     <div data-text="Lookbook" class="slide text-right">
       <div class="canvas"></div>
       <div class="plane">
-        <img data-sampler="texture0" crossorigin src="../media/katalog1-services.jpg" />
-        <img data-sampler="texture1" crossorigin src="../media/katalog2-services.jpg" />
-        <img data-sampler="map" crossorigin src="../media/glmap.jpg" />
+        <img data-sampler="texture0" crossorigin src="media/katalog1-services.jpg" />
+        <img data-sampler="texture1" crossorigin src="media/katalog2-services.jpg" />
+        <img data-sampler="map" crossorigin src="media/glmap.jpg" />
       </div>
     </div>
 
     <div data-text="campaign" class="slide text-left">
       <div class="canvas"></div>
       <div class="plane">
-        <img data-sampler="texture0" src="../media/lookbook1-services.jpg" />
-        <img data-sampler="texture1" src="../media/lookbook2-services.jpg" />
-        <img data-sampler="map" src="../media/glmap.jpg" />
+        <img data-sampler="texture0" src="media/lookbook1-services.jpg" />
+        <img data-sampler="texture1" src="media/lookbook2-services.jpg" />
+        <img data-sampler="map" src="media/glmap.jpg" />
       </div>
     </div>
 `;

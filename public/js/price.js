@@ -7,7 +7,7 @@ let screenHeight = window.innerHeight;
 let screenWidth = window.innerWidth;
 
 window.onload = () => {
-  document.querySelector('.gif').src = '/media/zac.gif';
+  document.querySelector('.gif').src = 'media/zac.gif';
 }
 
 

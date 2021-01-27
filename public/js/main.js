@@ -78,7 +78,7 @@ const titleAnim = anime({
 window.addEventListener('load', () => {
   titleAnim.play();
   logoAnim.play();
-  iphoneImg.style.background = `url(../media/brands-slider.jpg) 0 50% / 1135% no-repeat transparent`;
+  iphoneImg.style.background = `url(media/brands-slider.jpg) 0 50% / 1135% no-repeat transparent`;
 });
 
 //Scroll listener
