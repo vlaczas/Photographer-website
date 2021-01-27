@@ -292,9 +292,9 @@ body {
   transform: perspective(200px);
 
   &__contacts {
-    width: 90%;
+    width: 100%;
     display: flex;
-    margin: auto;
+    margin: auto 0;
     justify-content: space-evenly;
     img {
       margin: auto 0;
@@ -1391,12 +1391,20 @@ label {
       p {
         opacity: 0;
       }
-      .insta-imgLink {
-        width: 70px;
+      .about-links {
+        display: flex;
+        width: 100%;
         margin: 25px auto;
-        img {
-          width: 100%;
-          display: block;
+        justify-content: center;
+        height: min-content;
+      
+        a { 
+          width: 70px;
+          margin: auto 20px;
+          img {
+            width: 100%;
+            display: block;
+          }
         }
       }
     }
@@ -1427,7 +1435,6 @@ label {
 
       img {
         width: 25vw;
-        margin: 65px 0;
         display: block;
       }
     }
