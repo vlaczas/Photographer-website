@@ -39,14 +39,13 @@ function arrowsMoveTab(event, numberOfTab) {
     diffX = -158 + currentPos;
   } else if (Number.isInteger(numberOfTab)) {
     diffX = 158 - 158 * numberOfTab;
-    console.log(numberOfTab);
   } else {
     return;
   }
 
   services.forEach(elem => {
     if (diffX > 170) diffX = 160;
-    else if (diffX < -170) diffX = -160;
+    else if (diffX < -316) diffX = -316;
     let leftPos = curr + diffX;
     elem.style.left = leftPos + 'px';
     //position to scale
@@ -173,6 +172,25 @@ function renderNewTab(tab) {
       </div>
     </div>
 
+    <div data-text="campaign" class="slide text-left">
+      <div class="canvas"></div>
+      <div class="plane">
+        <img data-sampler="texture0" src="media/lookbook1-services.jpg" />
+        <img data-sampler="texture1" src="media/lookbook2-services.jpg" />
+        <img data-sampler="map" src="media/glmap.jpg" />
+      </div>
+    </div>
+`;
+    case 3:
+      return `
+    <div data-text="Lookbook" class="slide text-right">
+      <div class="canvas"></div>
+      <div class="plane">
+        <img data-sampler="texture0" crossorigin src="media/katalog1-services.jpg" />
+        <img data-sampler="texture1" crossorigin src="media/katalog2-services.jpg" />
+        <img data-sampler="map" crossorigin src="media/glmap.jpg" />
+      </div>
+    </div>
     <div data-text="campaign" class="slide text-left">
       <div class="canvas"></div>
       <div class="plane">
