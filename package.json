@@ -1,0 +1,22 @@
+{
+  "name": "ph-website",
+  "version": "1.0.0",
+  "description": "HTML/SCSS, Anime.js, curtain.js, JavaScript, mobile-first\r The website hosts on Netlify.",
+  "main": "index.html",
+  "scripts": {
+    "test": "start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vlaczas/ph-website.git"
+  },
+  "author": "Vladislav Czasowski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vlaczas/ph-website/issues"
+  },
+  "homepage": "https://github.com/vlaczas/ph-website#readme",
+  "dependencies": {
+    "axios": "^0.21.1"
+  }
+}

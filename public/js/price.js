@@ -3,34 +3,12 @@ import * as moduleOpener from '../modules/moduleOpener.js';
 
 ('use strict');
 
-let screenHeight = window.innerHeight;
-let screenWidth = window.innerWidth;
-
 window.onload = () => {
   document.querySelector('.gif').src = 'media/zac.gif';
 }
 
 
 let totalSum = 0;
-
-let mobileScreen = true;
-if (screenWidth > 1024) mobileScreen = false;
-
-//mouse move anim
-if (!mobileScreen) {
-  const cursor = document.querySelector('.cursor');
-  cursor.style.display = 'block';
-  document.addEventListener('mousemove', event => {
-    anime({
-      targets: cursor,
-      duration: 0,
-      easing: 'linear',
-      left: event.clientX,
-      top: event.clientY,
-    });
-  });
-}
-
 let order = {
   'Вид съемки': 'Personal/Content',
   'Количество часов': 2,
@@ -69,7 +47,9 @@ function addNewQuestions(event) {
     hours_number.setAttribute('value', '2');
     hours_number.nextElementSibling.textContent = hours_number.value;
     additionalServ.style.display = 'none';
-    order['Количество кадров для обработки'] = retouch_number.value;
+    if (retouch_number.value > 0) order['Количество кадров для обработки'] = retouch_number.value;
+    delete order['Количество человек на съемке'];
+
   } else if (event.target.value === 'Brand') {
     secondTabH2.textContent = 'Количество луков';
     hours_number.setAttribute('name', 'number_of_looks');
@@ -81,7 +61,7 @@ function addNewQuestions(event) {
     delete order['Количество человек на съемке'];
     delete order['Количество часов'];
     order['Количество луков'] = hours_number.value;
-    order['Количество кадров для обработки'] = retouch_number.value;
+    if (retouch_number.value > 0) order['Количество кадров для обработки'] = retouch_number.value;
     idea_check.style.display = 'none';
     idea_check.previousElementSibling.style.display = 'none';
     stylist_check.style.display = 'none';
@@ -111,7 +91,6 @@ function addNewQuestions(event) {
     thirdTab.style.display = 'block';
     questForReport.forEach(elem => (elem.style.display = 'block'));
     order['Количество часов'] = hours_number.value;
-    order['Количество человек на съемке'] = people_number.value;
   }
 
   if (event.target.value === 'Brand') {
@@ -148,15 +127,15 @@ function saveEventType(event) {
 //calculate button
 calculate.addEventListener('click', doCalculation);
 function doCalculation() {
-  const oneBrandCost = 700;
-  const oneHourIndividCost = 1500;
-  const oneHourIndividAddCost = 1000;
-  const oneHourReportCost = 700;
+  const oneBrandCost = 0;
+  const oneHourIndividCost = 1800;
+  const oneHourIndividAddCost = 1200;
+  const oneHourReportCost = 800;
   const oneHourLoveCost = 2000;
   const StudioHourCost = 500;
-  const MakeUpCost = 400;
+  const MakeUpCost = 500;
   const BarberCost = 500;
-  const StylistCost = 1200;
+  const StylistCost = 1600;
   const OnePhotoRetouch = 50;
   const NumOfPeopleAddCost = 100;
   const ArrOfServices = new Map();
@@ -197,7 +176,7 @@ function doCalculation() {
 
   if (order['Количество кадров для обработки']) {
     photoRetouchCost =
-      order['Количество кадров для обработки'] > 5
+      order['Количество кадров для обработки'] > 9
         ? order['Количество кадров для обработки'] * OnePhotoRetouch * 0.8
         : order['Количество кадров для обработки'] * OnePhotoRetouch;
     ArrOfServices.set('Количество кадров для обработки', photoRetouchCost);
@@ -216,6 +195,7 @@ function doCalculation() {
 const modal = document.querySelector('.modal-window');
 
 function createModal(map, totalSum, hours) {
+  console.log(order);
   const table = modal.querySelector('table');
   const tBody = document.createElement('tbody');
   const span = modal.querySelector('p span');
@@ -223,6 +203,7 @@ function createModal(map, totalSum, hours) {
     const tr = document.createElement('tr');
     const thKey = document.createElement('th');
     const tdVal = document.createElement('td');
+    if (!val) val = "—";
 
     tdVal.textContent = val + ' грн.';
     thKey.textContent = key + ':';
@@ -234,6 +215,8 @@ function createModal(map, totalSum, hours) {
   const th = document.createElement('th');
   th.textContent = 'Итого:';
   const td = document.createElement('td');
+
+  if (!totalSum) totalSum = "—";
   td.textContent = totalSum + ' грн.';
   const tr = document.createElement('tr');
   tr.append(th, td);
@@ -282,4 +265,3 @@ document.querySelector('.modal-window__cross').addEventListener('click', () => {
   }, 500);
   totalSum = 0;
 });
-

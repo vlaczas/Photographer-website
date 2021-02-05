@@ -23,23 +23,6 @@ let screenWidth = window.innerWidth;
 let mobileScreen = true;
 if (screenWidth > 1024) mobileScreen = false;
 
-//mouse move anim
-if (!mobileScreen) {
-  let cursor = document.querySelectorAll('.cursor');
-  cursor.forEach(item => (item.style.display = 'block'));
-  document.addEventListener('mousemove', event => {
-    cursor.forEach(item => {
-      anime({
-        targets: item,
-        duration: 0,
-        easing: 'linear',
-        left: event.clientX,
-        top: event.clientY,
-      });
-    });
-  });
-}
-
 // LOGO animation
 const logoAnim = anime({
   targets: '.logo path',

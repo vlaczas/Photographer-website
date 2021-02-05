@@ -2,26 +2,6 @@ import WebglHover from '../modules/webglAnim.js';
 
 ('use strict');
 
-let screenHeight = window.innerHeight;
-let screenWidth = window.innerWidth;
-let mobileScreen = true;
-if (screenWidth > 1024) mobileScreen = false;
-
-//mouse move anim
-if (!mobileScreen) {
-  const cursor = document.querySelector('.cursor');
-  cursor.style.display = 'block';
-  document.addEventListener('mousemove', event => {
-    anime({
-      targets: cursor,
-      duration: 0,
-      easing: 'linear',
-      left: event.clientX,
-      top: event.clientY,
-    });
-  });
-}
-
 const services = document.querySelectorAll('.services');
 let currentPos = 0;
 let diffX;
@@ -115,7 +95,7 @@ function renderNewTab(tab) {
   switch (index) {
     case 0:
       return `
-          <div data-text="Love Story" class="slide text-right">
+          <div data-text="Love Story" class="slide text-aside text-right">
             <div class="canvas"></div>
             <div class="plane">
               <img data-sampler="texture0" crossorigin src="media/masha_artur1-services.jpg" />
@@ -135,7 +115,7 @@ function renderNewTab(tab) {
 `;
     case 1:
       return `
-<div data-text="Studio" class="slide text-right">
+<div data-text="Studio" class="slide text-aside text-right">
             <div class="canvas"></div>
             <div class="plane">
               <img data-sampler="texture0" crossorigin src="media/portrait1-services.jpg" />
@@ -163,7 +143,7 @@ function renderNewTab(tab) {
 `;
     case 2:
       return `
-    <div data-text="Lookbook" class="slide text-right">
+    <div data-text="Lookbook" class="slide text-aside text-right">
       <div class="canvas"></div>
       <div class="plane">
         <img data-sampler="texture0" crossorigin src="media/katalog1-services.jpg" />
@@ -172,7 +152,7 @@ function renderNewTab(tab) {
       </div>
     </div>
 
-    <div data-text="campaign" class="slide text-left">
+    <div data-text="campaign" class="slide text-aside text-left">
       <div class="canvas"></div>
       <div class="plane">
         <img data-sampler="texture0" src="media/lookbook1-services.jpg" />
@@ -183,22 +163,38 @@ function renderNewTab(tab) {
 `;
     case 3:
       return `
-    <div data-text="Lookbook" class="slide text-right">
-      <div class="canvas"></div>
-      <div class="plane">
-        <img data-sampler="texture0" crossorigin src="media/katalog1-services.jpg" />
-        <img data-sampler="texture1" crossorigin src="media/katalog2-services.jpg" />
-        <img data-sampler="map" crossorigin src="media/glmap.jpg" />
-      </div>
+    <article class="article">
+      <h2 class="article__main-header">energetic</h2>
+    </article>
+    <div class="videos">
+      <video class="focus-ring" src="media/videos/glasses.mp4" controlslist="nodownload" disablePictureInPicture controls="" poster="media/videos/glasses.jpg"></video>
+      <video class="focus-ring" src="media/videos/energy1.mp4" oncontextmenu="return false;" controlslist="nodownload" disablePictureInPicture controls="" poster="media/videos/watchAD.jpg"></video>
+      <video class="focus-ring" src="media/videos/energy2.mp4" oncontextmenu="return false;" controlslist="nodownload" disablePictureInPicture controls="" poster="media/videos/cameraAD.jpg"></video>
     </div>
-    <div data-text="campaign" class="slide text-left">
-      <div class="canvas"></div>
-      <div class="plane">
-        <img data-sampler="texture0" src="media/lookbook1-services.jpg" />
-        <img data-sampler="texture1" src="media/lookbook2-services.jpg" />
-        <img data-sampler="map" src="media/glmap.jpg" />
-      </div>
+    <article class="article">
+      <h2 class="article__main-header">content</h2>
+    </article>
+    <div class="videos">
+      <video class="focus-ring" src="media/videos/content3.mp4" controlslist="nodownload" disablePictureInPicture controls="" poster="media/videos/glasses.jpg"></video>
+      <video class="focus-ring" src="media/videos/content1.mp4" oncontextmenu="return false;" controlslist="nodownload" disablePictureInPicture controls="" poster="media/videos/watchAD.jpg"></video>
+      <video class="focus-ring" src="media/videos/content2.mp4" oncontextmenu="return false;" controlslist="nodownload" disablePictureInPicture controls="" poster="media/videos/cameraAD.jpg"></video>
     </div>
+    <article class="article">
+      <h2 class="article__main-header">backstages</h2>
+    </article>
+    <div class="videos">
+      <video class="focus-ring" src="media/videos/backstage1.mp4" controlslist="nodownload" disablePictureInPicture controls="" poster="media/videos/glasses.jpg"></video>
+      <video class="focus-ring" src="media/videos/backstage2.mp4" oncontextmenu="return false;" controlslist="nodownload" disablePictureInPicture controls="" poster="media/videos/watchAD.jpg"></video>
+      <video class="focus-ring" src="media/videos/backstage3.mp4" oncontextmenu="return false;" controlslist="nodownload" disablePictureInPicture controls="" poster="media/videos/cameraAD.jpg"></video>
+    </div>
+    <article class="article">
+    <h2 class="article__main-header">brands</h2>
+  </article>
+  <div class="videos">
+    <video class="focus-ring" src="media/videos/brand1.mp4" controlslist="nodownload" disablePictureInPicture controls="" poster="media/videos/glasses.jpg"></video>
+    <video class="focus-ring" src="media/videos/brand2.mp4" oncontextmenu="return false;" controlslist="nodownload" disablePictureInPicture controls="" poster="media/videos/watchAD.jpg"></video>
+    <video class="focus-ring" src="media/videos/brand3.mp4" oncontextmenu="return false;" controlslist="nodownload" disablePictureInPicture controls="" poster="media/videos/cameraAD.jpg"></video>
+  </div>
 `;
   }
 }
@@ -207,7 +203,9 @@ let arrWebGL = [];
 initWebGL();
 function initWebGL() {
   //every slide webGL
-  document.querySelectorAll('.slide').forEach(slide => {
+  const slides = document.querySelectorAll('.slide');
+  if (!slides) return;
+  slides.forEach(slide => {
     const canvas = slide.querySelector('.canvas');
     const planeElement = slide.querySelector('.plane');
     const webGL = new WebglHover({

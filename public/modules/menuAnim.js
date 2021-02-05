@@ -86,9 +86,9 @@ let nav__buttonLine2 = anime({
 let nav__buttonLine3 = anime({
   targets: '.nav__button-line:nth-of-type(3)',
   duration: 500,
-  rotate: 67,
-  translateX: 7,
-  translateY: 7,
+  rotate: 68,
+  translateX: 6,
+  translateY: 6,
   easing: 'easeOutBack',
   autoplay: false,
 });

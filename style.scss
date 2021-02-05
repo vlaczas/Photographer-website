@@ -43,47 +43,11 @@ html {
   &::-webkit-scrollbar {
     display: none;
   }
-  cursor: none;
 }
 
 body {
   background-color: rgb(0, 0, 0);
   color: $fontColor;
-}
-.cursor {
-  position: fixed;
-  z-index: 10005;
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
-  background-color: rgba(143, 134, 134, 0.5);
-  transform: translate(-50%, -50%);
-  left: 0;
-  top: 0;
-  pointer-events: none;
-  user-select: none;
-  display: none;
-
-  &__child2 {
-    height: 40px;
-    width: 40px;
-    transition: all linear 0.1s;
-  }
-  &__child3 {
-    height: 30px;
-    width: 30px;
-    transition: all linear 0.2s;
-  }
-  &__child4 {
-    height: 20px;
-    width: 20px;
-    transition: all linear 0.3s;
-  }
-  &__child5 {
-    height: 10px;
-    width: 10px;
-    transition: all linear 0.4s;
-  }
 }
 
 .user-action {
@@ -119,7 +83,7 @@ body {
   width: 100%;
   height: 100%;
   color: white;
-  cursor: none;
+  cursor: pointer;
   will-change: transform;
   transition: all 0.2s ease;
   transform: translateZ(-10px);
@@ -136,12 +100,11 @@ body {
   z-index: 101;
   right: 0;
   top: 0;
-  height: 100vh;
-
+  height: 50px;
   width: 50px;
 
   &__button {
-    cursor: none;
+    cursor: pointer;
     margin-top: 3px;
     z-index: 104;
   }
@@ -184,6 +147,9 @@ body {
   .contacts {
     display: flex;
   }
+  .nav {
+    height: var(--vh100);
+  }
 }
 .numberph::after {
   content: '';
@@ -201,6 +167,9 @@ body {
   left: -5px;
   bottom: -5px;
   z-index: -1;
+}
+.phone_number {
+  cursor: pointer;
 }
 .phone_number:hover > .numberph {
   visibility: visible;
@@ -603,7 +572,7 @@ hr {
     font-weight: 500;
     margin: 5px auto;
     z-index: 1;
-    cursor: none;
+    cursor: pointer;
   }
 
   &__answer {
@@ -641,7 +610,7 @@ hr {
         bottom: 100%;
         margin: 10px;
         text-align: center;
-        cursor: none;
+        cursor: pointer;
       }
     }
     &__answer {
@@ -657,6 +626,7 @@ hr {
 }
 .photosession-svg {
   margin: 10px 0;
+  cursor: pointer;
 }
 @media screen and (min-width: 1025px) {
   .third-screen {
@@ -710,12 +680,14 @@ hr {
     top: 50%;
     right: unset !important;
     transform: translateY(-50%) scale(1.3);
+    cursor: pointer;
   }
   &__arrow-right {
     right: -35%;
     top: 50%;
     left: unset !important;
     transform: rotate(180deg) translateY(50%) scale(1.3) !important;
+    cursor: pointer;
   }
   &__iphone {
     position: relative;
@@ -735,39 +707,59 @@ hr {
   }
 }
 
-.love-story {
+.videos {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   flex-wrap: wrap;
-
-  picture {
-    position: relative;
-    height: 100vw;
-    width: 100vw;
-    overflow: hidden;
-    margin-bottom: 25px;
+  video {
+    width: 80vw;
+    height: calc(80vw * 1.75);
+    margin-bottom: 40px;
   }
+}
 
-  picture > div {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.65);
-    text-align: center;
+@media screen and (min-width: 1025px) {
+  .videos {
+    video {
+      width: 20vw;
+      height: calc(20vw * 1.75);
+      margin-bottom: 0;
+    }
+  }
+}
+  .love-story {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-transform: uppercase;
-    font-size: $fonth1;
-    font-weight: bold;
-    color: white !important;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-  }
+    justify-content: space-around;
+    flex-wrap: wrap;
+  
+    picture {
+      position: relative;
+      height: 100vw;
+      width: 100vw;
+      overflow: hidden;
+      margin-bottom: 25px;
+    }
+  
+    picture > div {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background-color: rgba(0, 0, 0, 0.65);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-transform: uppercase;
+      font-size: $fonth1;
+      font-weight: bold;
+      color: white !important;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
 
-  &__img {
+    &__img {
     width: 100%;
   }
 
@@ -820,7 +812,7 @@ hr {
       font-weight: 600;
       font-size: 13px;
       user-select: none;
-      cursor: none;
+      cursor: pointer;
     }
     &__header {
       display: flex;
@@ -883,7 +875,7 @@ hr {
       outline: none;
       user-select: none;
       font-size: 13px;
-      cursor: none;
+      cursor: pointer;
     }
   }
 }
@@ -923,7 +915,7 @@ footer {
     font-size: 18px;
     font-weight: bolder;
     position: relative;
-    cursor: none;
+    cursor: pointer;
   }
 }
 @media screen and (min-width: 1024px) {
@@ -960,12 +952,14 @@ main {
   height: 40px;
   transform: rotate(180deg);
   left: 10px;
+  cursor: pointer;
 }
 .arrow-left {
   height: 40px;
   filter: invert(100%);
   position: absolute;
   right: 10px;
+  cursor: pointer;
 }
 .header-slider {
   display: flex;
@@ -1000,10 +994,23 @@ main {
 .slide {
   position: relative;
   width: 70%;
+  .canvas {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+  }
+  .plane {
+    padding-top: calc(64000% / 382);
+  }
+  .plane img {
+    display: none;
+  }
+}
 
+.text-aside {
   &:nth-of-type(odd) {
     margin: 30px 30px 0 0;
-
     &::before {
       content: attr(data-text);
       position: absolute;
@@ -1045,19 +1052,6 @@ main {
       align-items: center;
       justify-content: center;
     }
-  }
-
-  .canvas {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    pointer-events: none;
-  }
-  .plane {
-    padding-top: calc(64000% / 382);
-  }
-  .plane img {
-    display: none;
   }
 }
 .current-tab {
@@ -1501,7 +1495,7 @@ label {
   -webkit-tap-highlight-color: transparent;
 }
 .focus-ring {
-  user-select: none;
+  cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 
   &:focus:not(:focus-visible) {
