@@ -14,7 +14,7 @@ export default function move3d(event) {
     targets: currButton,
     rotateY: (x - width) / 10,
     rotateX: -(y - height),
-    translateZ: [-10, -10],
+    translateZ: [20, 20],
     duration: 0,
   });
 }
@@ -28,7 +28,7 @@ mainButton.forEach(elem =>
       duration: 200,
       rotateY: 0,
       rotateX: 0,
-      translateZ: [-10, -10],
+      translateZ: [0, 0],
     });
   })
 );
@@ -38,7 +38,7 @@ mainButton.forEach(elem =>
       targets: currButton,
       duration: 100,
       direction: 'alternate',
-      translateZ: -30,
+      translateZ: 0,
     });
   })
 );

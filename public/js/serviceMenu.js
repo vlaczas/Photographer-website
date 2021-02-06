@@ -1,6 +1,8 @@
 import WebglHover from '../modules/webglAnim.js';
-
+import initImg from '../modules/initImgs.js';
 ('use strict');
+
+initImg();
 
 const services = document.querySelectorAll('.services');
 let currentPos = 0;
@@ -94,6 +96,7 @@ function renderNewTab(tab) {
   let index = [...services].indexOf(tab);
   switch (index) {
     case 0:
+      displayAdditionalImgs(0);
       return `
           <div data-text="Love Story" class="slide text-aside text-right">
             <div class="canvas"></div>
@@ -104,7 +107,7 @@ function renderNewTab(tab) {
             </div>
           </div>
 
-          <div data-text="Family" class="slide text-left">
+          <div data-text="Family" class="slide text-aside text-left">
             <div class="canvas"></div>
             <div class="plane">
               <img data-sampler="texture0" src="media/family1-services.jpg" />
@@ -114,6 +117,7 @@ function renderNewTab(tab) {
           </div>
 `;
     case 1:
+      displayAdditionalImgs(1);
       return `
 <div data-text="Studio" class="slide text-aside text-right">
             <div class="canvas"></div>
@@ -124,7 +128,7 @@ function renderNewTab(tab) {
             </div>
           </div>
 
-          <div data-text="Street" class="slide text-left">
+          <div data-text="Street" class="slide text-aside text-left">
             <div class="canvas"></div>
             <div class="plane">
               <img data-sampler="texture0" src="media/srteet1-services.jpg" />
@@ -132,7 +136,7 @@ function renderNewTab(tab) {
               <img data-sampler="map" src="media/glmap.jpg" />
             </div>
           </div>
-          <div data-text="Content" class="slide text-right">
+          <div data-text="Content" class="slide text-aside text-right">
             <div class="canvas"></div>
             <div class="plane">
               <img data-sampler="texture0" crossorigin src="media/kontent1-services.jpg" />
@@ -142,6 +146,7 @@ function renderNewTab(tab) {
           </div>
 `;
     case 2:
+      displayAdditionalImgs(2);
       return `
     <div data-text="Lookbook" class="slide text-aside text-right">
       <div class="canvas"></div>
@@ -162,13 +167,14 @@ function renderNewTab(tab) {
     </div>
 `;
     case 3:
+      displayAdditionalImgs(3);
       return `
     <article class="article">
       <h2 class="article__main-header">energetic</h2>
     </article>
     <div class="videos">
       <video class="focus-ring" src="media/videos/glasses.mp4" controlslist="nodownload" disablePictureInPicture controls="" poster="media/videos/glasses.jpg"></video>
-      <video class="focus-ring" src="media/videos/energy1.mp4" oncontextmenu="return false;" controlslist="nodownload" disablePictureInPicture controls="" poster="media/videos/watchAD.jpg"></video>
+      <video class="focus-ring" src="media/videos/coffeeAD.mp4" oncontextmenu="return false;" controlslist="nodownload" disablePictureInPicture controls="" poster="media/videos/watchAD.jpg"></video>
       <video class="focus-ring" src="media/videos/energy2.mp4" oncontextmenu="return false;" controlslist="nodownload" disablePictureInPicture controls="" poster="media/videos/cameraAD.jpg"></video>
     </div>
     <article class="article">
@@ -214,4 +220,15 @@ function initWebGL() {
     });
     arrWebGL.push(webGL);
   });
+}
+
+//display additional images
+const additionals = [document.querySelector('.wrapper-love'), document.querySelector('.wrapper-personal'), document.querySelector('.wrapper-brands')];
+function displayAdditionalImgs(numOfPage) {
+  additionals.forEach((elem, index) => {
+    console.log(elem);
+    if(!elem) return;
+    elem.style.display = 'none';
+    if (index === numOfPage) elem.style.display = 'block';
+  })
 }
