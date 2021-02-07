@@ -173,33 +173,33 @@ function renderNewTab(tab) {
       <h2 class="article__main-header">energetic</h2>
     </article>
     <div class="videos">
-      <video class="focus-ring" src="media/videos/glasses.mp4" controlslist="nodownload" disablePictureInPicture controls="" poster="media/videos/glasses.jpg"></video>
-      <video class="focus-ring" src="media/videos/coffeeAD.mp4" oncontextmenu="return false;" controlslist="nodownload" disablePictureInPicture controls="" poster="media/videos/watchAD.jpg"></video>
-      <video class="focus-ring" src="media/videos/energy2.mp4" oncontextmenu="return false;" controlslist="nodownload" disablePictureInPicture controls="" poster="media/videos/cameraAD.jpg"></video>
+      <video playsinline class="focus-ring" src="media/videos/glasses.mp4" controlslist="nodownload" disablePictureInPicture controls="" poster="media/videos/glasses.jpg"></video>
+      <video playsinline class="focus-ring" src="media/videos/coffeeAD.mp4" oncontextmenu="return false;" controlslist="nodownload" disablePictureInPicture controls="" poster="media/videos/watchAD.jpg"></video>
+      <video playsinline class="focus-ring" src="media/videos/energy2.mp4" oncontextmenu="return false;" controlslist="nodownload" disablePictureInPicture controls="" poster="media/videos/cameraAD.jpg"></video>
     </div>
     <article class="article">
       <h2 class="article__main-header">content</h2>
     </article>
     <div class="videos">
-      <video class="focus-ring" src="media/videos/content3.mp4" controlslist="nodownload" disablePictureInPicture controls="" poster="media/videos/glasses.jpg"></video>
-      <video class="focus-ring" src="media/videos/content1.mp4" oncontextmenu="return false;" controlslist="nodownload" disablePictureInPicture controls="" poster="media/videos/watchAD.jpg"></video>
-      <video class="focus-ring" src="media/videos/content2.mp4" oncontextmenu="return false;" controlslist="nodownload" disablePictureInPicture controls="" poster="media/videos/cameraAD.jpg"></video>
+      <video playsinline class="focus-ring" src="media/videos/content3.mp4" controlslist="nodownload" disablePictureInPicture controls="" poster="media/videos/glasses.jpg"></video>
+      <video playsinline class="focus-ring" src="media/videos/content1.mp4" oncontextmenu="return false;" controlslist="nodownload" disablePictureInPicture controls="" poster="media/videos/watchAD.jpg"></video>
+      <video playsinline class="focus-ring" src="media/videos/content2.mp4" oncontextmenu="return false;" controlslist="nodownload" disablePictureInPicture controls="" poster="media/videos/cameraAD.jpg"></video>
     </div>
     <article class="article">
       <h2 class="article__main-header">backstages</h2>
     </article>
     <div class="videos">
-      <video class="focus-ring" src="media/videos/backstage1.mp4" controlslist="nodownload" disablePictureInPicture controls="" poster="media/videos/glasses.jpg"></video>
-      <video class="focus-ring" src="media/videos/backstage2.mp4" oncontextmenu="return false;" controlslist="nodownload" disablePictureInPicture controls="" poster="media/videos/watchAD.jpg"></video>
-      <video class="focus-ring" src="media/videos/backstage3.mp4" oncontextmenu="return false;" controlslist="nodownload" disablePictureInPicture controls="" poster="media/videos/cameraAD.jpg"></video>
+      <video playsinline class="focus-ring" src="media/videos/backstage1.mp4" controlslist="nodownload" disablePictureInPicture controls="" poster="media/videos/glasses.jpg"></video>
+      <video playsinline class="focus-ring" src="media/videos/backstage2.mp4" oncontextmenu="return false;" controlslist="nodownload" disablePictureInPicture controls="" poster="media/videos/watchAD.jpg"></video>
+      <video playsinline class="focus-ring" src="media/videos/backstage3.mp4" oncontextmenu="return false;" controlslist="nodownload" disablePictureInPicture controls="" poster="media/videos/cameraAD.jpg"></video>
     </div>
     <article class="article">
     <h2 class="article__main-header">brands</h2>
   </article>
   <div class="videos">
-    <video class="focus-ring" src="media/videos/brand1.mp4" controlslist="nodownload" disablePictureInPicture controls="" poster="media/videos/glasses.jpg"></video>
-    <video class="focus-ring" src="media/videos/brand2.mp4" oncontextmenu="return false;" controlslist="nodownload" disablePictureInPicture controls="" poster="media/videos/watchAD.jpg"></video>
-    <video class="focus-ring" src="media/videos/brand3.mp4" oncontextmenu="return false;" controlslist="nodownload" disablePictureInPicture controls="" poster="media/videos/cameraAD.jpg"></video>
+    <video playsinline class="focus-ring" src="media/videos/brand1.mp4" controlslist="nodownload" disablePictureInPicture controls="" poster="media/videos/glasses.jpg"></video>
+    <video playsinline class="focus-ring" src="media/videos/brand2.mp4" oncontextmenu="return false;" controlslist="nodownload" disablePictureInPicture controls="" poster="media/videos/watchAD.jpg"></video>
+    <video playsinline class="focus-ring" src="media/videos/brand3.mp4" oncontextmenu="return false;" controlslist="nodownload" disablePictureInPicture controls="" poster="media/videos/cameraAD.jpg"></video>
   </div>
 `;
   }

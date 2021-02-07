@@ -1,16 +1,11 @@
-import initImgs from '../modules/initImgs.js';
-
-('use strict');
-initImgs();
-
-let screenWidth = window.innerWidth;
+('use strict')
 
 const modal = document.querySelector('.modal');
-const imgs = document.querySelectorAll('img');
+const imgs = document.querySelectorAll('.lazy-load');
 const openedImg = document.querySelector('.wided');
 imgs.forEach(elem => elem.addEventListener('click', openImg));
 
-function openImg(event) {
+export function openImg(event) {
   event.preventDefault();
   const img = event.target;
   if(img.classList.contains('wided')) return;
@@ -19,10 +14,19 @@ function openImg(event) {
 }
 
 modal.addEventListener('click', closeImg);
-function closeImg(event) {
+export function closeImg(event) {
   event.preventDefault();
   const target = event.target;
   if (target.classList.contains('wided')) return;
   modal.classList.toggle('flex');
   openedImg.removeAttribute('src'); 
 }
+
+
+//you need to attach this to the root of the page and uncomment in css 
+/* <div class="modal">
+<div>
+  <img class="wided" alt="">
+  <span class="noSelect">X</span>
+</div>
+</div> */

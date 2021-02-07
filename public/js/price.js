@@ -3,11 +3,6 @@ import * as moduleOpener from '../modules/moduleOpener.js';
 
 ('use strict');
 
-window.onload = () => {
-  document.querySelector('.gif').src = 'media/zac.gif';
-}
-
-
 let totalSum = 0;
 let order = {
   'Вид съемки': 'Personal/Content',
