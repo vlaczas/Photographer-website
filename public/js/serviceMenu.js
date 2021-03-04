@@ -25,7 +25,7 @@ function arrowsMoveTab(event, numberOfTab) {
     return;
   }
 
-  services.forEach(elem => {
+  services.forEach((elem) => {
     if (diffX > 170) diffX = 160;
     else if (diffX < -316) diffX = -316;
     let leftPos = curr + diffX;
@@ -33,11 +33,15 @@ function arrowsMoveTab(event, numberOfTab) {
     //position to scale
     if (leftPos < 50) elem.style.transform = `translate(-50%) scale(1)`;
     else if (181 >= leftPos && leftPos > 50) {
-      elem.style.transform = `translate(-50%) scale(${1 + (leftPos - 50) / 65})`;
+      elem.style.transform = `translate(-50%) scale(${
+        1 + (leftPos - 50) / 65
+      })`;
       //define active Tab
       if (1 + (leftPos - 50) / 65 > 2.5) moveTab(elem);
     } else if (182 < leftPos && leftPos < 310) {
-      elem.style.transform = `translate(-50%) scale(${3 - (leftPos - 181) / 65})`;
+      elem.style.transform = `translate(-50%) scale(${
+        3 - (leftPos - 181) / 65
+      })`;
       if (3 - (leftPos - 181) / 65 > 2.5) moveTab(elem);
     } else elem.style.transform = `translate(-50%) scale(1)`;
     //add 158px for next elem in array
@@ -73,7 +77,7 @@ function moveTab(elem) {
       opacity: 0,
       complete: () => {
         tabContainer.remove();
-        arrWebGL.forEach(elem => elem.webGLCurtain.dispose());
+        arrWebGL.forEach((elem) => elem.webGLCurtain.dispose());
         arrWebGL = [];
         arrows.after(tabNewContainer);
         initWebGL();
@@ -89,7 +93,6 @@ function moveTab(elem) {
     );
   }, 600);
 }
-
 
 //html template of the tab
 function renderNewTab(tab) {
@@ -211,7 +214,7 @@ function initWebGL() {
   //every slide webGL
   const slides = document.querySelectorAll('.slide');
   if (!slides) return;
-  slides.forEach(slide => {
+  slides.forEach((slide) => {
     const canvas = slide.querySelector('.canvas');
     const planeElement = slide.querySelector('.plane');
     const webGL = new WebglHover({
@@ -223,12 +226,16 @@ function initWebGL() {
 }
 
 //display additional images
-const additionals = [document.querySelector('.wrapper-love'), document.querySelector('.wrapper-personal'), document.querySelector('.wrapper-brands')];
+const additionals = [
+  document.querySelector('.wrapper-love'),
+  document.querySelector('.wrapper-personal'),
+  document.querySelector('.wrapper-brands'),
+];
 function displayAdditionalImgs(numOfPage) {
   additionals.forEach((elem, index) => {
     console.log(elem);
-    if(!elem) return;
+    if (!elem) return;
     elem.style.display = 'none';
     if (index === numOfPage) elem.style.display = 'block';
-  })
+  });
 }

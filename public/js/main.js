@@ -34,7 +34,7 @@ const logoAnim = anime({
     LOGO.style.opacity = '1';
   },
   complete: function (anim) {
-    document.querySelectorAll('.logo path').forEach(element => {
+    document.querySelectorAll('.logo path').forEach((element) => {
       element.setAttribute('fill', 'white');
       let i = 0;
       let opacityFill = setInterval(() => {
@@ -121,14 +121,20 @@ function questAnim() {
     document.removeEventListener('scroll', questAnim);
     if (mobileScreen) {
       let animationOddQuest = anime({
-        targets: ['.questions__question:nth-child(4n+1)', '.questions__answer:nth-child(4n-2)'],
+        targets: [
+          '.questions__question:nth-child(4n+1)',
+          '.questions__answer:nth-child(4n-2)',
+        ],
         translateX: [100, 'calc(calc(-50vw + 50%) + 5vw)'],
         delay: anime.stagger(600),
         duration: 700,
         easing: 'cubicBezier(0.405, 0.510, 0.480, 1.150)',
       });
       let animationEvenQuest = anime({
-        targets: ['.questions__question:nth-child(4n-1)', '.questions__answer:nth-child(4n)'],
+        targets: [
+          '.questions__question:nth-child(4n-1)',
+          '.questions__answer:nth-child(4n)',
+        ],
         translateX: [-100, 'calc(calc(50vw - 50%) - 5vw)'],
         delay: anime.stagger(600, { start: 300 }),
         duration: 700,
@@ -149,20 +155,28 @@ function backColorAnim() {
   //anim of BRANDS screen
   if (scrollY < FORTH_PAGE.offsetTop - 250) {
     BODY.style.backgroundColor = `rgb(0, 0, 0)`;
-    SECTION_HEADERS.forEach(elem => (elem.style.color = `rgb(0, 0, 0)`));
+    SECTION_HEADERS.forEach((elem) => (elem.style.color = `rgb(0, 0, 0)`));
   }
   //black after white
-  if (scrollY > SIXTH_PAGE.offsetTop -100) {
-    rgbColor < 0 ? (rgbColor = 0) : (rgbColor = 255 + (SIXTH_PAGE.offsetTop - 100 - scrollY)) * 1.5;
+  if (scrollY > SIXTH_PAGE.offsetTop - 100) {
+    rgbColor < 0
+      ? (rgbColor = 0)
+      : (rgbColor = 255 + (SIXTH_PAGE.offsetTop - 100 - scrollY)) * 1.5;
     BODY.style.backgroundColor = `rgb(${rgbColor},${rgbColor},${rgbColor})`;
-    SECTION_HEADERS.forEach(elem => (elem.style.color = `rgb(${rgbColor},${rgbColor},${rgbColor})`));
+    SECTION_HEADERS.forEach(
+      (elem) => (elem.style.color = `rgb(${rgbColor},${rgbColor},${rgbColor})`)
+    );
     return;
   }
   //anim of background color white
   if (scrollY > FORTH_PAGE.offsetTop - 250) {
-    rgbColor > 255 ? (rgbColor = 255) : (rgbColor = (scrollY - FORTH_PAGE.offsetTop + 250) * 1.5);
+    rgbColor > 255
+      ? (rgbColor = 255)
+      : (rgbColor = (scrollY - FORTH_PAGE.offsetTop + 250) * 1.5);
     BODY.style.backgroundColor = `rgb(${rgbColor},${rgbColor},${rgbColor})`;
-    SECTION_HEADERS.forEach(elem => (elem.style.color = `rgb(${rgbColor},${rgbColor},${rgbColor})`));
+    SECTION_HEADERS.forEach(
+      (elem) => (elem.style.color = `rgb(${rgbColor},${rgbColor},${rgbColor})`)
+    );
   }
 }
 //SVG SCREEN 3
@@ -177,7 +191,7 @@ photosession_svg.addEventListener('click', () => {
 });
 
 //SCREEN 4
-document.querySelectorAll('.hover-scale').forEach(elem => {
+document.querySelectorAll('.hover-scale').forEach((elem) => {
   elem.addEventListener('mouseenter', () => {
     anime({
       targets: elem,
@@ -200,10 +214,12 @@ document.querySelectorAll('.hover-scale').forEach(elem => {
 
 //upward anim of images
 let upwardAnimImages = document.querySelectorAll('.upward-anim');
-let upwardObserver = new IntersectionObserver(upwardAnim, { rootMargin: '-50px' });
-upwardAnimImages.forEach(elem => upwardObserver.observe(elem));
+let upwardObserver = new IntersectionObserver(upwardAnim, {
+  rootMargin: '-50px',
+});
+upwardAnimImages.forEach((elem) => upwardObserver.observe(elem));
 function upwardAnim(entries) {
-  entries.forEach(entry => {
+  entries.forEach((entry) => {
     if (entry.isIntersecting) {
       let image = entry.target;
       image.classList.remove('lazy-load');
@@ -246,7 +262,9 @@ function handleEndSwipe(event) {
     touchLast = event.changedTouches[0].clientX;
     touchLast = touchFirst > touchLast;
   } catch (error) {
-    event.target.classList.contains('arrow-left') ? (touchLast = false) : (touchLast = true);
+    event.target.classList.contains('arrow-left')
+      ? (touchLast = false)
+      : (touchLast = true);
   }
 
   if (touchLast) {
@@ -262,7 +280,9 @@ function handleEndSwipe(event) {
 }
 
 //SCREEN 7
-const postContentFiller = document.querySelectorAll('.insta-post__content-filler');
+const postContentFiller = document.querySelectorAll(
+  '.insta-post__content-filler'
+);
 const postLikes = document.querySelectorAll('.insta-post__likes');
 const postDate = document.querySelectorAll('.insta-post__date');
 const postPhoto = document.querySelectorAll('.insta-post__photo > img');
@@ -282,8 +302,8 @@ const months = [
   'декабря',
 ];
 fetch('./js/jsons/data.json')
-  .then(resp => resp.json())
-  .then(opened => {
+  .then((resp) => resp.json())
+  .then((opened) => {
     for (let i = 0; i <= postContentFiller.length - 1; i++) {
       let postLinkCurrent = opened.last_post[i].shortcode;
       let date = new Date(opened.last_post[i].timestamp_taken * 1000);
@@ -292,7 +312,7 @@ fetch('./js/jsons/data.json')
       let photo = opened.last_post[i].display_url;
       let str = opened.last_post[i].caption.replace(/\n/g, '<br>');
       let arr = str.split('');
-      if (str.indexOf('<br>') > 0 && str.indexOf('<br>') < 50) {
+      if (str.indexOf('<br>') > 0 && str.indexOf('<br>') < 42) {
         arr.splice(
           str.indexOf('<br>'),
           0,
@@ -301,7 +321,7 @@ fetch('./js/jsons/data.json')
         str = arr.join('');
       } else {
         arr.splice(
-          50,
+          42,
           0,
           '<span>...&nbsp;</span><button tabindex="0" class="insta-post__more noSelect focus-ring" type="button">ещё</button><span><br><br></span>'
         );
@@ -311,13 +331,16 @@ fetch('./js/jsons/data.json')
       postLikes[i].innerHTML = likes;
       postDate[i].innerHTML = dates;
       postPhoto[i].setAttribute('src', photo);
-      postLink[i].setAttribute('href', `https://www.instagram.com/p/${postLinkCurrent}/`);
+      postLink[i].setAttribute(
+        'href',
+        `https://www.instagram.com/p/${postLinkCurrent}/`
+      );
     }
   })
   .then(() => {
     const moreButton = document.querySelectorAll('.insta-post__content');
-    moreButton.forEach(elem =>
-      elem.addEventListener('click', event => {
+    moreButton.forEach((elem) =>
+      elem.addEventListener('click', (event) => {
         if (!event.target.classList.contains('insta-post__more')) return;
         anime({
           targets: event.currentTarget,
@@ -333,4 +356,3 @@ fetch('./js/jsons/data.json')
       })
     );
   });
-

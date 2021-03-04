@@ -34,6 +34,7 @@ mainButton.forEach(elem =>
 );
 mainButton.forEach(elem =>
   elem.addEventListener('click', event => {
+    currButton.style.transform = '';
     anime({
       targets: currButton,
       duration: 100,

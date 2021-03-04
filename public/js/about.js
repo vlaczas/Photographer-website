@@ -5,10 +5,10 @@ initImgs();
 
 //anim of paragraphs
 let animParas = document.querySelectorAll('.article');
-let animObserver = new IntersectionObserver(parasAnim, {threshold: 1.0});
-animParas.forEach(elem => animObserver.observe(elem));
+let animObserver = new IntersectionObserver(parasAnim, { threshold: 1.0 });
+animParas.forEach((elem) => animObserver.observe(elem));
 function parasAnim(entries) {
-  entries.forEach(entry => {
+  entries.forEach((entry) => {
     if (entry.isIntersecting) {
       let target = entry.target;
       let p = entry.target.querySelectorAll('p');

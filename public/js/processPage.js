@@ -9,4 +9,4 @@ slider.addEventListener('input', (event) => {
   const sliderPos = event.target.value;
   imgUp.style.width = `${sliderPos}%`;
   sliderButton.style.left = `calc(${sliderPos}% - 18px)`;
-})
+});
