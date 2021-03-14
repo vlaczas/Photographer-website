@@ -15,7 +15,7 @@
   "bugs": {
     "url": "https://github.com/vlaczas/ph-website/issues"
   },
-  "homepage": "https://github.com/vlaczas/ph-website#readme",
+  "homepage": "https://chasowska.com",
   "dependencies": {
     "axios": "^0.21.1"
   }
