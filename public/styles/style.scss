@@ -5,25 +5,19 @@ $fontColor: #dfdddd;
 $secondColor: #7c7c7c;
 
 @font-face {
-  font-family: 'Raleway';
-  src: local('Raleway') 
-      url('./fonts/Raleway-Medium.ttf') 
-      format('truetype');
+  font-family: "Raleway";
+  src: local("Raleway") url("./fonts/Raleway-Medium.ttf") format("truetype");
   font-weight: 500;
 }
 @font-face {
-  font-family: 'Raleway';
-  src: local('Raleway') 
-      url('./fonts/Raleway-Bold.ttf') 
-      format('truetype');
+  font-family: "Raleway";
+  src: local("Raleway") url("./fonts/Raleway-Bold.ttf") format("truetype");
   font-weight: 700;
 }
 
 @font-face {
-  font-family: 'Raleway';
-  src: local('Raleway') 
-      url('./fonts/Raleway-Black.ttf') 
-      format('truetype');
+  font-family: "Raleway";
+  src: local("Raleway") url("./fonts/Raleway-Black.ttf") format("truetype");
   font-weight: 900;
 }
 
@@ -36,7 +30,7 @@ html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   -webkit-font-smoothing: antialiased;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
@@ -45,8 +39,8 @@ html {
   }
 }
 .styled-link {
-    color:#0088cc;
-    font-size: bold;
+  color: #0088cc;
+  font-size: bold;
   &:hover {
     color: #1fb4ff;
   }
@@ -109,15 +103,15 @@ body {
   text-align: center;
 
   & > button {
-  height: 100%;
-  border: none;
-  color: $fontColor;
-  background-color: transparent;
-  text-transform: uppercase;
-  font-size: 18px;
-  font-weight: bolder;
-  position: relative;
-  cursor: pointer;
+    height: 100%;
+    border: none;
+    color: $fontColor;
+    background-color: transparent;
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: bolder;
+    position: relative;
+    cursor: pointer;
   }
 }
 
@@ -139,7 +133,7 @@ body {
     z-index: 104;
   }
   &__button::before {
-    content: 'MENU';
+    content: "MENU";
     position: absolute;
     height: 37px;
     top: 7px;
@@ -182,7 +176,7 @@ body {
   }
 }
 .numberph::after {
-  content: '';
+  content: "";
   position: absolute;
   left: 100%;
   border-width: 6px;
@@ -190,7 +184,7 @@ body {
   border-color: transparent transparent transparent black;
 }
 .numberph::before {
-  content: '';
+  content: "";
   position: absolute;
   top: -5px;
   right: -15px;
@@ -206,7 +200,7 @@ body {
   opacity: 1;
 }
 .numberph h4 {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   font-size: 0.85rem;
 }
 .numberph {
@@ -269,7 +263,7 @@ body {
 }
 .contacts svg:hover #fb_in {
   stroke-opacity: 0;
-  fill: #3B5998;
+  fill: #3b5998;
 }
 #canva {
   position: fixed;
@@ -353,7 +347,7 @@ body {
   }
 }
 li::before {
-  content: '';
+  content: "";
   display: block;
   position: absolute;
   top: 49%;
@@ -598,7 +592,13 @@ hr {
     will-change: transform;
     border-radius: 30px;
     padding: 8px;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#3e7fff), to(#50a8ff));
+    background-image: -webkit-gradient(
+      linear,
+      left top,
+      left bottom,
+      from(#3e7fff),
+      to(#50a8ff)
+    );
     background-image: linear-gradient(180deg, #3e7fff, #50a8ff);
     font-size: 12px;
     font-weight: 500;
@@ -759,39 +759,39 @@ hr {
     }
   }
 }
-  .love-story {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-  
-    picture {
-      position: relative;
-      height: 100vw;
-      width: 100vw;
-      overflow: hidden;
-      margin-bottom: 25px;
-    }
-  
-    picture > div {
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      background-color: rgba(0, 0, 0, 0.65);
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      text-transform: uppercase;
-      font-size: $fonth1;
-      font-weight: bold;
-      color: white !important;
-      opacity: 0;
-      transition: opacity 0.4s ease;
-    }
+.photo-tour {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
 
-    &__img {
+  picture {
+    position: relative;
+    height: 100vw;
+    width: 100vw;
+    overflow: hidden;
+    margin-bottom: 25px;
+  }
+
+  picture > div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.65);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-transform: uppercase;
+    font-size: $fonth1;
+    font-weight: bold;
+    color: white !important;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  &__img {
     width: 100%;
   }
 
@@ -802,7 +802,7 @@ hr {
 }
 
 @media screen and (min-width: 768px) {
-  .love-story {
+  .photo-tour {
     margin: 0 10vw;
 
     picture {
@@ -820,109 +820,36 @@ hr {
   height: 100vh;
 }
 
-.seventh-screen {
-  padding: 25px 13vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
+// .seventh-screen {
+//   padding: 25px 0;
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-evenly;
+//   align-items: center;
+// }
 
-  .insta-post {
-    margin-top: 20px;
-    position: relative;
-    width: 100%;
-    height: fit-content;
-    display: flex;
-    flex-direction: column;
-    background-color: white;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    font-size: 12px;
-    color: black;
-    font-weight: 500;
-    // border: 1px solid black;
-    border-radius: 10px;
-    &__autor-name {
-      font-weight: 600;
-      font-size: 13px;
-      user-select: none;
-      cursor: pointer;
-    }
-    &__header {
-      display: flex;
-      align-items: center;
-      padding: 7px;
-      user-select: none;
-      img {
-        width: 15%;
-        margin-right: 15px;
-        user-select: none;
-        display: block;
-        border-radius: 50%;
-      }
-    }
+// @media screen and (min-width: 1025px) {
+//   .seventh-screen {
+//     #instagram-embed-1 {
+//       margin: 0 25px !important;
+//     }
 
-    &__photo {
-      img {
-        width: 100%;
-      }
-    }
+//     .insta-container {
+//       display: flex;
+//     }
+//   }
+// }
 
-    &__info {
-      display: flex;
-      padding: 7px;
-      align-items: center;
-      justify-content: space-between;
-      user-select: none;
-    }
-    &__likes-counter {
-      display: flex;
-      align-items: center;
-      user-select: none;
-    }
-    &__likes {
-      margin: auto 3px;
-      user-select: none;
-    }
-    &__date {
-      margin: auto 3px;
-      user-select: none;
-    }
-    .like {
-      margin-right: 5px;
-    }
-    &__content {
-      padding: 7px 7px 20px;
-      overflow-y: hidden;
-      height: 44px;
-      line-height: 1.4;
-      font-size: 13px;
-      user-select: none;
-    }
-    &__more {
-      width: fit-content;
-      height: fit-content;
-      color: gray;
-      font-weight: bolder;
-      background-color: transparent;
-      border: none;
-      outline: none;
-      user-select: none;
-      font-size: 13px;
-      cursor: pointer;
-    }
-  }
+// @media screen and (min-width: 1425px) {
+//   .seventh-screen {
+//     padding: 25px 10vw;
+//   }
+// }
+
+.eight-screen {
+  margin-bottom: 10vh;
 }
 
-@media screen and (min-width: 1025px) {
-  .seventh-screen {
-    .insta-container {
-      display: flex;
-
-      .insta-post {
-        margin: 0 10px;
-      }
-    }
-  }
-}
 footer {
   height: 70px;
   display: flex;
@@ -1119,21 +1046,22 @@ main {
     width: calc(100% - 50px);
     height: calc((100% - 50px) * 1.5);
     margin: 25px;
-  } 
+  }
 }
 .wrapper-love {
   display: none;
-.additional-love {
-  img {
-    display: block;
-    width: calc(100% - 50px);
-    margin: 25px;
-  }
+  .additional-love {
+    img {
+      display: block;
+      width: calc(100% - 50px);
+      margin: 25px;
+    }
   }
 }
 @media screen and (min-width: 768px) {
   .additional-personal {
-    img, div {
+    img,
+    div {
       width: 28vw;
       margin: 2vw;
       &:nth-of-type(3n-1) {
@@ -1148,7 +1076,7 @@ main {
     .additional-love {
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-between;  
+      justify-content: space-between;
       margin: 0 4vw;
       img {
         width: 28vw;
@@ -1243,11 +1171,11 @@ main {
     height: 100%;
     background-color: rgba(0, 0, 0);
     overflow-y: scroll;
-    
+
     figure {
       position: relative;
     }
-    
+
     & .article {
       padding: 0 5vw;
     }
@@ -1262,7 +1190,7 @@ main {
   }
 }
 
-input[type='radio'] {
+input[type="radio"] {
   display: none;
 }
 
@@ -1310,7 +1238,7 @@ input[type='radio'] {
       border-radius: 50%;
 
       &::after {
-        content: '';
+        content: "";
         position: absolute;
         top: 25%;
         left: 25%;
@@ -1337,7 +1265,7 @@ input[type='radio'] {
 .quest-tab:last-of-type {
   display: none;
 }
-input[type='range'] {
+input[type="range"] {
   margin: 20px auto;
   width: 90%;
   display: block;
@@ -1354,7 +1282,7 @@ input[type='range'] {
   align-items: center;
   margin: 25px 0;
 
-  input[type='checkbox'] {
+  input[type="checkbox"] {
     display: none;
 
     & ~ .check-display {
@@ -1369,7 +1297,7 @@ input[type='range'] {
       transition: all 0.4s ease;
       margin: 0 20px;
       &::after {
-        content: '';
+        content: "";
         position: absolute;
         left: 5px;
         height: 17px;
@@ -1385,7 +1313,7 @@ input[type='range'] {
   .checkButton {
     margin: 25px 30%;
   }
-  input[type='range'] {
+  input[type="range"] {
     width: 40%;
   }
 }
@@ -1395,7 +1323,12 @@ input[type='range'] {
 .barber-check input:checked ~ .check-display,
 .stylist-check input:checked ~ .check-display,
 .studio-check input:checked ~ .check-display {
-  background-image: linear-gradient(330deg, rgb(14, 18, 235) 0%, rgb(93, 122, 252) 50%, rgb(138, 208, 255) 100%);
+  background-image: linear-gradient(
+    330deg,
+    rgb(14, 18, 235) 0%,
+    rgb(93, 122, 252) 50%,
+    rgb(138, 208, 255) 100%
+  );
 
   &::after {
     background-color: white;
@@ -1432,7 +1365,7 @@ label {
     margin: 15px auto;
     text-indent: 0;
   }
-  
+
   &__cross {
     display: block;
     position: sticky;
@@ -1500,8 +1433,8 @@ label {
         margin: 25px auto;
         justify-content: center;
         height: min-content;
-      
-        a { 
+
+        a {
           width: 70px;
           margin: auto 20px;
           img {
@@ -1647,12 +1580,12 @@ label {
       left: calc(50% - 18px);
       top: calc(50% - 18px);
       @include center;
-      
+
       @mixin arrow-helper() {
-        content: '';
+        content: "";
         padding: 3px;
         display: inline-block;
-        border: solid #5D5D5D;
+        border: solid #5d5d5d;
         border-width: 0 2px 2px 0;
       }
       &:after {
@@ -1665,23 +1598,23 @@ label {
       }
     }
     &__slider {
-        position: absolute;
+      position: absolute;
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      outline: none;
+      margin: 0;
+      transition: all 0.2s;
+      @include center;
+      &::-webkit-slider-thumb {
         -webkit-appearance: none;
         appearance: none;
-        width: 100%;
-        height: 100%;
-        background: transparent;
-        outline: none;
-        margin: 0;
-        transition: all .2s;
-        @include center;
-        &::-webkit-slider-thumb {
-          -webkit-appearance: none;
-          appearance: none;
-          width: 6px;
-          height: calc(70vw*1.5);
-          background: white;
-          cursor: pointer;
+        width: 6px;
+        height: calc(70vw * 1.5);
+        background: white;
+        cursor: pointer;
       }
     }
     &__img {
@@ -1694,15 +1627,14 @@ label {
       background-repeat: no-repeat;
     }
     .imgBack {
-      background-image: url('../media/process-after.jpg');
+      background-image: url("../media/process-after.jpg");
     }
     .imgUp {
-      background-image: url('../media/process-before.jpg');
+      background-image: url("../media/process-before.jpg");
       width: 50%;
     }
   }
 }
-
 
 @media screen and (min-width: 768px) {
   .container {
@@ -1730,12 +1662,12 @@ label {
 
       &__slider {
         &::-webkit-slider-thumb {
-          height: calc(30vw*1.5);
+          height: calc(30vw * 1.5);
+        }
       }
-    }
-    &__img {
-      background-size: 30vw 100%;
-    }
+      &__img {
+        background-size: 30vw 100%;
+      }
     }
   }
 }
